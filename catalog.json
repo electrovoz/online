@@ -1,0 +1,30 @@
+{
+  "version": 1,
+  "updated": "2026-11-05",
+  "products": [
+    {"id":1,"sku":"CBL-VVG-3x2.5","name":"Кабель ВВГнг 3×2.5","brand":"Альфакабель","category":"Кабель","price":85,"unit":"м","step":100,"minQty":100,"icon":"🔌","description":"Силовой кабель с медными жилами, ПВХ-изоляция, не распространяющий горение.","tiers":[{"from":100,"price":80},{"from":300,"price":75}],"popularity":95,"isNew":false},
+    {"id":2,"sku":"CBL-KG-3x4","name":"Кабель КГ 3×4","brand":"Конкорд","category":"Кабель","price":210,"unit":"м","step":100,"minQty":100,"icon":"🔌","description":"Гибкий кабель для подвижного присоединения, резиновая изоляция.","tiers":[{"from":100,"price":200}],"popularity":80,"isNew":false},
+    {"id":3,"sku":"WIR-PUGV-1x6","name":"Провод ПуГВ 1×6","brand":"Людиновокабель","category":"Кабель","price":45,"unit":"м","step":100,"minQty":100,"icon":"🔌","description":"Провод установочный с ПВХ-изоляцией, для стационарной прокладки.","popularity":70,"isNew":false},
+    {"id":4,"sku":"CBL-UTP6","name":"Кабель UTP cat.6","brand":"РЭК/Prysmian","category":"Кабель","price":38,"unit":"м","step":100,"minQty":100,"icon":"🔌","description":"Витая пара категории 6, для СКС.","popularity":60,"isNew":false},
+    {"id":5,"sku":"LMP-E27-10","name":"Лампа E27 10W","brand":"Navigator","category":"Светотехника","price":320,"unit":"шт","step":1,"minQty":1,"icon":"💡","description":"LED-лампа, цоколь E27, 10 Вт, 900 лм.","popularity":88,"isNew":false},
+    {"id":6,"sku":"PRJ-LED-50","name":"Прожектор LED 50W","brand":"GALAD","category":"Светотехника","price":1850,"unit":"шт","step":1,"minQty":1,"icon":"💡","description":"Уличный прожектор, 50 Вт, IP65.","popularity":75,"isNew":false},
+    {"id":7,"sku":"LGT-LED-36","name":"Светильник LED","brand":"Световые Технологии","category":"Светотехника","price":2400,"unit":"шт","step":1,"minQty":1,"icon":"💡","description":"Офисный светильник, 36 Вт, 4000К.","popularity":65,"isNew":false},
+    {"id":8,"sku":"STR-LED-5M","name":"Лента LED 5м","brand":"ЭРА","category":"Светотехника","price":690,"unit":"шт","step":1,"minQty":1,"icon":"💡","description":"Светодиодная лента, 12В, 5 метров в катушке.","popularity":55,"isNew":true},
+    {"id":9,"sku":"SHC-DIST-24","name":"Щит распределительный","brand":"IEK","category":"Электроустановка","price":3400,"unit":"шт","step":1,"minQty":1,"icon":"⚡","description":"Щит на 24 модуля, металлический, IP54.","popularity":50,"isNew":false},
+    {"id":10,"sku":"BRK-16A","name":"Автомат 16А","brand":"Schneider Electric","category":"Электроустановка","price":480,"unit":"шт","step":1,"minQty":1,"icon":"⚡","description":"Автоматический выключатель, 1P, 16А, C.","popularity":92,"isNew":false},
+    {"id":11,"sku":"SCK-SCH","name":"Розетка с з/к","brand":"Legrand","category":"Электроустановка","price":290,"unit":"шт","step":1,"minQty":1,"icon":"⚡","description":"Розетка с заземляющим контактом, 16А.","popularity":85,"isNew":false},
+    {"id":12,"sku":"RCD-2P40","name":"УЗО 2P 40А","brand":"ABB","category":"Электроустановка","price":1250,"unit":"шт","step":1,"minQty":1,"icon":"⚡","description":"УЗО двухполюсное, 40А, 30мА.","popularity":78,"isNew":false},
+    {"id":13,"sku":"CBL-VVGLS-3x1.5","name":"Кабель ВВГнг-LS 3×1.5","brand":"Спецкабель","category":"Кабель","price":62,"unit":"м","step":100,"minQty":100,"icon":"🔌","description":"Кабель с низким дымовыделением, для пожарных систем.","popularity":45,"isNew":true},
+    {"id":14,"sku":"CBL-KVK-5x1.5","name":"Кабель КВК 5×1.5","brand":"Кев-Рус","category":"Кабель","price":190,"unit":"м","step":100,"minQty":100,"icon":"🔌","description":"Контрольный кабель с медными жилами.","popularity":40,"isNew":false},
+    {"id":15,"sku":"LMP-GX53-7","name":"Лампа LED GX53 7W","brand":"Osram","category":"Светотехника","price":410,"unit":"шт","step":1,"minQty":1,"icon":"💡","description":"LED-лампа GX53, 7 Вт, 600 лм.","popularity":38,"isNew":true},
+    {"id":16,"sku":"LGT-OFF-36","name":"Светильник офисный 36W","brand":"Varton","category":"Светотехника","price":2200,"unit":"шт","step":1,"minQty":1,"icon":"💡","description":"Встраиваемый офисный светильник, 36 Вт.","popularity":42,"isNew":false},
+    {"id":17,"sku":"BRK-25A","name":"Автомат 25А","brand":"EKF","category":"Электроустановка","price":520,"unit":"шт","step":1,"minQty":1,"icon":"⚡","description":"Автоматический выключатель, 1P, 25А, C.","popularity":68,"isNew":false},
+    {"id":18,"sku":"SHC-DIST-36","name":"Щит на 36 модулей","brand":"DKC","category":"Электроустановка","price":4200,"unit":"шт","step":1,"minQty":1,"icon":"⚡","description":"Металлический щит на 36 модулей, IP54.","popularity":35,"isNew":true},
+    {"id":19,"sku":"CNT-25A","name":"Контактор 25А","brand":"КЭАЗ","category":"Электроустановка","price":890,"unit":"шт","step":1,"minQty":1,"icon":"⚡","description":"Контактор переменного тока, 25А, 220В.","popularity":48,"isNew":false},
+    {"id":20,"sku":"SCK-DBL","name":"Розетка двойная","brand":"TDM Electric","category":"Электроустановка","price":350,"unit":"шт","step":1,"minQty":1,"icon":"⚡","description":"Двойная розетка с заземлением, 16А.","popularity":58,"isNew":false},
+    {"id":21,"sku":"RCD-4P63","name":"УЗО 4P 63А","brand":"Hager","category":"Электроустановка","price":2100,"unit":"шт","step":1,"minQty":1,"icon":"⚡","description":"УЗО четырёхполюсное, 63А, 30мА.","popularity":30,"isNew":true},
+    {"id":22,"sku":"CBL-NYM-3x2.5","name":"Кабель NYM 3×2.5","brand":"Конкорд","category":"Кабель","price":95,"unit":"м","step":100,"minQty":100,"icon":"🔌","description":"Кабель NYM с ПВХ-изоляцией, для стационарной прокладки.","popularity":52,"isNew":false},
+    {"id":23,"sku":"PCH-UTP6-2M","name":"Патч-корд UTP cat.6 2м","brand":"Hyperline","category":"Кабель","price":120,"unit":"шт","step":1,"minQty":1,"icon":"🔌","description":"Патч-корд UTP cat.6, 2 метра.","popularity":44,"isNew":true},
+    {"id":24,"sku":"TRY-LAD-200","name":"Лоток лестничный 200мм","brand":"OBO Bettermann","category":"Электроустановка","price":780,"unit":"шт","step":1,"minQty":1,"icon":"⚡","description":"Лоток лестничный металлический, 200 мм.","popularity":28,"isNew":true}
+  ]
+}
