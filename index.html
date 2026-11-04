@@ -1388,6 +1388,20 @@ function saveLocalStocks(){
   saveJSON(STOCK_KEY, o);
   toast('Сохранено локально (для теста)','ok');
 }
+function zeroAllStocks(){
+  if(!confirm('ВНИМАНИЕ! Вы уверены, что хотите обнулить остатки ВСЕХ товаров?\n\nНе забудьте после этого нажать "📥 Экспорт stocks.json" и залить файл на GitHub.')) return;
+  
+  // Обнуляем остатки в памяти
+  P.forEach(function(p){ 
+    p.stock = 0; 
+  });
+  
+  // Перерисовываем админку и каталог
+  renderAdmin(); 
+  render(true); 
+  
+  toast('Все остатки обнулены. Не забудьте экспортировать файл!', 'ok');
+}
 function resetAdminChanges(){
   if(!confirm('Сбросить и перезагрузить данные с сервера?')) return;
   try{localStorage.removeItem(STOCK_KEY);}catch(e){}
