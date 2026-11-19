@@ -2,7 +2,7 @@
   "products": [
     {
       "name": "Legrand розеика 1м+з белая",
-      "description": "Розетка Legrand с заземлением, 1 модуль, белая, со шторками. Серия Etika.",
+      "description": "Розетка Legrand с заземлением, 1 модуль, белая, со шторками.",
       "image": "https://cdn.etm.ru/catpics/1/700/700/1520_11.jpg",
       "price": 250,
       "brand": "Legrand",
@@ -10,7 +10,7 @@
     },
     {
       "name": "SAT 703",
-      "description": "Стабилизатор напряжения SAT 703 (уточните характеристики).",
+      "description": "Стабилизатор напряжения SAT 703.",
       "image": "",
       "price": 0,
       "brand": "SAT",
@@ -19,7 +19,7 @@
     {
       "name": "АББ автомат. выкл. 2п 32A 4.5кА",
       "description": "Двухполюсный автоматический выключатель ABB S202, 32А, 6кА, характеристика C.",
-      "image": "https://cdn.etm.ru/catpics/1/700/700/1468_11.jpg",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/52/Automatski_prekida%C4%8D_ABB.jpg/220px-Automatski_prekida%C4%8D_ABB.jpg",
       "price": 1450,
       "brand": "ABB",
       "category": "Автоматы"
@@ -27,7 +27,7 @@
     {
       "name": "АББ автомат. выкл. 2п 40A 4.5кА",
       "description": "Двухполюсный автоматический выключатель ABB S202, 40А, 6кА, характеристика C.",
-      "image": "https://cdn.etm.ru/catpics/1/700/700/1468_11.jpg",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/52/Automatski_prekida%C4%8D_ABB.jpg/220px-Automatski_prekida%C4%8D_ABB.jpg",
       "price": 1650,
       "brand": "ABB",
       "category": "Автоматы"
@@ -35,7 +35,7 @@
     {
       "name": "Ваго 2 серые",
       "description": "Клеммная колодка WAGO 222-412 (2 серые).",
-      "image": "",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/Wago_222-412.jpg/220px-Wago_222-412.jpg",
       "price": 10,
       "brand": "WAGO",
       "category": "Клеммы"
@@ -43,7 +43,7 @@
     {
       "name": "Ваго 221-412 (2 прозрачные)",
       "description": "Клеммная колодка WAGO 221-412 (2 прозрачные).",
-      "image": "",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/Wago_222-412.jpg/220px-Wago_222-412.jpg",
       "price": 25,
       "brand": "WAGO",
       "category": "Клеммы"
@@ -51,7 +51,7 @@
     {
       "name": "Ваго 221-413 (3 прозрачные)",
       "description": "Клеммная колодка WAGO 221-413 (3 прозрачные).",
-      "image": "",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/Wago_222-412.jpg/220px-Wago_222-412.jpg",
       "price": 30,
       "brand": "WAGO",
       "category": "Клеммы"
@@ -59,7 +59,7 @@
     {
       "name": "ваго 221-415 (5 прозрвчные)",
       "description": "Клеммная колодка WAGO 221-415 (5 прозрачные).",
-      "image": "",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/Wago_222-412.jpg/220px-Wago_222-412.jpg",
       "price": 45,
       "brand": "WAGO",
       "category": "Клеммы"
@@ -67,7 +67,7 @@
     {
       "name": "Ваго 222-412 (2 серые)",
       "description": "Клеммная колодка WAGO 222-412 (2 серые).",
-      "image": "",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/Wago_222-412.jpg/220px-Wago_222-412.jpg",
       "price": 15,
       "brand": "WAGO",
       "category": "Клеммы"
@@ -75,7 +75,7 @@
     {
       "name": "Ваго 222-413 (3 серые)",
       "description": "Клеммная колодка WAGO 222-413 (3 серые).",
-      "image": "",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/Wago_222-412.jpg/220px-Wago_222-412.jpg",
       "price": 20,
       "brand": "WAGO",
       "category": "Клеммы"
@@ -83,7 +83,7 @@
     {
       "name": "Ваго 222-415 (5 серые)",
       "description": "Клеммная колодка WAGO 222-415 (5 серые).",
-      "image": "",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/Wago_222-412.jpg/220px-Wago_222-412.jpg",
       "price": 35,
       "brand": "WAGO",
       "category": "Клеммы"
@@ -91,7 +91,7 @@
     {
       "name": "Ваго 3 серые",
       "description": "Клеммная колодка WAGO 222-413 (3 серые).",
-      "image": "",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/Wago_222-412.jpg/220px-Wago_222-412.jpg",
       "price": 12,
       "brand": "WAGO",
       "category": "Клеммы"
@@ -106,10 +106,10 @@
     },
     {
       "name": "ВВГнг-LS 2х1.5 ТКЗ",
-      "description": "Силовой кабель ВВГнг-LS 2х1.5 ТКЗ. Медные жилы, ПВХ-изоляция, низкое дымовыделение.",
+      "description": "Силовой кабель ВВГнг-LS 2х1.5 ТКЗ. Медные жилы, ПВХ-изоляция.",
       "image": "https://cdn.etm.ru/catpics/1/700/700/1093_11.jpg",
       "price": 60,
-      "brand": "Кабель-Стандарт",
+      "brand": "Кабэкс",
       "category": "Кабель"
     },
     {
@@ -121,16 +121,32 @@
       "category": "Кабель"
     },
     {
+      "name": "ВВГнг-LS 2х1.5 ЭКО",
+      "description": "Силовой кабель ВВГнг-LS 2х1.5 ЭКО.",
+      "image": "https://cdn.etm.ru/catpics/1/700/700/1093_11.jpg",
+      "price": 45,
+      "brand": "Кабель-Стандарт",
+      "category": "Кабель"
+    },
+    {
       "name": "ВВГнг-LS 2х2.5 ТУ",
-      "description": "Силовой кабель ВВГнг-LS 2х2.5 ТУ. Медные жилы, ПВХ-изоляция.",
+      "description": "Силовой кабель ВВГнг-LS 2х2.5 ТУ.",
       "image": "https://cdn.etm.ru/catpics/1/700/700/1093_11.jpg",
       "price": 60,
       "brand": "Кабель-Стандарт",
       "category": "Кабель"
     },
     {
+      "name": "ВВГнг-LS 2х2.5 ЭКО",
+      "description": "Силовой кабель ВВГнг-LS 2х2.5 ЭКО.",
+      "image": "https://cdn.etm.ru/catpics/1/700/700/1093_11.jpg",
+      "price": 75,
+      "brand": "Кабель-Стандарт",
+      "category": "Кабель"
+    },
+    {
       "name": "ВВГнг-LS 3х1.5 ГОСТ",
-      "description": "Силовой кабель ВВГнг-LS 3х1.5 ГОСТ. Медные жилы, ПВХ-изоляция, низкое дымовыделение.",
+      "description": "Силовой кабель ВВГнг-LS 3х1.5 ГОСТ.",
       "image": "https://cdn.etm.ru/catpics/1/700/700/1093_11.jpg",
       "price": 80,
       "brand": "Кабель-Стандарт",
@@ -138,23 +154,71 @@
     },
     {
       "name": "ВВГнг-LS 3х1.5 Кабэкс",
-      "description": "Силовой кабель ВВГнг-LS 3х1.5 Кабэкс. Медные жилы, ПВХ-изоляция.",
+      "description": "Силовой кабель ВВГнг-LS 3х1.5 Кабэкс.",
       "image": "https://cdn.etm.ru/catpics/1/700/700/1093_11.jpg",
       "price": 90,
       "brand": "Кабэкс",
       "category": "Кабель"
     },
     {
+      "name": "ВВГнг-LS 3х1.5 ТКЗ",
+      "description": "Силовой кабель ВВГнг-LS 3х1.5 ТКЗ.",
+      "image": "https://cdn.etm.ru/catpics/1/700/700/1093_11.jpg",
+      "price": 85,
+      "brand": "Кабель-Стандарт",
+      "category": "Кабель"
+    },
+    {
+      "name": "ВВГнг-LS 3х1.5 ТУ",
+      "description": "Силовой кабель ВВГнг-LS 3х1.5 ТУ.",
+      "image": "https://cdn.etm.ru/catpics/1/700/700/1093_11.jpg",
+      "price": 60,
+      "brand": "Кабель-Стандарт",
+      "category": "Кабель"
+    },
+    {
+      "name": "ВВГнг-LS 3х1.5 ЭКО",
+      "description": "Силовой кабель ВВГнг-LS 3х1.5 ЭКО.",
+      "image": "https://cdn.etm.ru/catpics/1/700/700/1093_11.jpg",
+      "price": 65,
+      "brand": "Кабель-Стандарт",
+      "category": "Кабель"
+    },
+    {
       "name": "ВВГнг-LS 3х2.5 Кабэкс",
-      "description": "Силовой кабель ВВГнг-LS 3х2.5 Кабэкс. Медные жилы, ПВХ-изоляция.",
+      "description": "Силовой кабель ВВГнг-LS 3х2.5 Кабэкс.",
       "image": "https://cdn.etm.ru/catpics/1/700/700/1093_11.jpg",
       "price": 130,
       "brand": "Кабэкс",
       "category": "Кабель"
     },
     {
+      "name": "ВВГнг-LS 3х2.5 ТКЗ",
+      "description": "Силовой кабель ВВГнг-LS 3х2.5 ТКЗ.",
+      "image": "https://cdn.etm.ru/catpics/1/700/700/1093_11.jpg",
+      "price": 120,
+      "brand": "Кабель-Стандарт",
+      "category": "Кабель"
+    },
+    {
+      "name": "ВВГнг-LS 3х2.5 ТУ",
+      "description": "Силовой кабель ВВГнг-LS 3х2.5 ТУ.",
+      "image": "https://cdn.etm.ru/catpics/1/700/700/1093_11.jpg",
+      "price": 85,
+      "brand": "Кабель-Стандарт",
+      "category": "Кабель"
+    },
+    {
+      "name": "ВВГнг-LS 3х2.5 ЭКО",
+      "description": "Силовой кабель ВВГнг-LS 3х2.5 ЭКО.",
+      "image": "https://cdn.etm.ru/catpics/1/700/700/1093_11.jpg",
+      "price": 95,
+      "brand": "Кабель-Стандарт",
+      "category": "Кабель"
+    },
+    {
       "name": "ВВГнг-LS 3х4 ГОСТ",
-      "description": "Силовой кабель ВВГнг-LS 3х4 ГОСТ. Медные жилы, ПВХ-изоляция.",
+      "description": "Силовой кабель ВВГнг-LS 3х4 ГОСТ.",
       "image": "https://cdn.etm.ru/catpics/1/700/700/1093_11.jpg",
       "price": 180,
       "brand": "Кабель-Стандарт",
@@ -162,7 +226,7 @@
     },
     {
       "name": "ВВГнг-LS 3х6 ГОСТ",
-      "description": "Силовой кабель ВВГнг-LS 3х6 ГОСТ. Медные жилы, ПВХ-изоляция.",
+      "description": "Силовой кабель ВВГнг-LS 3х6 ГОСТ.",
       "image": "https://cdn.etm.ru/catpics/1/700/700/1093_11.jpg",
       "price": 250,
       "brand": "Кабель-Стандарт",
@@ -170,7 +234,7 @@
     },
     {
       "name": "ВВГнг-LS 4х1.5 ЭКО",
-      "description": "Силовой кабель ВВГнг-LS 4х1.5 ЭКО. Медные жилы, ПВХ-изоляция.",
+      "description": "Силовой кабель ВВГнг-LS 4х1.5 ЭКО.",
       "image": "https://cdn.etm.ru/catpics/1/700/700/1093_11.jpg",
       "price": 110,
       "brand": "Кабель-Стандарт",
@@ -178,7 +242,7 @@
     },
     {
       "name": "ВВГнг-LS 5х1.5 ЭКО",
-      "description": "Силовой кабель ВВГнг-LS 5х1.5 ЭКО. Медные жилы, ПВХ-изоляция.",
+      "description": "Силовой кабель ВВГнг-LS 5х1.5 ЭКО.",
       "image": "https://cdn.etm.ru/catpics/1/700/700/1093_11.jpg",
       "price": 130,
       "brand": "Кабель-Стандарт",
@@ -186,7 +250,7 @@
     },
     {
       "name": "гофра ПМД d20",
-      "description": "Гофра ПМД d20. Труба гофрированная для кабеля.",
+      "description": "Труба гофрированная ПМД d20.",
       "image": "https://cdn.etm.ru/catpics/1/700/700/1118_11.jpg",
       "price": 15,
       "brand": "DKC",
@@ -194,7 +258,15 @@
     },
     {
       "name": "гофра серая D16",
-      "description": "Гофра серая D16. Труба гофрированная для кабеля.",
+      "description": "Труба гофрированная серая D16.",
+      "image": "https://cdn.etm.ru/catpics/1/700/700/1118_11.jpg",
+      "price": 12,
+      "brand": "DKC",
+      "category": "Гофра"
+    },
+    {
+      "name": "Гофра серая ДКС D16",
+      "description": "Труба гофрированная ДКС D16.",
       "image": "https://cdn.etm.ru/catpics/1/700/700/1118_11.jpg",
       "price": 12,
       "brand": "DKC",
@@ -209,16 +281,80 @@
       "category": "Автоматы"
     },
     {
-      "name": "Подрозетник бетон 200шт",
-      "description": "Подрозетник бетонный (упаковка 200 шт).",
-      "image": "",
-      "price": 2000,
-      "brand": "",
-      "category": "Комплектующие"
+      "name": "IEK Автомат ВА47-29 1P 16A",
+      "description": "Автоматический выключатель IEK ВА47-29 1P 16А, 4.5кА.",
+      "image": "https://cdn.etm.ru/catpics/1/700/700/1317_11.jpg",
+      "price": 140,
+      "brand": "IEK",
+      "category": "Автоматы"
+    },
+    {
+      "name": "IEK Автомат ВА47-29 2P 40A",
+      "description": "Автоматический выключатель IEK ВА47-29 2P 40А, 4.5кА.",
+      "image": "https://cdn.etm.ru/catpics/1/700/700/1317_11.jpg",
+      "price": 350,
+      "brand": "IEK",
+      "category": "Автоматы"
+    },
+    {
+      "name": "IEK Розетка РС16-3 1-местная с з/к белая",
+      "description": "Розетка IEK РС16-3 с заземлением, белая.",
+      "image": "https://cdn.etm.ru/catpics/1/700/700/1511_11.jpg",
+      "price": 90,
+      "brand": "IEK",
+      "category": "Розетки"
+    },
+    {
+      "name": "IEK Щит ЩРН-12 IP31",
+      "description": "Щит распределительный IEK ЩРН-12, на 12 модулей, металлический.",
+      "image": "https://cdn.etm.ru/catpics/1/700/700/1360_11.jpg",
+      "price": 950,
+      "brand": "IEK",
+      "category": "Щиты"
+    },
+    {
+      "name": "IEK Щит ЩРН-24 IP31",
+      "description": "Щит распределительный IEK ЩРН-24, на 24 модуля, металлический.",
+      "image": "https://cdn.etm.ru/catpics/1/700/700/1360_11.jpg",
+      "price": 1400,
+      "brand": "IEK",
+      "category": "Щиты"
+    },
+    {
+      "name": "Systeme Electric Автомат S9F21116 1P 16A",
+      "description": "Автоматический выключатель Systeme9 S9F21116, 1P, 16А, 6кА.",
+      "image": "https://cdn.etm.ru/catpics/1/700/700/1404_11.jpg",
+      "price": 380,
+      "brand": "Systeme Electric",
+      "category": "Автоматы"
+    },
+    {
+      "name": "Systeme Electric Автомат S9F21225 2P 25A",
+      "description": "Автоматический выключатель Systeme9 S9F21225, 2P, 25А, 6кА.",
+      "image": "https://cdn.etm.ru/catpics/1/700/700/1404_11.jpg",
+      "price": 850,
+      "brand": "Systeme Electric",
+      "category": "Автоматы"
+    },
+    {
+      "name": "Systeme Electric Автомат S9F21332 3P 32A",
+      "description": "Автоматический выключатель Systeme9 S9F21332, 3P, 32А, 6кА.",
+      "image": "https://cdn.etm.ru/catpics/1/700/700/1404_11.jpg",
+      "price": 1250,
+      "brand": "Systeme Electric",
+      "category": "Автоматы"
+    },
+    {
+      "name": "Systeme Electric Розетка 1-местная с з/к белая",
+      "description": "Розетка Systeme Electric 1-местная с заземляющим контактом, белая, 16А.",
+      "image": "https://cdn.etm.ru/catpics/1/700/700/1525_11.jpg",
+      "price": 120,
+      "brand": "Systeme Electric",
+      "category": "Розетки"
     },
     {
       "name": "ПВС 2х1.5 ГОСТ",
-      "description": "Провод ПВС 2х1.5 ГОСТ. Соединительный провод с медными многопроволочными жилами.",
+      "description": "Провод ПВС 2х1.5 ГОСТ.",
       "image": "https://cdn.etm.ru/catpics/1/700/700/1082_11.jpg",
       "price": 50,
       "brand": "Кабель-Стандарт",
@@ -226,7 +362,7 @@
     },
     {
       "name": "ПВС 2х1.5 ТУ",
-      "description": "Провод ПВС 2х1.5 ТУ. Соединительный провод с медными многопроволочными жилами.",
+      "description": "Провод ПВС 2х1.5 ТУ.",
       "image": "https://cdn.etm.ru/catpics/1/700/700/1082_11.jpg",
       "price": 35,
       "brand": "Кабель-Стандарт",
@@ -234,7 +370,7 @@
     },
     {
       "name": "ПВС 2х2.5 ГОСТ",
-      "description": "Провод ПВС 2х2.5 ГОСТ. Соединительный провод с медными многопроволочными жилами.",
+      "description": "Провод ПВС 2х2.5 ГОСТ.",
       "image": "https://cdn.etm.ru/catpics/1/700/700/1082_11.jpg",
       "price": 70,
       "brand": "Кабель-Стандарт",
@@ -242,7 +378,7 @@
     },
     {
       "name": "ПВС 3х1.5 ГОСТ",
-      "description": "Провод ПВС 3х1.5 ГОСТ. Соединительный провод с медными многопроволочными жилами.",
+      "description": "Провод ПВС 3х1.5 ГОСТ.",
       "image": "https://cdn.etm.ru/catpics/1/700/700/1082_11.jpg",
       "price": 60,
       "brand": "Кабель-Стандарт",
@@ -250,7 +386,7 @@
     },
     {
       "name": "ПВС 3х2.5 ГОСТ",
-      "description": "Провод ПВС 3х2.5 ГОСТ. Соединительный провод с медными многопроволочными жилами.",
+      "description": "Провод ПВС 3х2.5 ГОСТ.",
       "image": "https://cdn.etm.ru/catpics/1/700/700/1082_11.jpg",
       "price": 90,
       "brand": "Кабель-Стандарт",
@@ -258,7 +394,7 @@
     },
     {
       "name": "ПВС 3х2.5 ТУ",
-      "description": "Провод ПВС 3х2.5 ТУ. Соединительный провод с медными многопроволочными жилами.",
+      "description": "Провод ПВС 3х2.5 ТУ.",
       "image": "https://cdn.etm.ru/catpics/1/700/700/1082_11.jpg",
       "price": 65,
       "brand": "Кабель-Стандарт",
@@ -266,7 +402,7 @@
     },
     {
       "name": "ПУГНП 2х1.5 ГОСТ",
-      "description": "Провод ПУГНП 2х1.5 ГОСТ. Плоский гибкий провод с медными жилами.",
+      "description": "Провод ПУГНП 2х1.5 ГОСТ.",
       "image": "https://cdn.etm.ru/catpics/1/700/700/1081_11.jpg",
       "price": 45,
       "brand": "Кабель-Стандарт",
@@ -274,7 +410,7 @@
     },
     {
       "name": "ПУГНП 2х1.5 ТУ",
-      "description": "Провод ПУГНП 2х1.5 ТУ. Плоский гибкий провод с медными жилами.",
+      "description": "Провод ПУГНП 2х1.5 ТУ.",
       "image": "https://cdn.etm.ru/catpics/1/700/700/1081_11.jpg",
       "price": 30,
       "brand": "Кабель-Стандарт",
@@ -282,7 +418,7 @@
     },
     {
       "name": "ПУГНП 2х2.5 ГОСТ",
-      "description": "Провод ПУГНП 2х2.5 ГОСТ. Плоский гибкий провод с медными жилами.",
+      "description": "Провод ПУГНП 2х2.5 ГОСТ.",
       "image": "https://cdn.etm.ru/catpics/1/700/700/1081_11.jpg",
       "price": 75,
       "brand": "Кабель-Стандарт",
@@ -290,7 +426,7 @@
     },
     {
       "name": "ПУГНП 2х2.5 ТУ",
-      "description": "Провод ПУГНП 2х2.5 ТУ. Плоский гибкий провод с медными жилами.",
+      "description": "Провод ПУГНП 2х2.5 ТУ.",
       "image": "https://cdn.etm.ru/catpics/1/700/700/1081_11.jpg",
       "price": 45,
       "brand": "Кабель-Стандарт",
@@ -298,7 +434,7 @@
     },
     {
       "name": "ПУГНП 3х1.5 ГОСТ",
-      "description": "Провод ПУГНП 3х1.5 ГОСТ. Плоский гибкий провод с медными жилами.",
+      "description": "Провод ПУГНП 3х1.5 ГОСТ.",
       "image": "https://cdn.etm.ru/catpics/1/700/700/1081_11.jpg",
       "price": 60,
       "brand": "Кабель-Стандарт",
@@ -306,7 +442,7 @@
     },
     {
       "name": "ПУГНП 3х2.5 ГОСТ",
-      "description": "Провод ПУГНП 3х2.5 ГОСТ. Плоский гибкий провод с медными жилами.",
+      "description": "Провод ПУГНП 3х2.5 ГОСТ.",
       "image": "https://cdn.etm.ru/catpics/1/700/700/1081_11.jpg",
       "price": 85,
       "brand": "Кабель-Стандарт",
@@ -314,7 +450,7 @@
     },
     {
       "name": "ШВВП 2х0.75 ТУ",
-      "description": "Провод ШВВП 2х0.75 ТУ. Шнур соединительный с ПВХ-изоляцией.",
+      "description": "Провод ШВВП 2х0.75 ТУ.",
       "image": "https://cdn.etm.ru/catpics/1/700/700/1078_11.jpg",
       "price": 25,
       "brand": "Кабель-Стандарт",
@@ -322,7 +458,7 @@
     },
     {
       "name": "ШВВП 3х0.75 ту",
-      "description": "Провод ШВВП 3х0.75 ТУ. Шнур соединительный с ПВХ-изоляцией.",
+      "description": "Провод ШВВП 3х0.75 ТУ.",
       "image": "https://cdn.etm.ru/catpics/1/700/700/1078_11.jpg",
       "price": 35,
       "brand": "Кабель-Стандарт",
@@ -361,44 +497,12 @@
       "category": "Светильники"
     },
     {
-      "name": "IEK Автоматический выключатель ВА47-29 1P 25A",
-      "description": "Автоматический выключатель IEK ВА47-29 1P 25А, 4.5кА, характеристика C.",
-      "image": "https://cdn.etm.ru/catpics/1/700/700/1317_11.jpg",
-      "price": 150,
-      "brand": "IEK",
-      "category": "Автоматы"
-    },
-    {
-      "name": "IEK Розетка 1-местная с з/к белая",
-      "description": "Розетка IEK 1-местная с заземляющим контактом, белая, 16А.",
-      "image": "https://cdn.etm.ru/catpics/1/700/700/1511_11.jpg",
-      "price": 90,
-      "brand": "IEK",
-      "category": "Розетки"
-    },
-    {
-      "name": "IEK Щит распределительный ЩРН-12 IP31",
-      "description": "Щит распределительный IEK ЩРН-12, на 12 модулей, IP31, металлический.",
-      "image": "https://cdn.etm.ru/catpics/1/700/700/1360_11.jpg",
-      "price": 950,
-      "brand": "IEK",
-      "category": "Щиты"
-    },
-    {
-      "name": "Systeme Electric Автоматический выключатель Systeme9 S9F21125 1P 25A",
-      "description": "Автоматический выключатель Systeme Electric Systeme9 S9F21125, 1P, 25А, 6кА, характеристика B.",
-      "image": "https://cdn.etm.ru/catpics/1/700/700/1404_11.jpg",
-      "price": 380,
-      "brand": "Systeme Electric",
-      "category": "Автоматы"
-    },
-    {
-      "name": "Systeme Electric Розетка 1-местная с з/к белая",
-      "description": "Розетка Systeme Electric 1-местная с заземляющим контактом, белая, 16А.",
-      "image": "https://cdn.etm.ru/catpics/1/700/700/1525_11.jpg",
-      "price": 120,
-      "brand": "Systeme Electric",
-      "category": "Розетки"
+      "name": "Подрозетник бетон 200шт",
+      "description": "Подрозетник бетонный (упаковка 200 шт).",
+      "image": "",
+      "price": 2000,
+      "brand": "Без бренда",
+      "category": "Комплектующие"
     }
   ]
-}
+    }
