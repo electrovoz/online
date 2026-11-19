@@ -2,7 +2,7 @@
   "products": [
     {
       "name": "Legrand розеика 1м+з белая",
-      "description": "Розетка Legrand с заземлением, 1 модуль, белая.",
+      "description": "Розетка Legrand с заземлением, 1 модуль, белая, со шторками. Серия Etika.",
       "image": "https://cdn.etm.ru/catpics/1/700/700/1520_11.jpg",
       "price": 250,
       "brand": "Legrand",
@@ -10,7 +10,7 @@
     },
     {
       "name": "SAT 703",
-      "description": "Стабилизатор напряжения SAT 703.",
+      "description": "Стабилизатор напряжения SAT 703 (уточните характеристики).",
       "image": "",
       "price": 0,
       "brand": "SAT",
@@ -18,17 +18,17 @@
     },
     {
       "name": "АББ автомат. выкл. 2п 32A 4.5кА",
-      "description": "Двухполюсный автоматический выключатель ABB на 32А.",
+      "description": "Двухполюсный автоматический выключатель ABB S202, 32А, 6кА, характеристика C.",
       "image": "https://cdn.etm.ru/catpics/1/700/700/1468_11.jpg",
-      "price": 1100,
+      "price": 1450,
       "brand": "ABB",
       "category": "Автоматы"
     },
     {
       "name": "АББ автомат. выкл. 2п 40A 4.5кА",
-      "description": "Двухполюсный автоматический выключатель ABB на 40А.",
+      "description": "Двухполюсный автоматический выключатель ABB S202, 40А, 6кА, характеристика C.",
       "image": "https://cdn.etm.ru/catpics/1/700/700/1468_11.jpg",
-      "price": 1150,
+      "price": 1650,
       "brand": "ABB",
       "category": "Автоматы"
     },
@@ -98,80 +98,112 @@
     },
     {
       "name": "ВВГнг-LS 2х1.5 ГОСТ",
-      "description": "Силовой кабель ВВГнг-LS 2х1.5 ГОСТ.",
-      "image": "",
+      "description": "Силовой кабель ВВГнг-LS 2х1.5 ГОСТ. Медные жилы, ПВХ-изоляция, низкое дымовыделение.",
+      "image": "https://cdn.etm.ru/catpics/1/700/700/1093_11.jpg",
       "price": 65,
       "brand": "Кабель-Стандарт",
       "category": "Кабель"
     },
     {
       "name": "ВВГнг-LS 2х1.5 ТКЗ",
-      "description": "Силовой кабель ВВГнг-LS 2х1.5 ТКЗ.",
-      "image": "",
+      "description": "Силовой кабель ВВГнг-LS 2х1.5 ТКЗ. Медные жилы, ПВХ-изоляция, низкое дымовыделение.",
+      "image": "https://cdn.etm.ru/catpics/1/700/700/1093_11.jpg",
       "price": 60,
       "brand": "Кабель-Стандарт",
       "category": "Кабель"
     },
     {
       "name": "ВВГнг-LS 2х1.5 ТУ",
-      "description": "Силовой кабель ВВГнг-LS 2х1.5 ТУ.",
-      "image": "",
+      "description": "Силовой кабель ВВГнг-LS 2х1.5 ТУ. Медные жилы, ПВХ-изоляция.",
+      "image": "https://cdn.etm.ru/catpics/1/700/700/1093_11.jpg",
       "price": 40,
       "brand": "Кабель-Стандарт",
       "category": "Кабель"
     },
     {
       "name": "ВВГнг-LS 2х2.5 ТУ",
-      "description": "Силовой кабель ВВГнг-LS 2х2.5 ТУ.",
-      "image": "",
+      "description": "Силовой кабель ВВГнг-LS 2х2.5 ТУ. Медные жилы, ПВХ-изоляция.",
+      "image": "https://cdn.etm.ru/catpics/1/700/700/1093_11.jpg",
       "price": 60,
       "brand": "Кабель-Стандарт",
       "category": "Кабель"
     },
     {
       "name": "ВВГнг-LS 3х1.5 ГОСТ",
-      "description": "Силовой кабель ВВГнг-LS 3х1.5 ГОСТ.",
-      "image": "",
+      "description": "Силовой кабель ВВГнг-LS 3х1.5 ГОСТ. Медные жилы, ПВХ-изоляция, низкое дымовыделение.",
+      "image": "https://cdn.etm.ru/catpics/1/700/700/1093_11.jpg",
       "price": 80,
       "brand": "Кабель-Стандарт",
       "category": "Кабель"
     },
     {
       "name": "ВВГнг-LS 3х1.5 Кабэкс",
-      "description": "Силовой кабель ВВГнг-LS 3х1.5 Кабэкс.",
-      "image": "",
+      "description": "Силовой кабель ВВГнг-LS 3х1.5 Кабэкс. Медные жилы, ПВХ-изоляция.",
+      "image": "https://cdn.etm.ru/catpics/1/700/700/1093_11.jpg",
       "price": 90,
       "brand": "Кабэкс",
       "category": "Кабель"
     },
     {
       "name": "ВВГнг-LS 3х2.5 Кабэкс",
-      "description": "Силовой кабель ВВГнг-LS 3х2.5 Кабэкс.",
-      "image": "",
+      "description": "Силовой кабель ВВГнг-LS 3х2.5 Кабэкс. Медные жилы, ПВХ-изоляция.",
+      "image": "https://cdn.etm.ru/catpics/1/700/700/1093_11.jpg",
       "price": 130,
       "brand": "Кабэкс",
       "category": "Кабель"
     },
     {
+      "name": "ВВГнг-LS 3х4 ГОСТ",
+      "description": "Силовой кабель ВВГнг-LS 3х4 ГОСТ. Медные жилы, ПВХ-изоляция.",
+      "image": "https://cdn.etm.ru/catpics/1/700/700/1093_11.jpg",
+      "price": 180,
+      "brand": "Кабель-Стандарт",
+      "category": "Кабель"
+    },
+    {
+      "name": "ВВГнг-LS 3х6 ГОСТ",
+      "description": "Силовой кабель ВВГнг-LS 3х6 ГОСТ. Медные жилы, ПВХ-изоляция.",
+      "image": "https://cdn.etm.ru/catpics/1/700/700/1093_11.jpg",
+      "price": 250,
+      "brand": "Кабель-Стандарт",
+      "category": "Кабель"
+    },
+    {
+      "name": "ВВГнг-LS 4х1.5 ЭКО",
+      "description": "Силовой кабель ВВГнг-LS 4х1.5 ЭКО. Медные жилы, ПВХ-изоляция.",
+      "image": "https://cdn.etm.ru/catpics/1/700/700/1093_11.jpg",
+      "price": 110,
+      "brand": "Кабель-Стандарт",
+      "category": "Кабель"
+    },
+    {
+      "name": "ВВГнг-LS 5х1.5 ЭКО",
+      "description": "Силовой кабель ВВГнг-LS 5х1.5 ЭКО. Медные жилы, ПВХ-изоляция.",
+      "image": "https://cdn.etm.ru/catpics/1/700/700/1093_11.jpg",
+      "price": 130,
+      "brand": "Кабель-Стандарт",
+      "category": "Кабель"
+    },
+    {
       "name": "гофра ПМД d20",
-      "description": "Гофра ПМД d20.",
-      "image": "",
+      "description": "Гофра ПМД d20. Труба гофрированная для кабеля.",
+      "image": "https://cdn.etm.ru/catpics/1/700/700/1118_11.jpg",
       "price": 15,
       "brand": "DKC",
       "category": "Гофра"
     },
     {
       "name": "гофра серая D16",
-      "description": "Гофра серая D16.",
-      "image": "",
+      "description": "Гофра серая D16. Труба гофрированная для кабеля.",
+      "image": "https://cdn.etm.ru/catpics/1/700/700/1118_11.jpg",
       "price": 12,
       "brand": "DKC",
       "category": "Гофра"
     },
     {
       "name": "ИЕК автомат. выкл. 1п 25А 4,5кА",
-      "description": "Автоматический выключатель IEK 1п 25А.",
-      "image": "",
+      "description": "Автоматический выключатель IEK ВА47-29 1P 25А, 4.5кА, характеристика C.",
+      "image": "https://cdn.etm.ru/catpics/1/700/700/1317_11.jpg",
       "price": 150,
       "brand": "IEK",
       "category": "Автоматы"
@@ -183,6 +215,190 @@
       "price": 2000,
       "brand": "",
       "category": "Комплектующие"
+    },
+    {
+      "name": "ПВС 2х1.5 ГОСТ",
+      "description": "Провод ПВС 2х1.5 ГОСТ. Соединительный провод с медными многопроволочными жилами.",
+      "image": "https://cdn.etm.ru/catpics/1/700/700/1082_11.jpg",
+      "price": 50,
+      "brand": "Кабель-Стандарт",
+      "category": "Провод"
+    },
+    {
+      "name": "ПВС 2х1.5 ТУ",
+      "description": "Провод ПВС 2х1.5 ТУ. Соединительный провод с медными многопроволочными жилами.",
+      "image": "https://cdn.etm.ru/catpics/1/700/700/1082_11.jpg",
+      "price": 35,
+      "brand": "Кабель-Стандарт",
+      "category": "Провод"
+    },
+    {
+      "name": "ПВС 2х2.5 ГОСТ",
+      "description": "Провод ПВС 2х2.5 ГОСТ. Соединительный провод с медными многопроволочными жилами.",
+      "image": "https://cdn.etm.ru/catpics/1/700/700/1082_11.jpg",
+      "price": 70,
+      "brand": "Кабель-Стандарт",
+      "category": "Провод"
+    },
+    {
+      "name": "ПВС 3х1.5 ГОСТ",
+      "description": "Провод ПВС 3х1.5 ГОСТ. Соединительный провод с медными многопроволочными жилами.",
+      "image": "https://cdn.etm.ru/catpics/1/700/700/1082_11.jpg",
+      "price": 60,
+      "brand": "Кабель-Стандарт",
+      "category": "Провод"
+    },
+    {
+      "name": "ПВС 3х2.5 ГОСТ",
+      "description": "Провод ПВС 3х2.5 ГОСТ. Соединительный провод с медными многопроволочными жилами.",
+      "image": "https://cdn.etm.ru/catpics/1/700/700/1082_11.jpg",
+      "price": 90,
+      "brand": "Кабель-Стандарт",
+      "category": "Провод"
+    },
+    {
+      "name": "ПВС 3х2.5 ТУ",
+      "description": "Провод ПВС 3х2.5 ТУ. Соединительный провод с медными многопроволочными жилами.",
+      "image": "https://cdn.etm.ru/catpics/1/700/700/1082_11.jpg",
+      "price": 65,
+      "brand": "Кабель-Стандарт",
+      "category": "Провод"
+    },
+    {
+      "name": "ПУГНП 2х1.5 ГОСТ",
+      "description": "Провод ПУГНП 2х1.5 ГОСТ. Плоский гибкий провод с медными жилами.",
+      "image": "https://cdn.etm.ru/catpics/1/700/700/1081_11.jpg",
+      "price": 45,
+      "brand": "Кабель-Стандарт",
+      "category": "Провод"
+    },
+    {
+      "name": "ПУГНП 2х1.5 ТУ",
+      "description": "Провод ПУГНП 2х1.5 ТУ. Плоский гибкий провод с медными жилами.",
+      "image": "https://cdn.etm.ru/catpics/1/700/700/1081_11.jpg",
+      "price": 30,
+      "brand": "Кабель-Стандарт",
+      "category": "Провод"
+    },
+    {
+      "name": "ПУГНП 2х2.5 ГОСТ",
+      "description": "Провод ПУГНП 2х2.5 ГОСТ. Плоский гибкий провод с медными жилами.",
+      "image": "https://cdn.etm.ru/catpics/1/700/700/1081_11.jpg",
+      "price": 75,
+      "brand": "Кабель-Стандарт",
+      "category": "Провод"
+    },
+    {
+      "name": "ПУГНП 2х2.5 ТУ",
+      "description": "Провод ПУГНП 2х2.5 ТУ. Плоский гибкий провод с медными жилами.",
+      "image": "https://cdn.etm.ru/catpics/1/700/700/1081_11.jpg",
+      "price": 45,
+      "brand": "Кабель-Стандарт",
+      "category": "Провод"
+    },
+    {
+      "name": "ПУГНП 3х1.5 ГОСТ",
+      "description": "Провод ПУГНП 3х1.5 ГОСТ. Плоский гибкий провод с медными жилами.",
+      "image": "https://cdn.etm.ru/catpics/1/700/700/1081_11.jpg",
+      "price": 60,
+      "brand": "Кабель-Стандарт",
+      "category": "Провод"
+    },
+    {
+      "name": "ПУГНП 3х2.5 ГОСТ",
+      "description": "Провод ПУГНП 3х2.5 ГОСТ. Плоский гибкий провод с медными жилами.",
+      "image": "https://cdn.etm.ru/catpics/1/700/700/1081_11.jpg",
+      "price": 85,
+      "brand": "Кабель-Стандарт",
+      "category": "Провод"
+    },
+    {
+      "name": "ШВВП 2х0.75 ТУ",
+      "description": "Провод ШВВП 2х0.75 ТУ. Шнур соединительный с ПВХ-изоляцией.",
+      "image": "https://cdn.etm.ru/catpics/1/700/700/1078_11.jpg",
+      "price": 25,
+      "brand": "Кабель-Стандарт",
+      "category": "Провод"
+    },
+    {
+      "name": "ШВВП 3х0.75 ту",
+      "description": "Провод ШВВП 3х0.75 ТУ. Шнур соединительный с ПВХ-изоляцией.",
+      "image": "https://cdn.etm.ru/catpics/1/700/700/1078_11.jpg",
+      "price": 35,
+      "brand": "Кабель-Стандарт",
+      "category": "Провод"
+    },
+    {
+      "name": "Экола GX53 белый",
+      "description": "Светильник Ecola GX53, белый, встраиваемый.",
+      "image": "https://cdn.etm.ru/catpics/1/700/700/1481_11.jpg",
+      "price": 60,
+      "brand": "Ecola",
+      "category": "Светильники"
+    },
+    {
+      "name": "Экола GX53 сатин",
+      "description": "Светильник Ecola GX53, сатин, встраиваемый.",
+      "image": "https://cdn.etm.ru/catpics/1/700/700/1481_11.jpg",
+      "price": 70,
+      "brand": "Ecola",
+      "category": "Светильники"
+    },
+    {
+      "name": "Экола GX53 хром",
+      "description": "Светильник Ecola GX53, хром, встраиваемый.",
+      "image": "https://cdn.etm.ru/catpics/1/700/700/1481_11.jpg",
+      "price": 70,
+      "brand": "Ecola",
+      "category": "Светильники"
+    },
+    {
+      "name": "Экола GX53 черный матовый",
+      "description": "Светильник Ecola GX53, черный матовый, встраиваемый.",
+      "image": "https://cdn.etm.ru/catpics/1/700/700/1481_11.jpg",
+      "price": 70,
+      "brand": "Ecola",
+      "category": "Светильники"
+    },
+    {
+      "name": "IEK Автоматический выключатель ВА47-29 1P 25A",
+      "description": "Автоматический выключатель IEK ВА47-29 1P 25А, 4.5кА, характеристика C.",
+      "image": "https://cdn.etm.ru/catpics/1/700/700/1317_11.jpg",
+      "price": 150,
+      "brand": "IEK",
+      "category": "Автоматы"
+    },
+    {
+      "name": "IEK Розетка 1-местная с з/к белая",
+      "description": "Розетка IEK 1-местная с заземляющим контактом, белая, 16А.",
+      "image": "https://cdn.etm.ru/catpics/1/700/700/1511_11.jpg",
+      "price": 90,
+      "brand": "IEK",
+      "category": "Розетки"
+    },
+    {
+      "name": "IEK Щит распределительный ЩРН-12 IP31",
+      "description": "Щит распределительный IEK ЩРН-12, на 12 модулей, IP31, металлический.",
+      "image": "https://cdn.etm.ru/catpics/1/700/700/1360_11.jpg",
+      "price": 950,
+      "brand": "IEK",
+      "category": "Щиты"
+    },
+    {
+      "name": "Systeme Electric Автоматический выключатель Systeme9 S9F21125 1P 25A",
+      "description": "Автоматический выключатель Systeme Electric Systeme9 S9F21125, 1P, 25А, 6кА, характеристика B.",
+      "image": "https://cdn.etm.ru/catpics/1/700/700/1404_11.jpg",
+      "price": 380,
+      "brand": "Systeme Electric",
+      "category": "Автоматы"
+    },
+    {
+      "name": "Systeme Electric Розетка 1-местная с з/к белая",
+      "description": "Розетка Systeme Electric 1-местная с заземляющим контактом, белая, 16А.",
+      "image": "https://cdn.etm.ru/catpics/1/700/700/1525_11.jpg",
+      "price": 120,
+      "brand": "Systeme Electric",
+      "category": "Розетки"
     }
   ]
 }
