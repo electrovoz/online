@@ -124,7 +124,7 @@ footer{background:var(--dark);color:var(--dark-muted);padding:24px;margin-top:40
 </header>
 
 <main class="container">
-  <!-- Оверлей загрузки -->
+  <!-- Оверлей загрузки (висит, пока всё не склеится) -->
   <div id="loader" class="loader"><div class="loader-spinner"></div><div>Загрузка каталога...</div></div>
   
   <div id="loadError" class="load-error" style="display:none">
@@ -295,8 +295,7 @@ async function loadData(){
 
   P.sort(function(a,b){ return COLLATOR.compare(a.n, b.n); });
   
-  // Формируем меню ровно 1 раз
-  renderSidebar(); 
+  renderSidebar(); // Формируем меню 1 раз
 }
 
 // ============ САЙДБАР ============
@@ -446,10 +445,10 @@ function scrollToCart(){ $('cart').scrollIntoView({behavior:'smooth'}); }
   renderCart();
 
   try { 
-    await loadData(); 
-    $('loader').style.display = 'none'; 
-    $('shopContent').style.display = 'block'; 
-    render(); 
+    await loadData(); // Ждем, пока Excel и JSON прочитаются
+    $('loader').style.display = 'none'; // Прячем спиннер
+    $('shopContent').style.display = 'block'; // Показываем сайт
+    render(); // Рисуем карточки ОДИН РАЗ
   } catch(e){ 
     console.error(e); 
     $('loader').style.display = 'none'; 
