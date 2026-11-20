@@ -166,7 +166,16 @@ footer{background:var(--dark);color:var(--dark-muted);padding:24px;margin-top:40
           <label class="chk"><input type="checkbox" id="inStock" onchange="setInStock(this.checked)"> Только в наличии</label>
         </div>
 
+        <!-- Категории -->
         <div class="sb-section"><h4>Категории</h4><ul class="cat-list" id="catList"></ul></div>
+        
+        <!-- Подкатегории (Тип кабеля) -->
+        <div class="sb-section" id="subcatSection" style="display:none;">
+          <h4>Тип кабеля</h4>
+          <ul class="cat-list" id="subcatList"></ul>
+        </div>
+
+        <!-- Бренды -->
         <div class="sb-section"><h4>Бренд</h4><div id="brandList"></div></div>
       </aside>
       <div class="sidebar-overlay" id="sbOverlay" onclick="closeSidebar()"></div>
@@ -245,10 +254,10 @@ footer{background:var(--dark);color:var(--dark-muted);padding:24px;margin-top:40
 <script>
 var P = [], cart = [], currentPage = 1, pageSize = 24;
 var COLLATOR = new Intl.Collator('ru');
-var filters = { cat: 'all', brands: [], inStock: false };
+var filters = { cat: 'all', subcat: 'all', brands: [], inStock: false };
 var CART_KEY = 'cart_v2';
-var TARGET_EMAIL = 'evgenysergeevich@mail.ru'; // ВАША ПОЧТА
-var RATE_LIMIT_MS = 60000; // 60 секунд между отправками
+var TARGET_EMAIL = 'evgenysergeevich@mail.ru';
+var RATE_LIMIT_MS = 60000;
 
 function $(id){ return document.getElementById(id); }
 function esc(s){ return String(s==null?'':s).replace(/[&<>"']/g,function(m){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m];}); }
@@ -271,7 +280,6 @@ function applyTheme(t){ document.documentElement.setAttribute('data-theme',t); s
 function toggleTheme(){ applyTheme(document.documentElement.getAttribute('data-theme')==='dark'?'light':'dark'); }
 function toast(msg,kind){ var box=document.createElement('div'); box.className='toast'+(kind?' '+kind:''); box.textContent=msg; $('toasts').appendChild(box); setTimeout(function(){ box.style.transition='opacity .3s'; box.style.opacity='0'; setTimeout(function(){box.remove();},350); },3200); }
 
-// --- ЗАЩИТА ОТ СПАМА ---
 function checkRateLimit() {
   var last = localStorage.getItem('last_email_time');
   if (last) {
@@ -284,9 +292,7 @@ function checkRateLimit() {
   }
   return true;
 }
-function markEmailSent() {
-  localStorage.setItem('last_email_time', Date.now().toString());
-}
+function markEmailSent() { localStorage.setItem('last_email_time', Date.now().toString()); }
 function generateCaptcha(idPrefix) {
   var a = Math.floor(Math.random() * 8) + 1;
   var b = Math.floor(Math.random() * 8) + 1;
@@ -299,7 +305,6 @@ function validateCaptcha(idPrefix) {
   var expected = parseInt(document.getElementById(idPrefix + 'CaptchaInput').getAttribute('data-ans'), 10);
   return ans === expected;
 }
-// -----------------------
 
 function unifyCategory(cat) {
   if (!cat) return 'Разное';
@@ -320,6 +325,16 @@ function guessCategory(name) {
   if (n.includes('контактор')) return 'Контакторы';
   if (n.includes('подрозетник')) return 'Подрозетники';
   return 'Разное';
+}
+
+// Вытаскиваем тип кабеля для подкатегории
+function getSubcat(name) {
+  var n = String(name).toLowerCase();
+  if (n.includes('ввг')) return 'ВВГнг-LS';
+  if (n.includes('пвс')) return 'ПВС';
+  if (n.includes('пугнп')) return 'ПУГНП';
+  if (n.includes('шввп')) return 'ШВВП';
+  return 'Другое';
 }
 
 function cleanCategory(cat) {
@@ -412,9 +427,11 @@ async function loadData(){
     var excelItem = stockMap[key];
     var jsonItem = jsonMap[key] || {};
     var cat = jsonItem.category ? cleanCategory(jsonItem.category) : guessCategory(excelItem.originalName);
-    var brand = jsonItem.brand || firstWordBrand(excelItem.originalName);
-    var id = hashId(key) || (Date.now() & 0xffff);
+    var subcat = cat === 'Кабель' ? getSubcat(excelItem.originalName) : '';
+    // Если это кабель, бренд ставим "Без бренда" или реальный (если есть в JSON), чтобы не засорять список
+    var brand = jsonItem.brand || (cat === 'Кабель' ? 'Без бренда' : firstWordBrand(excelItem.originalName));
     
+    var id = hashId(key) || (Date.now() & 0xffff);
     if (usedIds[id]) { var k = 1; while (usedIds[id + k]) k++; id = id + k; }
     usedIds[id] = true;
 
@@ -427,6 +444,7 @@ async function loadData(){
       unit: excelItem.unit,
       brand: brand,
       c: cat,
+      subcat: subcat,
       stock: excelItem.qty,
       _search: norm(excelItem.originalName + ' ' + brand)
     });
@@ -436,7 +454,9 @@ async function loadData(){
     var key = norm(p.name);
     if (!stockMap[key]) {
       var cat = p.category ? cleanCategory(p.category) : guessCategory(p.name);
-      var brand = p.brand || firstWordBrand(p.name);
+      var subcat = cat === 'Кабель' ? getSubcat(p.name) : '';
+      var brand = p.brand || (cat === 'Кабель' ? 'Без бренда' : firstWordBrand(p.name));
+      
       var id = hashId(key) || (Date.now() & 0xffff);
       if (usedIds[id]) { var k = 1; while (usedIds[id + k]) k++; id = id + k; }
       usedIds[id] = true;
@@ -449,6 +469,7 @@ async function loadData(){
         unit: p.unit || 'шт',
         brand: brand,
         c: cat,
+        subcat: subcat,
         stock: 0,
         _search: norm(p.name + ' ' + brand)
       });
@@ -463,6 +484,7 @@ function toggleSidebar(){ $('sidebar').classList.toggle('open'); $('sbOverlay').
 function closeSidebar(){ $('sidebar').classList.remove('open'); $('sbOverlay').classList.remove('on'); }
 
 function renderSidebar(){
+  // 1. Категории
   var cats = {};
   P.forEach(function(x){ cats[x.c] = (cats[x.c]||0)+1; });
   var ck = Object.keys(cats).sort(COLLATOR.compare);
@@ -473,8 +495,31 @@ function renderSidebar(){
   });
   $('catList').innerHTML = h;
 
+  // 2. Подкатегории (Тип кабеля)
+  if (filters.cat === 'Кабель') {
+    $('subcatSection').style.display = 'block';
+    var subcats = {};
+    P.forEach(function(x){ 
+      if (x.c === 'Кабель') subcats[x.subcat] = (subcats[x.subcat]||0)+1; 
+    });
+    var sk = Object.keys(subcats).sort(COLLATOR.compare);
+    var sh = '<li class="'+(filters.subcat==='all'?'active':'')+'" onclick="setSubcat(\'all\')">Все кабели <span class="cnt">'+cats['Кабель']+'</span></li>';
+    sk.forEach(function(sc){
+      sh += '<li class="'+(filters.subcat===sc?'active':'')+'" onclick="setSubcat(\''+esc(sc)+'\')">'+esc(sc)+' <span class="cnt">'+subcats[sc]+'</span></li>';
+    });
+    $('subcatList').innerHTML = sh;
+  } else {
+    $('subcatSection').style.display = 'none';
+    filters.subcat = 'all';
+  }
+
+  // 3. Бренды (Исключаем кабели)
   var brands = {};
-  P.forEach(function(x){ brands[x.brand] = (brands[x.brand]||0)+1; });
+  P.forEach(function(x){ 
+    if (x.c !== 'Кабель') { // Не показываем кабели в брендах
+      brands[x.brand] = (brands[x.brand]||0)+1; 
+    }
+  });
   var bk = Object.keys(brands).sort(COLLATOR.compare);
   var bh = '';
   bk.forEach(function(b){
@@ -484,7 +529,14 @@ function renderSidebar(){
   $('brandList').innerHTML = bh;
 }
 
-function setCat(c){ filters.cat=c; currentPage=1; renderSidebar(); render(); }
+function setCat(c){ 
+  filters.cat=c; 
+  filters.subcat = 'all'; // Сбрасываем подкатегорию при смене категории
+  currentPage=1; 
+  renderSidebar(); 
+  render(); 
+}
+function setSubcat(sc){ filters.subcat = sc; currentPage = 1; renderSidebar(); render(); }
 function setInStock(v){ filters.inStock = !!v; currentPage = 1; render(); }
 function toggleBrand(el){ 
   var v=el.value; 
@@ -502,9 +554,10 @@ function getFiltered(){
   return P.filter(function(x){ 
     var matchText = !s || x._search.indexOf(s) > -1;
     var matchCat = filters.cat === 'all' || x.c === filters.cat;
+    var matchSubcat = filters.subcat === 'all' || x.subcat === filters.subcat;
     var matchBrand = !filters.brands.length || filters.brands.indexOf(x.brand) > -1;
     var matchStock = !filters.inStock || x.stock > 0;
-    return matchText && matchCat && matchBrand && matchStock; 
+    return matchText && matchCat && matchSubcat && matchBrand && matchStock; 
   });
 }
 
@@ -560,7 +613,7 @@ function loadMore(){ currentPage++; render(); }
 function resetF(){ 
   $('srch').value=''; 
   if($('inStock')) $('inStock').checked=false; 
-  filters = { cat: 'all', brands: [], inStock: false };
+  filters = { cat: 'all', subcat: 'all', brands: [], inStock: false };
   currentPage=1; 
   renderSidebar();
   render(); 
@@ -639,7 +692,6 @@ function delCart(id){ cart = cart.filter(function(x){return x.id!==id}); saveCar
 function clearCart(){ if(!cart.length) return; if(!confirm('Очистить корзину?')) return; cart=[]; saveCart(); renderCart(); }
 function scrollToCart(){ $('cart').scrollIntoView({behavior:'smooth'}); }
 
-// --- ОФОРМЛЕНИЕ ЗАКАЗА ---
 function openOrderModal(){
   if (!cart.length) { toast('Корзина пуста', 'err'); return; }
   $('orderModal').classList.add('on');
@@ -678,7 +730,6 @@ function submitOrder(){
   toast('Заказ сформирован. Проверьте почтовый клиент.', 'ok');
 }
 
-// --- ОБРАТНАЯ СВЯЗЬ (НАПИСАТЬ НАМ) ---
 function openFeedbackModal(){
   $('feedbackModal').classList.add('on');
   generateCaptcha('fb');
