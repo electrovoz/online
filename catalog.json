@@ -1,120 +1,1188 @@
 {
   "products": [
-    {"name": "ИЕК автомат. выкл. 1п 1А 4.5кА", "category": "Автоматы", "brand": "ИЕК", "price": 120},
-    {"name": "ИЕК автомат. выкл. 1п 2А 4.5кА", "category": "Автоматы", "brand": "ИЕК", "price": 120},
-    {"name": "ИЕК автомат. выкл. 1п 3А 4.5кА", "category": "Автоматы", "brand": "ИЕК", "price": 125},
-    {"name": "ИЕК автомат. выкл. 1п 4А 4.5кА", "category": "Автоматы", "brand": "ИЕК", "price": 125},
-    {"name": "ИЕК автомат. выкл. 1п 5А 4.5кА", "category": "Автоматы", "brand": "ИЕК", "price": 130},
-    {"name": "ИЕК автомат. выкл. 1п 6А 4.5кА", "category": "Автоматы", "brand": "ИЕК", "price": 130},
-    {"name": "ИЕК автомат. выкл. 1п 8А 4.5кА", "category": "Автоматы", "brand": "ИЕК", "price": 135},
-    {"name": "ИЕК автомат. выкл. 1п 10А 4.5кА", "category": "Автоматы", "brand": "ИЕК", "price": 135},
-    {"name": "ИЕК автомат. выкл. 1п 13А 4.5кА", "category": "Автоматы", "brand": "ИЕК", "price": 140},
-    {"name": "ИЕК автомат. выкл. 1п 16А 4.5кА", "category": "Автоматы", "brand": "ИЕК", "price": 140},
-    {"name": "ИЕК автомат. выкл. 1п 20А 4.5кА", "category": "Автоматы", "brand": "ИЕК", "price": 145},
-    {"name": "ИЕК автомат. выкл. 1п 25А 4.5кА", "category": "Автоматы", "brand": "ИЕК", "price": 150},
-    {"name": "ИЕК автомат. выкл. 1п 32А 4.5кА", "category": "Автоматы", "brand": "ИЕК", "price": 155},
-    {"name": "ИЕК автомат. выкл. 1п 40А 4.5кА", "category": "Автоматы", "brand": "ИЕК", "price": 165},
-    {"name": "ИЕК автомат. выкл. 1п 50А 4.5кА", "category": "Автоматы", "brand": "ИЕК", "price": 175},
-    {"name": "ИЕК автомат. выкл. 1п 63А 4.5кА", "category": "Автоматы", "brand": "ИЕК", "price": 185},
-
-    {"name": "ИЕК автомат. выкл. 2п 6А 4.5кА", "category": "Автоматы", "brand": "ИЕК", "price": 260},
-    {"name": "ИЕК автомат. выкл. 2п 10А 4.5кА", "category": "Автоматы", "brand": "ИЕК", "price": 270},
-    {"name": "ИЕК автомат. выкл. 2п 16А 4.5кА", "category": "Автоматы", "brand": "ИЕК", "price": 280},
-    {"name": "ИЕК автомат. выкл. 2п 20А 4.5кА", "category": "Автоматы", "brand": "ИЕК", "price": 285},
-    {"name": "ИЕК автомат. выкл. 2п 25А 4.5кА", "category": "Автоматы", "brand": "ИЕК", "price": 290},
-    {"name": "ИЕК автомат. выкл. 2п 32А 4.5кА", "category": "Автоматы", "brand": "ИЕК", "price": 300},
-    {"name": "ИЕК автомат. выкл. 2п 40А 4.5кА", "category": "Автоматы", "brand": "ИЕК", "price": 320},
-    {"name": "ИЕК автомат. выкл. 2п 50А 4.5кА", "category": "Автоматы", "brand": "ИЕК", "price": 350},
-    {"name": "ИЕК автомат. выкл. 2п 63А 4.5кА", "category": "Автоматы", "brand": "ИЕК", "price": 380},
-
-    {"name": "ИЕК автомат. выкл. 3п 6А 4.5кА", "category": "Автоматы", "brand": "ИЕК", "price": 390},
-    {"name": "ИЕК автомат. выкл. 3п 10А 4.5кА", "category": "Автоматы", "brand": "ИЕК", "price": 395},
-    {"name": "ИЕК автомат. выкл. 3п 16А 4.5кА", "category": "Автоматы", "brand": "ИЕК", "price": 420},
-    {"name": "ИЕК автомат. выкл. 3п 20А 4.5кА", "category": "Автоматы", "brand": "ИЕК", "price": 425},
-    {"name": "ИЕК автомат. выкл. 3п 25А 4.5кА", "category": "Автоматы", "brand": "ИЕК", "price": 430},
-    {"name": "ИЕК автомат. выкл. 3п 32А 4.5кА", "category": "Автоматы", "brand": "ИЕК", "price": 450},
-    {"name": "ИЕК автомат. выкл. 3п 40А 4.5кА", "category": "Автоматы", "brand": "ИЕК", "price": 480},
-    {"name": "ИЕК автомат. выкл. 3п 50А 4.5кА", "category": "Автоматы", "brand": "ИЕК", "price": 520},
-    {"name": "ИЕК автомат. выкл. 3п 63А 4.5кА", "category": "Автоматы", "brand": "ИЕК", "price": 550},
-
-    {"name": "ИЕК автомат. выкл. 4п 6А 4.5кА", "category": "Автоматы", "brand": "ИЕК", "price": 520},
-    {"name": "ИЕК автомат. выкл. 4п 10А 4.5кА", "category": "Автоматы", "brand": "ИЕК", "price": 530},
-    {"name": "ИЕК автомат. выкл. 4п 16А 4.5кА", "category": "Автоматы", "brand": "ИЕК", "price": 550},
-    {"name": "ИЕК автомат. выкл. 4п 20А 4.5кА", "category": "Автоматы", "brand": "ИЕК", "price": 560},
-    {"name": "ИЕК автомат. выкл. 4п 25А 4.5кА", "category": "Автоматы", "brand": "ИЕК", "price": 580},
-    {"name": "ИЕК автомат. выкл. 4п 32А 4.5кА", "category": "Автоматы", "brand": "ИЕК", "price": 600},
-    {"name": "ИЕК автомат. выкл. 4п 40А 4.5кА", "category": "Автоматы", "brand": "ИЕК", "price": 650},
-    {"name": "ИЕК автомат. выкл. 4п 50А 4.5кА", "category": "Автоматы", "brand": "ИЕК", "price": 700},
-    {"name": "ИЕК автомат. выкл. 4п 63А 4.5кА", "category": "Автоматы", "brand": "ИЕК", "price": 750},
-
-    {"name": "ИЕК УЗО 2п 16А 30мА", "category": "УЗО", "brand": "ИЕК", "price": 1100},
-    {"name": "ИЕК УЗО 2п 25А 30мА", "category": "УЗО", "brand": "ИЕК", "price": 1150},
-    {"name": "ИЕК УЗО 2п 32А 30мА", "category": "УЗО", "brand": "ИЕК", "price": 1180},
-    {"name": "ИЕК УЗО 2п 40А 30мА", "category": "УЗО", "brand": "ИЕК", "price": 1200},
-    {"name": "ИЕК УЗО 2п 63А 30мА", "category": "УЗО", "brand": "ИЕК", "price": 1400},
-    {"name": "ИЕК УЗО 4п 16А 30мА", "category": "УЗО", "brand": "ИЕК", "price": 1700},
-    {"name": "ИЕК УЗО 4п 25А 30мА", "category": "УЗО", "brand": "ИЕК", "price": 1750},
-    {"name": "ИЕК УЗО 4п 32А 30мА", "category": "УЗО", "brand": "ИЕК", "price": 1780},
-    {"name": "ИЕК УЗО 4п 40А 30мА", "category": "УЗО", "brand": "ИЕК", "price": 1800},
-    {"name": "ИЕК УЗО 4п 63А 30мА", "category": "УЗО", "brand": "ИЕК", "price": 2100},
-
-    {"name": "ИЕК диф. автомат. 2п 16А 30мА", "category": "Дифавтоматы", "brand": "ИЕК", "price": 1900},
-    {"name": "ИЕК диф. автомат. 2п 20А 30мА", "category": "Дифавтоматы", "brand": "ИЕК", "price": 1950},
-    {"name": "ИЕК диф. автомат. 2п 25А 30мА", "category": "Дифавтоматы", "brand": "ИЕК", "price": 2000},
-    {"name": "ИЕК диф. автомат. 2п 32А 30мА", "category": "Дифавтоматы", "brand": "ИЕК", "price": 2100},
-    {"name": "ИЕК диф. автомат. 2п 40А 30мА", "category": "Дифавтоматы", "brand": "ИЕК", "price": 2200},
-    {"name": "ИЕК диф. автомат. 4п 16А 30мА", "category": "Дифавтоматы", "brand": "ИЕК", "price": 3200},
-    {"name": "ИЕК диф. автомат. 4п 25А 30мА", "category": "Дифавтоматы", "brand": "ИЕК", "price": 3400},
-    {"name": "ИЕК диф. автомат. 4п 32А 30мА", "category": "Дифавтоматы", "brand": "ИЕК", "price": 3600},
-    {"name": "ИЕК диф. автомат. 4п 40А 30мА", "category": "Дифавтоматы", "brand": "ИЕК", "price": 3800},
-    {"name": "ИЕК диф. автомат. 4п 63А 30мА", "category": "Дифавтоматы", "brand": "ИЕК", "price": 4200},
-
-    {"name": "ИЕК контактор КМИ-10910 9А 220В", "category": "Контакторы", "brand": "ИЕК", "price": 650},
-    {"name": "ИЕК контактор КМИ-11110 11А 220В", "category": "Контакторы", "brand": "ИЕК", "price": 700},
-    {"name": "ИЕК контактор КМИ-11210 12А 220В", "category": "Контакторы", "brand": "ИЕК", "price": 750},
-    {"name": "ИЕК контактор КМИ-11510 15А 220В", "category": "Контакторы", "brand": "ИЕК", "price": 850},
-    {"name": "ИЕК контактор КМИ-11810 18А 220В", "category": "Контакторы", "brand": "ИЕК", "price": 950},
-    {"name": "ИЕК контактор КМИ-12010 20А 220В", "category": "Контакторы", "brand": "ИЕК", "price": 1050},
-    {"name": "ИЕК контактор КМИ-12510 25А 220В", "category": "Контакторы", "brand": "ИЕК", "price": 1200},
-    {"name": "ИЕК контактор КМИ-13210 32А 220В", "category": "Контакторы", "brand": "ИЕК", "price": 1400},
-    {"name": "ИЕК контактор КМИ-14010 40А 220В", "category": "Контакторы", "brand": "ИЕК", "price": 1600},
-    {"name": "ИЕК контактор КМИ-15010 50А 220В", "category": "Контакторы", "brand": "ИЕК", "price": 1900},
-
-    {"name": "ИЕК щит ЩРН-12 IP31", "category": "Щиты", "brand": "ИЕК", "price": 950},
-    {"name": "ИЕК щит ЩРН-24 IP31", "category": "Щиты", "brand": "ИЕК", "price": 1400},
-    {"name": "ИЕК щит ЩРН-36 IP31", "category": "Щиты", "brand": "ИЕК", "price": 1900},
-    {"name": "ИЕК щит ЩРН-48 IP31", "category": "Щиты", "brand": "ИЕК", "price": 2400},
-    {"name": "ИЕК щит ЩРВ-12 IP31", "category": "Щиты", "brand": "ИЕК", "price": 1100},
-    {"name": "ИЕК щит ЩРВ-24 IP31", "category": "Щиты", "brand": "ИЕК", "price": 1600},
-
-    {"name": "ИЕК розетка РС16-227 белая", "category": "Розетки", "brand": "ИЕК", "price": 90},
-    {"name": "ИЕК розетка РС16-228 без з/к", "category": "Розетки", "brand": "ИЕК", "price": 80},
-    {"name": "ИЕК розетка 2-местная с з/к белая", "category": "Розетки", "brand": "ИЕК", "price": 160},
-    {"name": "ИЕК выключатель 1к ВС10-1-8", "category": "Выключатели", "brand": "ИЕК", "price": 85},
-    {"name": "ИЕК выключатель 2к ВС10-2-8", "category": "Выключатели", "brand": "ИЕК", "price": 110},
-    {"name": "ИЕК выключатель 3к ВС10-3-8", "category": "Выключатели", "brand": "ИЕК", "price": 140},
-
-    {"name": "Систем Электрик автомат. выкл. 1п 16А 6кА", "category": "Автоматы", "brand": "Систем Электрик", "price": 380},
-    {"name": "Систем Электрик автомат. выкл. 1п 25А 6кА", "category": "Автоматы", "brand": "Систем Электрик", "price": 390},
-    {"name": "Систем Электрик автомат. выкл. 2п 16А 6кА", "category": "Автоматы", "brand": "Систем Электрик", "price": 750},
-    {"name": "Систем Электрик автомат. выкл. 2п 25А 6кА", "category": "Автоматы", "brand": "Систем Электрик", "price": 780},
-    {"name": "Систем Электрик автомат. выкл. 3п 16А 6кА", "category": "Автоматы", "brand": "Систем Электрик", "price": 1100},
-    {"name": "Систем Электрик автомат. выкл. 3п 25А 6кА", "category": "Автоматы", "brand": "Систем Электрик", "price": 1150},
-    {"name": "Систем Электрик автомат. выкл. 3п 32А 6кА", "category": "Автоматы", "brand": "Систем Электрик", "price": 1200},
-
-    {"name": "ВВГнг-LS 2х1.5 ГОСТ", "category": "Кабель", "brand": "Кабель-Стандарт", "price": 65},
-    {"name": "ВВГнг-LS 3х1.5 ГОСТ", "category": "Кабель", "brand": "Кабель-Стандарт", "price": 80},
-    {"name": "ВВГнг-LS 3х2.5 ГОСТ", "category": "Кабель", "brand": "Кабель-Стандарт", "price": 120},
-    {"name": "ВВГнг-LS 3х4 ГОСТ", "category": "Кабель", "brand": "Кабель-Стандарт", "price": 180},
-    {"name": "ВВГнг-LS 3х6 ГОСТ", "category": "Кабель", "brand": "Кабель-Стандарт", "price": 250},
-
-    {"name": "Legrand розеика 1м+з белая", "category": "Розетки", "brand": "Legrand", "price": 250},
-    {"name": "АББ автомат. выкл. 2п 32A 4.5кА", "category": "Автоматы", "brand": "ABB", "price": 1450},
-    {"name": "АББ автомат. выкл. 2п 40A 4.5кА", "category": "Автоматы", "brand": "ABB", "price": 1650},
-    {"name": "Ваго 2 серые", "category": "Клеммы", "brand": "WAGO", "price": 10},
-    {"name": "Ваго 3 серые", "category": "Клеммы", "brand": "WAGO", "price": 12},
-    {"name": "гофра ПМД d20", "category": "Гофра", "brand": "DKC", "price": 15},
-    {"name": "гофра серая D16", "category": "Гофра", "brand": "DKC", "price": 12},
-    {"name": "Экола GX53 белый", "category": "Светильники", "brand": "Ecola", "price": 60}
+    {
+      "name": "Товар/услуга",
+      "category": "Разное",
+      "brand": "Товар/услуга",
+      "price": 0,
+      "description": "",
+      "image": ""
+    },
+    {
+      "name": "Legrand розеика 1м+з белая",
+      "category": "Розетки",
+      "brand": "Legrand",
+      "price": 250,
+      "description": "",
+      "image": ""
+    },
+    {
+      "name": "SAT 703",
+      "category": "Кабель",
+      "brand": "SAT",
+      "price": 17,
+      "description": "",
+      "image": ""
+    },
+    {
+      "name": "АББ автомат. выкл. 2п 32A 4.5кА",
+      "category": "Автоматы",
+      "brand": "ABB",
+      "price": 1450,
+      "description": "",
+      "image": ""
+    },
+    {
+      "name": "АББ автомат. выкл. 2п 40A 4.5кА",
+      "category": "Автоматы",
+      "brand": "ABB",
+      "price": 1650,
+      "description": "",
+      "image": ""
+    },
+    {
+      "name": "Ваго 2 серые",
+      "category": "Клеммы",
+      "brand": "WAGO",
+      "price": 10,
+      "description": "",
+      "image": ""
+    },
+    {
+      "name": "Ваго 221-412 (2 прозрачные)",
+      "category": "Клеммы",
+      "brand": "Ваго",
+      "price": 0,
+      "description": "",
+      "image": ""
+    },
+    {
+      "name": "Ваго 221-413 (3 прозрачные)",
+      "category": "Клеммы",
+      "brand": "Ваго",
+      "price": 0,
+      "description": "",
+      "image": ""
+    },
+    {
+      "name": "ваго 221-415 (5 прозрвчные)",
+      "category": "Клеммы",
+      "brand": "ваго",
+      "price": 0,
+      "description": "",
+      "image": ""
+    },
+    {
+      "name": "Ваго 222-412 (2 серые)",
+      "category": "Клеммы",
+      "brand": "Ваго",
+      "price": 0,
+      "description": "",
+      "image": ""
+    },
+    {
+      "name": "Ваго 222-413 (3 серые)",
+      "category": "Клеммы",
+      "brand": "Ваго",
+      "price": 0,
+      "description": "",
+      "image": ""
+    },
+    {
+      "name": "Ваго 222-415 (5 серые)",
+      "category": "Клеммы",
+      "brand": "Ваго",
+      "price": 0,
+      "description": "",
+      "image": ""
+    },
+    {
+      "name": "Ваго 3 серые",
+      "category": "Клеммы",
+      "brand": "WAGO",
+      "price": 12,
+      "description": "",
+      "image": ""
+    },
+    {
+      "name": "ВВГнг-LS 2х1.5 ГОСТ",
+      "category": "Кабель",
+      "brand": "Кабель-Стандарт",
+      "price": 65,
+      "description": "",
+      "image": ""
+    },
+    {
+      "name": "ВВГнг-LS 2х1.5 ТКЗ",
+      "category": "Кабель",
+      "brand": "Без бренда",
+      "price": 0,
+      "description": "",
+      "image": ""
+    },
+    {
+      "name": "ВВГнг-LS 2х1.5 ТУ",
+      "category": "Кабель",
+      "brand": "Без бренда",
+      "price": 0,
+      "description": "",
+      "image": ""
+    },
+    {
+      "name": "ВВГнг-LS 2х1.5 ЭКО",
+      "category": "Кабель",
+      "brand": "Без бренда",
+      "price": 0,
+      "description": "",
+      "image": ""
+    },
+    {
+      "name": "ВВГнг-LS 2х2.5 ТУ",
+      "category": "Кабель",
+      "brand": "Без бренда",
+      "price": 0,
+      "description": "",
+      "image": ""
+    },
+    {
+      "name": "ВВГнг-LS 2х2.5 ЭКО",
+      "category": "Кабель",
+      "brand": "Без бренда",
+      "price": 0,
+      "description": "",
+      "image": ""
+    },
+    {
+      "name": "ВВГнг-LS 3х1.5 ГОСТ",
+      "category": "Кабель",
+      "brand": "Кабель-Стандарт",
+      "price": 80,
+      "description": "",
+      "image": ""
+    },
+    {
+      "name": "ВВГнг-LS 3х1.5 Кабэкс",
+      "category": "Кабель",
+      "brand": "Без бренда",
+      "price": 0,
+      "description": "",
+      "image": ""
+    },
+    {
+      "name": "ВВГнг-LS 3х1.5 ТКЗ",
+      "category": "Кабель",
+      "brand": "Без бренда",
+      "price": 0,
+      "description": "",
+      "image": ""
+    },
+    {
+      "name": "ВВГнг-LS 3х1.5 ТУ",
+      "category": "Кабель",
+      "brand": "Без бренда",
+      "price": 0,
+      "description": "",
+      "image": ""
+    },
+    {
+      "name": "ВВГнг-LS 3х1.5 ЭКО",
+      "category": "Кабель",
+      "brand": "Без бренда",
+      "price": 0,
+      "description": "",
+      "image": ""
+    },
+    {
+      "name": "ВВГнг-LS 3х2.5 Кабэкс",
+      "category": "Кабель",
+      "brand": "Без бренда",
+      "price": 0,
+      "description": "",
+      "image": ""
+    },
+    {
+      "name": "ВВГнг-LS 3х2.5 ТКЗ",
+      "category": "Кабель",
+      "brand": "Без бренда",
+      "price": 0,
+      "description": "",
+      "image": ""
+    },
+    {
+      "name": "ВВГнг-LS 3х2.5 ТУ",
+      "category": "Кабель",
+      "brand": "Без бренда",
+      "price": 0,
+      "description": "",
+      "image": ""
+    },
+    {
+      "name": "ВВГнг-LS 3х2.5 ЭКО",
+      "category": "Кабель",
+      "brand": "Без бренда",
+      "price": 0,
+      "description": "",
+      "image": ""
+    },
+    {
+      "name": "ВВГнг-LS 3х4 ГОСТ",
+      "category": "Кабель",
+      "brand": "Кабель-Стандарт",
+      "price": 180,
+      "description": "",
+      "image": ""
+    },
+    {
+      "name": "ВВГнг-LS 4х1.5 ЭКО",
+      "category": "Кабель",
+      "brand": "Без бренда",
+      "price": 95,
+      "description": "",
+      "image": ""
+    },
+    {
+      "name": "ВВГнг-LS 5х1.5 ЭКО",
+      "category": "Кабель",
+      "brand": "Без бренда",
+      "price": 105,
+      "description": "",
+      "image": ""
+    },
+    {
+      "name": "гофра ПМД d20",
+      "category": "Гофра",
+      "brand": "DKC",
+      "price": 15,
+      "description": "",
+      "image": ""
+    },
+    {
+      "name": "гофра серая D16",
+      "category": "Гофра",
+      "brand": "DKC",
+      "price": 12,
+      "description": "",
+      "image": ""
+    },
+    {
+      "name": "Гофра серая ДКС D16",
+      "category": "Гофра",
+      "brand": "Гофра",
+      "price": 0,
+      "description": "",
+      "image": ""
+    },
+    {
+      "name": "ИЕК автомат. выкл. 1п 25А 4,5кА",
+      "category": "Автоматы",
+      "brand": "ИЕК",
+      "price": 0,
+      "description": "",
+      "image": ""
+    },
+    {
+      "name": "ПВС 2х1.5 ГОСТ",
+      "category": "Кабель",
+      "brand": "Без бренда",
+      "price": 0,
+      "description": "",
+      "image": ""
+    },
+    {
+      "name": "ПВС 2х1.5 ТУ",
+      "category": "Кабель",
+      "brand": "Без бренда",
+      "price": 0,
+      "description": "",
+      "image": ""
+    },
+    {
+      "name": "ПВС 2х2.5 ГОСТ",
+      "category": "Кабель",
+      "brand": "Без бренда",
+      "price": 0,
+      "description": "",
+      "image": ""
+    },
+    {
+      "name": "ПВС 3х1.5 ГОСТ",
+      "category": "Кабель",
+      "brand": "Без бренда",
+      "price": 0,
+      "description": "",
+      "image": ""
+    },
+    {
+      "name": "ПВС 3х2.5 ГОСТ",
+      "category": "Кабель",
+      "brand": "Без бренда",
+      "price": 0,
+      "description": "",
+      "image": ""
+    },
+    {
+      "name": "ПВС 3х2.5 ТУ",
+      "category": "Кабель",
+      "brand": "Без бренда",
+      "price": 0,
+      "description": "",
+      "image": ""
+    },
+    {
+      "name": "Подрозетник бетон 200шт",
+      "category": "Подрозетники",
+      "brand": "Без бренда",
+      "price": 8,
+      "description": "",
+      "image": ""
+    },
+    {
+      "name": "ПУГНП 2х1.5 ГОСТ",
+      "category": "Кабель",
+      "brand": "Без бренда",
+      "price": 45,
+      "description": "",
+      "image": ""
+    },
+    {
+      "name": "ПУГНП 2х1.5 ТУ",
+      "category": "Кабель",
+      "brand": "Без бренда",
+      "price": 28,
+      "description": "",
+      "image": ""
+    },
+    {
+      "name": "ПУГНП 2х2.5 ГОСТ",
+      "category": "Кабель",
+      "brand": "Без бренда",
+      "price": 65,
+      "description": "",
+      "image": ""
+    },
+    {
+      "name": "ПУГНП 2х2.5 ТУ",
+      "category": "Кабель",
+      "brand": "Без бренда",
+      "price": 45,
+      "description": "",
+      "image": ""
+    },
+    {
+      "name": "ПУГНП 3х1.5 ГОСТ",
+      "category": "Кабель",
+      "brand": "Без бренда",
+      "price": 63,
+      "description": "",
+      "image": ""
+    },
+    {
+      "name": "ПУГНП 3х2.5 ГОСТ",
+      "category": "Кабель",
+      "brand": "Без бренда",
+      "price": 95,
+      "description": "",
+      "image": ""
+    },
+    {
+      "name": "ШВВП 2х0.75 ТУ",
+      "category": "Кабель",
+      "brand": "Без бренда",
+      "price": 16,
+      "description": "",
+      "image": ""
+    },
+    {
+      "name": "ШВВП 3х0.75 ту",
+      "category": "Кабель",
+      "brand": "Без бренда",
+      "price": 23,
+      "description": "",
+      "image": ""
+    },
+    {
+      "name": "Экола GX53 белый",
+      "category": "Светильники",
+      "brand": "Ecola",
+      "price": 60,
+      "description": "",
+      "image": ""
+    },
+    {
+      "name": "Экола GX53 сатин",
+      "category": "Светильники",
+      "brand": "Экола",
+      "price": 60,
+      "description": "",
+      "image": ""
+    },
+    {
+      "name": "Экола GX53 хром",
+      "category": "Светильники",
+      "brand": "Экола",
+      "price": 60,
+      "description": "",
+      "image": ""
+    },
+    {
+      "name": "Экола GX53 черный матовый",
+      "category": "Светильники",
+      "brand": "Экола",
+      "price": 60,
+      "description": "",
+      "image": ""
+    },
+    {
+      "name": "ИЕК автомат. выкл. 1п 1А 4.5кА",
+      "category": "Автоматы",
+      "brand": "ИЕК",
+      "price": 120,
+      "description": "",
+      "image": ""
+    },
+    {
+      "name": "ИЕК автомат. выкл. 1п 2А 4.5кА",
+      "category": "Автоматы",
+      "brand": "ИЕК",
+      "price": 120,
+      "description": "",
+      "image": ""
+    },
+    {
+      "name": "ИЕК автомат. выкл. 1п 3А 4.5кА",
+      "category": "Автоматы",
+      "brand": "ИЕК",
+      "price": 125,
+      "description": "",
+      "image": ""
+    },
+    {
+      "name": "ИЕК автомат. выкл. 1п 4А 4.5кА",
+      "category": "Автоматы",
+      "brand": "ИЕК",
+      "price": 125,
+      "description": "",
+      "image": ""
+    },
+    {
+      "name": "ИЕК автомат. выкл. 1п 5А 4.5кА",
+      "category": "Автоматы",
+      "brand": "ИЕК",
+      "price": 130,
+      "description": "",
+      "image": ""
+    },
+    {
+      "name": "ИЕК автомат. выкл. 1п 6А 4.5кА",
+      "category": "Автоматы",
+      "brand": "ИЕК",
+      "price": 130,
+      "description": "",
+      "image": ""
+    },
+    {
+      "name": "ИЕК автомат. выкл. 1п 8А 4.5кА",
+      "category": "Автоматы",
+      "brand": "ИЕК",
+      "price": 135,
+      "description": "",
+      "image": ""
+    },
+    {
+      "name": "ИЕК автомат. выкл. 1п 10А 4.5кА",
+      "category": "Автоматы",
+      "brand": "ИЕК",
+      "price": 135,
+      "description": "",
+      "image": ""
+    },
+    {
+      "name": "ИЕК автомат. выкл. 1п 13А 4.5кА",
+      "category": "Автоматы",
+      "brand": "ИЕК",
+      "price": 140,
+      "description": "",
+      "image": ""
+    },
+    {
+      "name": "ИЕК автомат. выкл. 1п 16А 4.5кА",
+      "category": "Автоматы",
+      "brand": "ИЕК",
+      "price": 140,
+      "description": "",
+      "image": ""
+    },
+    {
+      "name": "ИЕК автомат. выкл. 1п 20А 4.5кА",
+      "category": "Автоматы",
+      "brand": "ИЕК",
+      "price": 145,
+      "description": "",
+      "image": ""
+    },
+    {
+      "name": "ИЕК автомат. выкл. 1п 25А 4.5кА",
+      "category": "Автоматы",
+      "brand": "ИЕК",
+      "price": 150,
+      "description": "",
+      "image": ""
+    },
+    {
+      "name": "ИЕК автомат. выкл. 1п 32А 4.5кА",
+      "category": "Автоматы",
+      "brand": "ИЕК",
+      "price": 155,
+      "description": "",
+      "image": ""
+    },
+    {
+      "name": "ИЕК автомат. выкл. 1п 40А 4.5кА",
+      "category": "Автоматы",
+      "brand": "ИЕК",
+      "price": 165,
+      "description": "",
+      "image": ""
+    },
+    {
+      "name": "ИЕК автомат. выкл. 1п 50А 4.5кА",
+      "category": "Автоматы",
+      "brand": "ИЕК",
+      "price": 175,
+      "description": "",
+      "image": ""
+    },
+    {
+      "name": "ИЕК автомат. выкл. 1п 63А 4.5кА",
+      "category": "Автоматы",
+      "brand": "ИЕК",
+      "price": 185,
+      "description": "",
+      "image": ""
+    },
+    {
+      "name": "ИЕК автомат. выкл. 2п 6А 4.5кА",
+      "category": "Автоматы",
+      "brand": "ИЕК",
+      "price": 260,
+      "description": "",
+      "image": ""
+    },
+    {
+      "name": "ИЕК автомат. выкл. 2п 10А 4.5кА",
+      "category": "Автоматы",
+      "brand": "ИЕК",
+      "price": 270,
+      "description": "",
+      "image": ""
+    },
+    {
+      "name": "ИЕК автомат. выкл. 2п 16А 4.5кА",
+      "category": "Автоматы",
+      "brand": "ИЕК",
+      "price": 280,
+      "description": "",
+      "image": ""
+    },
+    {
+      "name": "ИЕК автомат. выкл. 2п 20А 4.5кА",
+      "category": "Автоматы",
+      "brand": "ИЕК",
+      "price": 285,
+      "description": "",
+      "image": ""
+    },
+    {
+      "name": "ИЕК автомат. выкл. 2п 25А 4.5кА",
+      "category": "Автоматы",
+      "brand": "ИЕК",
+      "price": 290,
+      "description": "",
+      "image": ""
+    },
+    {
+      "name": "ИЕК автомат. выкл. 2п 32А 4.5кА",
+      "category": "Автоматы",
+      "brand": "ИЕК",
+      "price": 300,
+      "description": "",
+      "image": ""
+    },
+    {
+      "name": "ИЕК автомат. выкл. 2п 40А 4.5кА",
+      "category": "Автоматы",
+      "brand": "ИЕК",
+      "price": 320,
+      "description": "",
+      "image": ""
+    },
+    {
+      "name": "ИЕК автомат. выкл. 2п 50А 4.5кА",
+      "category": "Автоматы",
+      "brand": "ИЕК",
+      "price": 350,
+      "description": "",
+      "image": ""
+    },
+    {
+      "name": "ИЕК автомат. выкл. 2п 63А 4.5кА",
+      "category": "Автоматы",
+      "brand": "ИЕК",
+      "price": 380,
+      "description": "",
+      "image": ""
+    },
+    {
+      "name": "ИЕК автомат. выкл. 3п 6А 4.5кА",
+      "category": "Автоматы",
+      "brand": "ИЕК",
+      "price": 390,
+      "description": "",
+      "image": ""
+    },
+    {
+      "name": "ИЕК автомат. выкл. 3п 10А 4.5кА",
+      "category": "Автоматы",
+      "brand": "ИЕК",
+      "price": 395,
+      "description": "",
+      "image": ""
+    },
+    {
+      "name": "ИЕК автомат. выкл. 3п 16А 4.5кА",
+      "category": "Автоматы",
+      "brand": "ИЕК",
+      "price": 420,
+      "description": "",
+      "image": ""
+    },
+    {
+      "name": "ИЕК автомат. выкл. 3п 20А 4.5кА",
+      "category": "Автоматы",
+      "brand": "ИЕК",
+      "price": 425,
+      "description": "",
+      "image": ""
+    },
+    {
+      "name": "ИЕК автомат. выкл. 3п 25А 4.5кА",
+      "category": "Автоматы",
+      "brand": "ИЕК",
+      "price": 430,
+      "description": "",
+      "image": ""
+    },
+    {
+      "name": "ИЕК автомат. выкл. 3п 32А 4.5кА",
+      "category": "Автоматы",
+      "brand": "ИЕК",
+      "price": 450,
+      "description": "",
+      "image": ""
+    },
+    {
+      "name": "ИЕК автомат. выкл. 3п 40А 4.5кА",
+      "category": "Автоматы",
+      "brand": "ИЕК",
+      "price": 480,
+      "description": "",
+      "image": ""
+    },
+    {
+      "name": "ИЕК автомат. выкл. 3п 50А 4.5кА",
+      "category": "Автоматы",
+      "brand": "ИЕК",
+      "price": 520,
+      "description": "",
+      "image": ""
+    },
+    {
+      "name": "ИЕК автомат. выкл. 3п 63А 4.5кА",
+      "category": "Автоматы",
+      "brand": "ИЕК",
+      "price": 550,
+      "description": "",
+      "image": ""
+    },
+    {
+      "name": "ИЕК автомат. выкл. 4п 6А 4.5кА",
+      "category": "Автоматы",
+      "brand": "ИЕК",
+      "price": 520,
+      "description": "",
+      "image": ""
+    },
+    {
+      "name": "ИЕК автомат. выкл. 4п 10А 4.5кА",
+      "category": "Автоматы",
+      "brand": "ИЕК",
+      "price": 530,
+      "description": "",
+      "image": ""
+    },
+    {
+      "name": "ИЕК автомат. выкл. 4п 16А 4.5кА",
+      "category": "Автоматы",
+      "brand": "ИЕК",
+      "price": 550,
+      "description": "",
+      "image": ""
+    },
+    {
+      "name": "ИЕК автомат. выкл. 4п 20А 4.5кА",
+      "category": "Автоматы",
+      "brand": "ИЕК",
+      "price": 560,
+      "description": "",
+      "image": ""
+    },
+    {
+      "name": "ИЕК автомат. выкл. 4п 25А 4.5кА",
+      "category": "Автоматы",
+      "brand": "ИЕК",
+      "price": 580,
+      "description": "",
+      "image": ""
+    },
+    {
+      "name": "ИЕК автомат. выкл. 4п 32А 4.5кА",
+      "category": "Автоматы",
+      "brand": "ИЕК",
+      "price": 600,
+      "description": "",
+      "image": ""
+    },
+    {
+      "name": "ИЕК автомат. выкл. 4п 40А 4.5кА",
+      "category": "Автоматы",
+      "brand": "ИЕК",
+      "price": 650,
+      "description": "",
+      "image": ""
+    },
+    {
+      "name": "ИЕК автомат. выкл. 4п 50А 4.5кА",
+      "category": "Автоматы",
+      "brand": "ИЕК",
+      "price": 700,
+      "description": "",
+      "image": ""
+    },
+    {
+      "name": "ИЕК автомат. выкл. 4п 63А 4.5кА",
+      "category": "Автоматы",
+      "brand": "ИЕК",
+      "price": 750,
+      "description": "",
+      "image": ""
+    },
+    {
+      "name": "ИЕК УЗО 2п 16А 30мА",
+      "category": "УЗО",
+      "brand": "ИЕК",
+      "price": 1100,
+      "description": "",
+      "image": ""
+    },
+    {
+      "name": "ИЕК УЗО 2п 25А 30мА",
+      "category": "УЗО",
+      "brand": "ИЕК",
+      "price": 1150,
+      "description": "",
+      "image": ""
+    },
+    {
+      "name": "ИЕК УЗО 2п 32А 30мА",
+      "category": "УЗО",
+      "brand": "ИЕК",
+      "price": 1180,
+      "description": "",
+      "image": ""
+    },
+    {
+      "name": "ИЕК УЗО 2п 40А 30мА",
+      "category": "УЗО",
+      "brand": "ИЕК",
+      "price": 1200,
+      "description": "",
+      "image": ""
+    },
+    {
+      "name": "ИЕК УЗО 2п 63А 30мА",
+      "category": "УЗО",
+      "brand": "ИЕК",
+      "price": 1400,
+      "description": "",
+      "image": ""
+    },
+    {
+      "name": "ИЕК УЗО 4п 16А 30мА",
+      "category": "УЗО",
+      "brand": "ИЕК",
+      "price": 1700,
+      "description": "",
+      "image": ""
+    },
+    {
+      "name": "ИЕК УЗО 4п 25А 30мА",
+      "category": "УЗО",
+      "brand": "ИЕК",
+      "price": 1750,
+      "description": "",
+      "image": ""
+    },
+    {
+      "name": "ИЕК УЗО 4п 32А 30мА",
+      "category": "УЗО",
+      "brand": "ИЕК",
+      "price": 1780,
+      "description": "",
+      "image": ""
+    },
+    {
+      "name": "ИЕК УЗО 4п 40А 30мА",
+      "category": "УЗО",
+      "brand": "ИЕК",
+      "price": 1800,
+      "description": "",
+      "image": ""
+    },
+    {
+      "name": "ИЕК УЗО 4п 63А 30мА",
+      "category": "УЗО",
+      "brand": "ИЕК",
+      "price": 2100,
+      "description": "",
+      "image": ""
+    },
+    {
+      "name": "ИЕК диф. автомат. 2п 16А 30мА",
+      "category": "Дифавтоматы",
+      "brand": "ИЕК",
+      "price": 1900,
+      "description": "",
+      "image": ""
+    },
+    {
+      "name": "ИЕК диф. автомат. 2п 20А 30мА",
+      "category": "Дифавтоматы",
+      "brand": "ИЕК",
+      "price": 1950,
+      "description": "",
+      "image": ""
+    },
+    {
+      "name": "ИЕК диф. автомат. 2п 25А 30мА",
+      "category": "Дифавтоматы",
+      "brand": "ИЕК",
+      "price": 2000,
+      "description": "",
+      "image": ""
+    },
+    {
+      "name": "ИЕК диф. автомат. 2п 32А 30мА",
+      "category": "Дифавтоматы",
+      "brand": "ИЕК",
+      "price": 2100,
+      "description": "",
+      "image": ""
+    },
+    {
+      "name": "ИЕК диф. автомат. 2п 40А 30мА",
+      "category": "Дифавтоматы",
+      "brand": "ИЕК",
+      "price": 2200,
+      "description": "",
+      "image": ""
+    },
+    {
+      "name": "ИЕК диф. автомат. 4п 16А 30мА",
+      "category": "Дифавтоматы",
+      "brand": "ИЕК",
+      "price": 3200,
+      "description": "",
+      "image": ""
+    },
+    {
+      "name": "ИЕК диф. автомат. 4п 25А 30мА",
+      "category": "Дифавтоматы",
+      "brand": "ИЕК",
+      "price": 3400,
+      "description": "",
+      "image": ""
+    },
+    {
+      "name": "ИЕК диф. автомат. 4п 32А 30мА",
+      "category": "Дифавтоматы",
+      "brand": "ИЕК",
+      "price": 3600,
+      "description": "",
+      "image": ""
+    },
+    {
+      "name": "ИЕК диф. автомат. 4п 40А 30мА",
+      "category": "Дифавтоматы",
+      "brand": "ИЕК",
+      "price": 3800,
+      "description": "",
+      "image": ""
+    },
+    {
+      "name": "ИЕК диф. автомат. 4п 63А 30мА",
+      "category": "Дифавтоматы",
+      "brand": "ИЕК",
+      "price": 4200,
+      "description": "",
+      "image": ""
+    },
+    {
+      "name": "ИЕК контактор КМИ-10910 9А 220В",
+      "category": "Контакторы",
+      "brand": "ИЕК",
+      "price": 650,
+      "description": "",
+      "image": ""
+    },
+    {
+      "name": "ИЕК контактор КМИ-11110 11А 220В",
+      "category": "Контакторы",
+      "brand": "ИЕК",
+      "price": 700,
+      "description": "",
+      "image": ""
+    },
+    {
+      "name": "ИЕК контактор КМИ-11210 12А 220В",
+      "category": "Контакторы",
+      "brand": "ИЕК",
+      "price": 750,
+      "description": "",
+      "image": ""
+    },
+    {
+      "name": "ИЕК контактор КМИ-11510 15А 220В",
+      "category": "Контакторы",
+      "brand": "ИЕК",
+      "price": 850,
+      "description": "",
+      "image": ""
+    },
+    {
+      "name": "ИЕК контактор КМИ-11810 18А 220В",
+      "category": "Контакторы",
+      "brand": "ИЕК",
+      "price": 950,
+      "description": "",
+      "image": ""
+    },
+    {
+      "name": "ИЕК контактор КМИ-12010 20А 220В",
+      "category": "Контакторы",
+      "brand": "ИЕК",
+      "price": 1050,
+      "description": "",
+      "image": ""
+    },
+    {
+      "name": "ИЕК контактор КМИ-12510 25А 220В",
+      "category": "Контакторы",
+      "brand": "ИЕК",
+      "price": 1200,
+      "description": "",
+      "image": ""
+    },
+    {
+      "name": "ИЕК контактор КМИ-13210 32А 220В",
+      "category": "Контакторы",
+      "brand": "ИЕК",
+      "price": 1400,
+      "description": "",
+      "image": ""
+    },
+    {
+      "name": "ИЕК контактор КМИ-14010 40А 220В",
+      "category": "Контакторы",
+      "brand": "ИЕК",
+      "price": 1600,
+      "description": "",
+      "image": ""
+    },
+    {
+      "name": "ИЕК контактор КМИ-15010 50А 220В",
+      "category": "Контакторы",
+      "brand": "ИЕК",
+      "price": 1900,
+      "description": "",
+      "image": ""
+    },
+    {
+      "name": "ИЕК щит ЩРН-12 IP31",
+      "category": "Щиты",
+      "brand": "ИЕК",
+      "price": 950,
+      "description": "",
+      "image": ""
+    },
+    {
+      "name": "ИЕК щит ЩРН-24 IP31",
+      "category": "Щиты",
+      "brand": "ИЕК",
+      "price": 1400,
+      "description": "",
+      "image": ""
+    },
+    {
+      "name": "ИЕК щит ЩРН-36 IP31",
+      "category": "Щиты",
+      "brand": "ИЕК",
+      "price": 1900,
+      "description": "",
+      "image": ""
+    },
+    {
+      "name": "ИЕК щит ЩРН-48 IP31",
+      "category": "Щиты",
+      "brand": "ИЕК",
+      "price": 2400,
+      "description": "",
+      "image": ""
+    },
+    {
+      "name": "ИЕК щит ЩРВ-12 IP31",
+      "category": "Щиты",
+      "brand": "ИЕК",
+      "price": 1100,
+      "description": "",
+      "image": ""
+    },
+    {
+      "name": "ИЕК щит ЩРВ-24 IP31",
+      "category": "Щиты",
+      "brand": "ИЕК",
+      "price": 1600,
+      "description": "",
+      "image": ""
+    },
+    {
+      "name": "ИЕК розетка РС16-227 белая",
+      "category": "Розетки",
+      "brand": "ИЕК",
+      "price": 90,
+      "description": "",
+      "image": ""
+    },
+    {
+      "name": "ИЕК розетка РС16-228 без з/к",
+      "category": "Розетки",
+      "brand": "ИЕК",
+      "price": 80,
+      "description": "",
+      "image": ""
+    },
+    {
+      "name": "ИЕК розетка 2-местная с з/к белая",
+      "category": "Розетки",
+      "brand": "ИЕК",
+      "price": 160,
+      "description": "",
+      "image": ""
+    },
+    {
+      "name": "ИЕК выключатель 1к ВС10-1-8",
+      "category": "Выключатели",
+      "brand": "ИЕК",
+      "price": 85,
+      "description": "",
+      "image": ""
+    },
+    {
+      "name": "ИЕК выключатель 2к ВС10-2-8",
+      "category": "Выключатели",
+      "brand": "ИЕК",
+      "price": 110,
+      "description": "",
+      "image": ""
+    },
+    {
+      "name": "ИЕК выключатель 3к ВС10-3-8",
+      "category": "Выключатели",
+      "brand": "ИЕК",
+      "price": 140,
+      "description": "",
+      "image": ""
+    },
+    {
+      "name": "Систем Электрик автомат. выкл. 1п 16А 6кА",
+      "category": "Автоматы",
+      "brand": "Систем Электрик",
+      "price": 380,
+      "description": "",
+      "image": ""
+    },
+    {
+      "name": "Систем Электрик автомат. выкл. 1п 25А 6кА",
+      "category": "Автоматы",
+      "brand": "Систем Электрик",
+      "price": 390,
+      "description": "",
+      "image": ""
+    },
+    {
+      "name": "Систем Электрик автомат. выкл. 2п 16А 6кА",
+      "category": "Автоматы",
+      "brand": "Систем Электрик",
+      "price": 750,
+      "description": "",
+      "image": ""
+    },
+    {
+      "name": "Систем Электрик автомат. выкл. 2п 25А 6кА",
+      "category": "Автоматы",
+      "brand": "Систем Электрик",
+      "price": 780,
+      "description": "",
+      "image": ""
+    },
+    {
+      "name": "Систем Электрик автомат. выкл. 3п 16А 6кА",
+      "category": "Автоматы",
+      "brand": "Систем Электрик",
+      "price": 1100,
+      "description": "",
+      "image": ""
+    },
+    {
+      "name": "Систем Электрик автомат. выкл. 3п 25А 6кА",
+      "category": "Автоматы",
+      "brand": "Систем Электрик",
+      "price": 1150,
+      "description": "",
+      "image": ""
+    },
+    {
+      "name": "Систем Электрик автомат. выкл. 3п 32А 6кА",
+      "category": "Автоматы",
+      "brand": "Систем Электрик",
+      "price": 1200,
+      "description": "",
+      "image": ""
+    },
+    {
+      "name": "ВВГнг-LS 3х2.5 ГОСТ",
+      "category": "Кабель",
+      "brand": "Кабель-Стандарт",
+      "price": 120,
+      "description": "",
+      "image": ""
+    },
+    {
+      "name": "ВВГнг-LS 3х6 ГОСТ",
+      "category": "Кабель",
+      "brand": "Кабель-Стандарт",
+      "price": 250,
+      "description": "",
+      "image": ""
+    }
   ]
 }
