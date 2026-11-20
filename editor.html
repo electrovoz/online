@@ -13,6 +13,7 @@ h1{color:var(--accent);font-size:24px;margin-bottom:10px}
 p{font-size:14px;color:var(--muted);margin-bottom:20px;line-height:1.5}
 .box{background:var(--panel);padding:20px;border-radius:10px;border:1px solid var(--border);margin-bottom:20px;box-shadow:0 4px 12px rgba(0,60,45,.05)}
 .box h2{font-size:16px;margin-bottom:12px;color:var(--accent);font-weight:normal}
+.status{font-size:13px;color:var(--ok);font-weight:bold;margin-top:5px;display:none}
 input[type="file"]{display:block;margin-bottom:10px;font-size:14px}
 input[type="search"]{width:100%;padding:10px;border:1px solid #b8d9cd;border-radius:6px;font-size:14px;margin-bottom:15px;box-sizing:border-box}
 table{width:100%;border-collapse:collapse;background:var(--panel);font-size:13px;margin-top:10px}
@@ -29,16 +30,18 @@ button:active{transform:translateY(2px);box-shadow:0 2px 0 #085a4d}
 <body>
 
 <h1>⚡ Редактор цен и каталога</h1>
-<p>1. Загрузите Excel с остатками.<br>2. (Опционально) Загрузите старый catalog.json, чтобы подтянуть описания и картинки.<br>3. Впишите цены и нажмите «Скачать catalog.json».</p>
+<p>1. Загрузите Excel с остатками.<br>2. Загрузите старый catalog.json (чтобы подтянуть цены, картинки и описания).<br>3. Проверьте цены и нажмите «Скачать catalog.json».</p>
 
 <div class="box">
   <h2>1. Загрузите файл «Остатки товаров.xlsx»</h2>
   <input type="file" id="excelFile" accept=".xlsx, .xls">
+  <div class="status" id="excelStatus">✅ Excel загружен</div>
 </div>
 
 <div class="box">
-  <h2>2. Загрузите старый catalog.json (если есть)</h2>
+  <h2>2. Загрузите старый catalog.json</h2>
   <input type="file" id="jsonFile" accept=".json">
+  <div class="status" id="jsonStatus">✅ JSON загружен</div>
 </div>
 
 <div id="tableContainer" style="display:none">
@@ -63,9 +66,20 @@ button:active{transform:translateY(2px);box-shadow:0 2px 0 #085a4d}
 </div>
 
 <script>
-var items = [];
+var excelItems = [];
+var jsonItems = [];
+var mergedItems = [];
 
-// --- Вспомогательные функции (как в index.html) ---
+// Функция нормализации (как на сайте)
+function norm(s){ 
+  var str = String(s||'').toLowerCase().replace(/ё/g,'е').trim();
+  str = str.replace(/[a-z]/g, function(c) {
+    var map = { 'a':'а', 'b':'в', 'c':'с', 'e':'е', 'h':'н', 'i':'и', 'k':'к', 'm':'м', 'o':'о', 'p':'р', 't':'т', 'x':'х', 'y':'у' };
+    return map[c] || c;
+  });
+  return str.replace(/[^a-zа-я0-9.]/g,'').replace(/\.+/g,'.').trim();
+}
+
 function guessCategory(name) {
   var n = String(name).toLowerCase();
   if (n.includes('кабель') || n.includes('ввг') || n.includes('провод') || n.includes('пвс') || n.includes('пугнп') || n.includes('шввп')) return 'Кабель';
@@ -81,7 +95,7 @@ function guessCategory(name) {
 }
 
 function guessBrand(name, cat) {
-  if (cat === 'Кабель') return 'Без бренда'; // Кабели не имеют бренда в списке
+  if (cat === 'Кабель') return 'Без бренда';
   var w = String(name).trim().split(/\s+/)[0] || '';
   return w ? w : 'Без бренда';
 }
@@ -98,39 +112,35 @@ document.getElementById('excelFile').addEventListener('change', function(e) {
     var rows = XLSX.utils.sheet_to_json(sheet, {header: 1, defval: '', raw: true});
     
     var nameCol = 0, startRow = 0;
-    // Умный поиск заголовков
     for (var i = 0; i < rows.length; i++) {
       var rowText = rows[i].map(function(c){return String(c).toLowerCase()}).join(' ');
       if (rowText.includes('товар/услуга') || rowText.includes('товар')) {
-        nameCol = 0; 
-        startRow = i + 1; 
-        break;
+        nameCol = 0; startRow = i + 1; break;
       }
     }
     
-    items = [];
+    excelItems = [];
     for (var i = startRow; i < rows.length; i++) {
       var name = String(rows[i][nameCol]).trim();
       if (!name || name.toLowerCase().includes('итого')) continue;
       
       var cat = guessCategory(name);
-      var brand = guessBrand(name, cat);
-
-      items.push({ 
+      excelItems.push({ 
         name: name, 
-        brand: brand, 
+        brand: guessBrand(name, cat), 
         category: cat, 
         price: 0,
         description: '',
         image: ''
       });
     }
-    renderTable();
+    document.getElementById('excelStatus').style.display = 'block';
+    mergeData();
   };
   reader.readAsArrayBuffer(file);
 });
 
-// 2. Чтение старого JSON (подтягиваем картинки, описания)
+// 2. Чтение JSON
 document.getElementById('jsonFile').addEventListener('change', function(e) {
   var file = e.target.files[0];
   if (!file) return;
@@ -138,68 +148,87 @@ document.getElementById('jsonFile').addEventListener('change', function(e) {
   reader.onload = function(e) {
     try {
       var data = JSON.parse(e.target.result);
-      var prods = Array.isArray(data) ? data : (data.products || []);
-      
-      prods.forEach(function(p) {
-        var found = items.find(function(x){ return x.name.trim().toLowerCase() === p.name.trim().toLowerCase(); });
-        if (found) {
-          found.price = p.price || found.price;
-          found.brand = p.brand || found.brand;
-          found.category = p.category || found.category;
-          found.description = p.description || '';
-          found.image = p.image || '';
-        } else {
-          // Если товара нет в Excel (например, он закончился), добавляем его в конец с остатком 0
-          items.push({ 
-            name: p.name, 
-            brand: p.brand || 'Без бренда', 
-            category: p.category || 'Разное', 
-            price: p.price || 0,
-            description: p.description || '',
-            image: p.image || ''
-          });
-        }
-      });
-      renderTable();
+      jsonItems = Array.isArray(data) ? data : (data.products || []);
+      document.getElementById('jsonStatus').style.display = 'block';
+      mergeData();
     } catch(err) { alert('Ошибка чтения JSON: ' + err.message); }
   };
   reader.readAsText(file);
 });
 
-// 3. Отрисовка таблицы с поиском
+// 3. Слияние данных (главная магия)
+function mergeData() {
+  mergedItems = [];
+  var jsonMap = {};
+  
+  // Складываем JSON в карту по нормализованному имени
+  jsonItems.forEach(function(p) {
+    jsonMap[norm(p.name)] = p;
+  });
+
+  // 1. Проходим по Excel (это наши актуальные остатки)
+  excelItems.forEach(function(ex) {
+    var key = norm(ex.name);
+    var js = jsonMap[key];
+    
+    if (js) {
+      // Если нашли в JSON — берем оттуда цену, картинку и описание
+      mergedItems.push({
+        name: ex.name, // Название оставляем из Excel
+        brand: js.brand || ex.brand,
+        category: js.category || ex.category,
+        price: js.price || 0,
+        description: js.description || '',
+        image: js.image || ''
+      });
+      delete jsonMap[key]; // Удаляем из карты, чтобы потом не задублировать
+    } else {
+      // Если в JSON нет (новый товар) — оставляем как есть, цена 0
+      mergedItems.push(ex);
+    }
+  });
+
+  // 2. Добавляем товары, которые были в JSON, но пропали из Excel (например, закончились)
+  for (var key in jsonMap) {
+    mergedItems.push(jsonMap[key]);
+  }
+
+  renderTable();
+}
+
+// 4. Отрисовка таблицы
 function renderTable() {
   var container = document.getElementById('tableContainer');
   var tbody = document.querySelector('#itemsTable tbody');
   var search = document.getElementById('searchInput').value.toLowerCase().trim();
   
+  if (!mergedItems.length) return;
   container.style.display = 'block';
   tbody.innerHTML = '';
   
-  var filtered = items.filter(function(item) {
+  var filtered = mergedItems.filter(function(item) {
     if (!search) return true;
     return item.name.toLowerCase().includes(search) || 
-           item.brand.toLowerCase().includes(search) || 
-           item.category.toLowerCase().includes(search);
+           (item.brand||'').toLowerCase().includes(search) || 
+           (item.category||'').toLowerCase().includes(search);
   });
 
-  document.getElementById('statsText').textContent = 'Показано: ' + filtered.length + ' из ' + items.length;
+  document.getElementById('statsText').textContent = 'Показано: ' + filtered.length + ' из ' + mergedItems.length;
 
   filtered.forEach(function(item) {
-    // Ищем реальный индекс в массиве items, чтобы изменения применялись к нему, а не к копии
-    var realIdx = items.indexOf(item);
+    var realIdx = mergedItems.indexOf(item);
     var tr = document.createElement('tr');
     tr.innerHTML = '<td>' + item.name + '</td>' +
-      '<td><input type="text" value="' + item.brand + '" onchange="items['+realIdx+'].brand=this.value"></td>' +
-      '<td><input type="text" value="' + item.category + '" onchange="items['+realIdx+'].category=this.value"></td>' +
-      '<td><input type="number" value="' + (item.price || '') + '" onchange="items['+realIdx+'].price=parseFloat(this.value)||0" placeholder="0"></td>';
+      '<td><input type="text" value="' + (item.brand||'') + '" onchange="mergedItems['+realIdx+'].brand=this.value"></td>' +
+      '<td><input type="text" value="' + (item.category||'') + '" onchange="mergedItems['+realIdx+'].category=this.value"></td>' +
+      '<td><input type="number" value="' + (item.price || '') + '" onchange="mergedItems['+realIdx+'].price=parseFloat(this.value)||0" placeholder="0"></td>';
     tbody.appendChild(tr);
   });
 }
 
-// 4. Генерация и скачивание JSON
+// 5. Скачивание JSON
 function downloadJSON() {
-  // Очищаем пустые цены, чтобы на сайте было "По запросу", а не "0 ₽"
-  var cleanItems = items.map(function(x) {
+  var cleanItems = mergedItems.map(function(x) {
     return {
       name: x.name,
       category: x.category,
