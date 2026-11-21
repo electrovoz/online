@@ -1,14 +1,6 @@
 {
   "products": [
     {
-      "name": "Товар/услуга",
-      "category": "Разное",
-      "brand": "Товар/услуга",
-      "price": 0,
-      "description": "",
-      "image": ""
-    },
-    {
       "name": "Legrand розеика 1м+з белая",
       "category": "Розетки",
       "brand": "Legrand",
@@ -51,48 +43,48 @@
     {
       "name": "Ваго 221-412 (2 прозрачные)",
       "category": "Клеммы",
-      "brand": "Ваго",
-      "price": 0,
+      "brand": "WAGO",
+      "price": 20,
       "description": "",
       "image": ""
     },
     {
       "name": "Ваго 221-413 (3 прозрачные)",
       "category": "Клеммы",
-      "brand": "Ваго",
-      "price": 0,
+      "brand": "WAGO",
+      "price": 22,
       "description": "",
       "image": ""
     },
     {
-      "name": "Ваго 221-415 (5 прозрачные)",
+      "name": "ваго 221-415 (5 прозрвчные)",
       "category": "Клеммы",
-      "brand": "Ваго",
-      "price": 0,
+      "brand": "WAGO",
+      "price": 25,
       "description": "",
       "image": ""
     },
     {
       "name": "Ваго 222-412 (2 серые)",
       "category": "Клеммы",
-      "brand": "Ваго",
-      "price": 0,
+      "brand": "WAGO",
+      "price": 18,
       "description": "",
       "image": ""
     },
     {
       "name": "Ваго 222-413 (3 серые)",
       "category": "Клеммы",
-      "brand": "Ваго",
-      "price": 0,
+      "brand": "WAGO",
+      "price": 20,
       "description": "",
       "image": ""
     },
     {
       "name": "Ваго 222-415 (5 серые)",
       "category": "Клеммы",
-      "brand": "Ваго",
-      "price": 0,
+      "brand": "WAGO",
+      "price": 25,
       "description": "",
       "image": ""
     },
@@ -107,7 +99,7 @@
     {
       "name": "ВВГнг-LS 2х1.5 ГОСТ",
       "category": "Кабель",
-      "brand": "Кабель-Стандарт",
+      "brand": "Без бренда",
       "price": 65,
       "description": "",
       "image": ""
@@ -116,7 +108,7 @@
       "name": "ВВГнг-LS 2х1.5 ТКЗ",
       "category": "Кабель",
       "brand": "Без бренда",
-      "price": 0,
+      "price": 48,
       "description": "",
       "image": ""
     },
@@ -124,7 +116,7 @@
       "name": "ВВГнг-LS 2х1.5 ТУ",
       "category": "Кабель",
       "brand": "Без бренда",
-      "price": 0,
+      "price": 30,
       "description": "",
       "image": ""
     },
@@ -132,7 +124,7 @@
       "name": "ВВГнг-LS 2х1.5 ЭКО",
       "category": "Кабель",
       "brand": "Без бренда",
-      "price": 0,
+      "price": 36,
       "description": "",
       "image": ""
     },
@@ -140,7 +132,7 @@
       "name": "ВВГнг-LS 2х2.5 ТУ",
       "category": "Кабель",
       "brand": "Без бренда",
-      "price": 0,
+      "price": 45,
       "description": "",
       "image": ""
     },
@@ -148,15 +140,15 @@
       "name": "ВВГнг-LS 2х2.5 ЭКО",
       "category": "Кабель",
       "brand": "Без бренда",
-      "price": 0,
+      "price": 59,
       "description": "",
       "image": ""
     },
     {
       "name": "ВВГнг-LS 3х1.5 ГОСТ",
       "category": "Кабель",
-      "brand": "Кабель-Стандарт",
-      "price": 80,
+      "brand": "Без бренда",
+      "price": 71,
       "description": "",
       "image": ""
     },
@@ -164,7 +156,7 @@
       "name": "ВВГнг-LS 3х1.5 Кабэкс",
       "category": "Кабель",
       "brand": "Без бренда",
-      "price": 0,
+      "price": 69,
       "description": "",
       "image": ""
     },
@@ -172,7 +164,7 @@
       "name": "ВВГнг-LS 3х1.5 ТКЗ",
       "category": "Кабель",
       "brand": "Без бренда",
-      "price": 0,
+      "price": 70,
       "description": "",
       "image": ""
     },
@@ -180,7 +172,7 @@
       "name": "ВВГнг-LS 3х1.5 ТУ",
       "category": "Кабель",
       "brand": "Без бренда",
-      "price": 0,
+      "price": 43,
       "description": "",
       "image": ""
     },
@@ -188,7 +180,7 @@
       "name": "ВВГнг-LS 3х1.5 ЭКО",
       "category": "Кабель",
       "brand": "Без бренда",
-      "price": 0,
+      "price": 52,
       "description": "",
       "image": ""
     },
@@ -196,7 +188,7 @@
       "name": "ВВГнг-LS 3х2.5 Кабэкс",
       "category": "Кабель",
       "brand": "Без бренда",
-      "price": 0,
+      "price": 105,
       "description": "",
       "image": ""
     },
@@ -204,7 +196,7 @@
       "name": "ВВГнг-LS 3х2.5 ТКЗ",
       "category": "Кабель",
       "brand": "Без бренда",
-      "price": 0,
+      "price": 104,
       "description": "",
       "image": ""
     },
@@ -212,7 +204,7 @@
       "name": "ВВГнг-LS 3х2.5 ТУ",
       "category": "Кабель",
       "brand": "Без бренда",
-      "price": 0,
+      "price": 60,
       "description": "",
       "image": ""
     },
@@ -220,14 +212,14 @@
       "name": "ВВГнг-LS 3х2.5 ЭКО",
       "category": "Кабель",
       "brand": "Без бренда",
-      "price": 0,
+      "price": 85,
       "description": "",
       "image": ""
     },
     {
       "name": "ВВГнг-LS 3х4 ГОСТ",
       "category": "Кабель",
-      "brand": "Кабель-Стандарт",
+      "brand": "Без бренда",
       "price": 180,
       "description": "",
       "image": ""
@@ -267,8 +259,8 @@
     {
       "name": "Гофра серая ДКС D16",
       "category": "Гофра",
-      "brand": "Гофра",
-      "price": 0,
+      "brand": "DKC",
+      "price": 20,
       "description": "",
       "image": ""
     },
@@ -276,7 +268,7 @@
       "name": "ИЕК автомат. выкл. 1п 25А 4,5кА",
       "category": "Автоматы",
       "brand": "ИЕК",
-      "price": 0,
+      "price": 130,
       "description": "",
       "image": ""
     },
@@ -292,7 +284,7 @@
       "name": "ПВС 2х1.5 ТУ",
       "category": "Кабель",
       "brand": "Без бренда",
-      "price": 0,
+      "price": 35,
       "description": "",
       "image": ""
     },
@@ -300,7 +292,7 @@
       "name": "ПВС 2х2.5 ГОСТ",
       "category": "Кабель",
       "brand": "Без бренда",
-      "price": 0,
+      "price": -3,
       "description": "",
       "image": ""
     },
@@ -316,7 +308,7 @@
       "name": "ПВС 3х2.5 ГОСТ",
       "category": "Кабель",
       "brand": "Без бренда",
-      "price": 0,
+      "price": 95,
       "description": "",
       "image": ""
     },
@@ -411,7 +403,7 @@
     {
       "name": "Экола GX53 сатин",
       "category": "Светильники",
-      "brand": "Экола",
+      "brand": "Ecola",
       "price": 60,
       "description": "",
       "image": ""
@@ -419,7 +411,7 @@
     {
       "name": "Экола GX53 хром",
       "category": "Светильники",
-      "brand": "Экола",
+      "brand": "Ecola",
       "price": 60,
       "description": "",
       "image": ""
@@ -427,8 +419,16 @@
     {
       "name": "Экола GX53 черный матовый",
       "category": "Светильники",
-      "brand": "Экола",
+      "brand": "Ecola",
       "price": 60,
+      "description": "",
+      "image": ""
+    },
+    {
+      "name": "Ваго 221-415 (5 прозрачные)",
+      "category": "Клеммы",
+      "brand": "WAGO",
+      "price": 0,
       "description": "",
       "image": ""
     },
@@ -517,14 +517,6 @@
       "category": "Автоматы",
       "brand": "ИЕК",
       "price": 145,
-      "description": "",
-      "image": ""
-    },
-    {
-      "name": "ИЕК автомат. выкл. 1п 25А 4.5кА",
-      "category": "Автоматы",
-      "brand": "ИЕК",
-      "price": 150,
       "description": "",
       "image": ""
     },
@@ -1171,7 +1163,7 @@
     {
       "name": "ВВГнг-LS 3х2.5 ГОСТ",
       "category": "Кабель",
-      "brand": "Кабель-Стандарт",
+      "brand": "Без бренда",
       "price": 120,
       "description": "",
       "image": ""
@@ -1179,7 +1171,7 @@
     {
       "name": "ВВГнг-LS 3х6 ГОСТ",
       "category": "Кабель",
-      "brand": "Кабель-Стандарт",
+      "brand": "Без бренда",
       "price": 250,
       "description": "",
       "image": ""
