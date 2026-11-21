@@ -7,7 +7,7 @@
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
 <style>
-:root{--bg:#f4fbf8;--panel:#fff;--border:#d3e8e0;--text:#0e2a26;--muted:#5b7f76;--accent:#0e7c6b;}
+:root{--bg:#f4fbf8;--panel:#fff;--border:#d3e8e0;--text:#0e2a26;--muted:#5b7f76;--accent:#0e7c6b;--ok:#1e8e5a;}
 body{font-family:Arial,sans-serif;background:var(--bg);color:var(--text);padding:20px;max-width:1200px;margin:0 auto}
 h1{color:var(--accent);font-size:24px;margin-bottom:10px}
 p{font-size:14px;color:var(--muted);margin-bottom:20px;line-height:1.5}
@@ -46,20 +46,16 @@ button:active{transform:translateY(2px);box-shadow:0 2px 0 #085a4d}
 
 <div id="tableContainer" style="display:none">
   <button onclick="downloadJSON()">💾 Скачать catalog.json</button>
-  
   <input type="search" id="searchInput" placeholder="🔍 Поиск по названию, бренду или категории..." oninput="renderTable()">
-  
   <div class="stats" id="statsText"></div>
   <div class="table-wrap">
     <table id="itemsTable">
-      <thead>
-        <tr>
-          <th style="width:35%">Название товара</th>
-          <th style="width:15%">Бренд</th>
-          <th style="width:15%">Категория</th>
-          <th style="width:15%">Цена (₽)</th>
-        </tr>
-      </thead>
+      <thead><tr>
+        <th style="width:35%">Название товара</th>
+        <th style="width:15%">Бренд</th>
+        <th style="width:15%">Категория</th>
+        <th style="width:15%">Цена (₽)</th>
+      </tr></thead>
       <tbody></tbody>
     </table>
   </div>
@@ -70,25 +66,21 @@ var excelItems = [];
 var jsonItems = [];
 var mergedItems = [];
 
-// Та же функция нормализации, что и на сайте
 function norm(s){ 
   if (!s) return '';
   var str = String(s).toLowerCase().replace(/ё/g, 'е').replace(/,/g, '.');
-  var map = {
-    'a':'а', 'b':'б', 'v':'в', 'g':'г', 'd':'д', 'e':'е', 'z':'з', 'i':'и', 'k':'к',
-    'l':'л', 'm':'м', 'n':'н', 'o':'о', 'p':'р', 'r':'р', 's':'с', 't':'т', 'u':'у',
-    'f':'ф', 'h':'х', 'c':'с', 'w':'в', 'y':'у', 'q':'к', 'j':'ж'
-  };
+  var map = {'a':'а','b':'б','v':'в','g':'г','d':'д','e':'е','z':'з','i':'и','k':'к','l':'л','m':'м','n':'н','o':'о','p':'р','r':'р','s':'с','t':'т','u':'у','f':'ф','h':'х','c':'с','w':'в','y':'у','q':'к','j':'ж'};
   str = str.replace(/[a-z]/g, function(c) { return map[c] || c; });
   str = str.replace(/[^а-я0-9.]/g, ' ');
   return str.replace(/\s+/g, ' ').trim();
 }
 
+// ПРАВИЛЬНОЕ определение категории
 function guessCategory(name) {
   var n = String(name).toLowerCase();
   if (n.includes('кабель') || n.includes('ввг') || n.includes('провод') || n.includes('пвс') || n.includes('пугнп') || n.includes('шввп')) return 'Кабель';
   if (n.includes('автомат') || n.includes('узо') || n.includes('диф')) return 'Автоматы';
-  if (n.includes('розетка') || n.includes('выключатель')) return 'Розетки и выключатели';
+  if (n.includes('розетка') || n.includes('выключатель') || n.includes('розеика')) return 'Розетки и выключатели';
   if (n.includes('щит')) return 'Щиты';
   if (n.includes('клемм') || n.includes('ваго')) return 'Клеммы';
   if (n.includes('гофра')) return 'Гофра';
@@ -96,6 +88,27 @@ function guessCategory(name) {
   if (n.includes('контактор')) return 'Контакторы';
   if (n.includes('подрозетник')) return 'Подрозетники';
   return 'Разное';
+}
+
+// НОВАЯ функция определения бренда
+function detectBrand(name, category) {
+  if (category === 'Кабель') return 'Без бренда';
+  var n = String(name).toLowerCase();
+  if (n.includes('иек') || n.includes('iek')) return 'ИЕК';
+  if (n.includes('абб') || n.includes('abb')) return 'ABB';
+  if (n.includes('legrand')) return 'Legrand';
+  if (n.includes('ваго') || n.includes('wago')) return 'WAGO';
+  if (n.includes('дкс') || n.includes('dkc')) return 'DKC';
+  if (n.includes('экола') || n.includes('ecola')) return 'Ecola';
+  if (n.includes('систем электрик') || n.includes('systeme')) return 'Систем Электрик';
+  if (n.includes('кабэкс')) return 'Кабэкс';
+  if (n.includes('sat')) return 'SAT';
+  return 'Без бренда';
+}
+
+function isHeaderRow(name) {
+  var n = String(name||'').toLowerCase().trim();
+  return !n || n === 'товар/услуга' || n === 'итого' || n.includes('товар/услуг');
 }
 
 // 1. Чтение Excel
@@ -120,13 +133,12 @@ document.getElementById('excelFile').addEventListener('change', function(e) {
     excelItems = [];
     for (var i = startRow; i < rows.length; i++) {
       var name = String(rows[i][nameCol]).trim();
-      if (!name || name.toLowerCase().includes('итого')) continue;
+      if (isHeaderRow(name)) continue;
       
       var cat = guessCategory(name);
-      var brand = name.split(' ')[0] || 'Без бренда';
       excelItems.push({ 
         name: name, 
-        brand: brand, 
+        brand: detectBrand(name, cat),
         category: cat, 
         price: 0,
         description: '',
@@ -155,25 +167,35 @@ document.getElementById('jsonFile').addEventListener('change', function(e) {
   reader.readAsText(file);
 });
 
-// 3. Слияние данных
+// 3. Слияние
 function mergeData() {
   mergedItems = [];
   var jsonMap = {};
   
   jsonItems.forEach(function(p) {
+    if (isHeaderRow(p.name)) return; // пропускаем мусор
     jsonMap[norm(p.name)] = p;
   });
 
-  // Проходим по Excel
   excelItems.forEach(function(ex) {
     var key = norm(ex.name);
     var js = jsonMap[key];
+    var nameFirstWord = ex.name.split(' ')[0];
     
     if (js) {
-      // Нашли в JSON — берем оттуда цену, картинку, описание, категорию
+      // Определяем, брать ли бренд из JSON или из автоопределения
+      var finalBrand;
+      if (ex.category === 'Кабель') {
+        finalBrand = 'Без бренда'; // всегда
+      } else if (js.brand && js.brand !== nameFirstWord && js.brand !== 'Без бренда') {
+        finalBrand = js.brand; // вручную установленный бренд
+      } else {
+        finalBrand = detectBrand(ex.name, ex.category); // автодетект (исправляет «Ваго» → «WAGO»)
+      }
+      
       mergedItems.push({
         name: ex.name,
-        brand: js.brand || ex.brand,
+        brand: finalBrand,
         category: js.category || ex.category,
         price: js.price || 0,
         description: js.description || '',
@@ -181,20 +203,27 @@ function mergeData() {
       });
       delete jsonMap[key];
     } else {
-      // Нет в JSON — оставляем как есть (цена 0)
       mergedItems.push(ex);
     }
   });
 
-  // Добавляем товары, которых нет в Excel
   for (var key in jsonMap) {
-    mergedItems.push(jsonMap[key]);
+    var p = jsonMap[key];
+    // Исправляем бренд по новой логике
+    if (p.category === 'Кабель') p.brand = 'Без бренда';
+    else {
+      var firstW = String(p.name).split(' ')[0];
+      if (!p.brand || p.brand === firstW || p.brand === 'Без бренда') {
+        p.brand = detectBrand(p.name, p.category);
+      }
+    }
+    mergedItems.push(p);
   }
 
   renderTable();
 }
 
-// 4. Отрисовка таблицы
+// 4. Отрисовка
 function renderTable() {
   var container = document.getElementById('tableContainer');
   var tbody = document.querySelector('#itemsTable tbody');
@@ -224,21 +253,22 @@ function renderTable() {
   });
 }
 
-// 5. Скачивание JSON
+// 5. Скачать
 function downloadJSON() {
-  var cleanItems = mergedItems.map(function(x) {
-    return {
-      name: x.name,
-      category: x.category,
-      brand: x.brand,
-      price: x.price || 0,
-      description: x.description || '',
-      image: x.image || ''
-    };
-  });
+  var cleanItems = mergedItems
+    .filter(function(x) { return !isHeaderRow(x.name); })
+    .map(function(x) {
+      return {
+        name: x.name,
+        category: x.category,
+        brand: x.brand,
+        price: x.price || 0,
+        description: x.description || '',
+        image: x.image || ''
+      };
+    });
 
-  var data = { products: cleanItems };
-  var json = JSON.stringify(data, null, 2);
+  var json = JSON.stringify({ products: cleanItems }, null, 2);
   var blob = new Blob([json], {type: 'application/json'});
   var url = URL.createObjectURL(blob);
   var a = document.createElement('a');
