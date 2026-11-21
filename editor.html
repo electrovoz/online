@@ -70,14 +70,18 @@ var excelItems = [];
 var jsonItems = [];
 var mergedItems = [];
 
-// Функция нормализации (как на сайте)
+// Та же функция нормализации, что и на сайте
 function norm(s){ 
-  var str = String(s||'').toLowerCase().replace(/ё/g,'е').trim();
-  str = str.replace(/[a-z]/g, function(c) {
-    var map = { 'a':'а', 'b':'в', 'c':'с', 'e':'е', 'h':'н', 'i':'и', 'k':'к', 'm':'м', 'o':'о', 'p':'р', 't':'т', 'x':'х', 'y':'у' };
-    return map[c] || c;
-  });
-  return str.replace(/[^a-zа-я0-9.]/g,'').replace(/\.+/g,'.').trim();
+  if (!s) return '';
+  var str = String(s).toLowerCase().replace(/ё/g, 'е').replace(/,/g, '.');
+  var map = {
+    'a':'а', 'b':'б', 'v':'в', 'g':'г', 'd':'д', 'e':'е', 'z':'з', 'i':'и', 'k':'к',
+    'l':'л', 'm':'м', 'n':'н', 'o':'о', 'p':'р', 'r':'р', 's':'с', 't':'т', 'u':'у',
+    'f':'ф', 'h':'х', 'c':'с', 'w':'в', 'y':'у', 'q':'к', 'j':'ж'
+  };
+  str = str.replace(/[a-z]/g, function(c) { return map[c] || c; });
+  str = str.replace(/[^а-я0-9.]/g, ' ');
+  return str.replace(/\s+/g, ' ').trim();
 }
 
 function guessCategory(name) {
@@ -92,12 +96,6 @@ function guessCategory(name) {
   if (n.includes('контактор')) return 'Контакторы';
   if (n.includes('подрозетник')) return 'Подрозетники';
   return 'Разное';
-}
-
-function guessBrand(name, cat) {
-  if (cat === 'Кабель') return 'Без бренда';
-  var w = String(name).trim().split(/\s+/)[0] || '';
-  return w ? w : 'Без бренда';
 }
 
 // 1. Чтение Excel
@@ -125,9 +123,10 @@ document.getElementById('excelFile').addEventListener('change', function(e) {
       if (!name || name.toLowerCase().includes('итого')) continue;
       
       var cat = guessCategory(name);
+      var brand = name.split(' ')[0] || 'Без бренда';
       excelItems.push({ 
         name: name, 
-        brand: guessBrand(name, cat), 
+        brand: brand, 
         category: cat, 
         price: 0,
         description: '',
@@ -156,39 +155,38 @@ document.getElementById('jsonFile').addEventListener('change', function(e) {
   reader.readAsText(file);
 });
 
-// 3. Слияние данных (главная магия)
+// 3. Слияние данных
 function mergeData() {
   mergedItems = [];
   var jsonMap = {};
   
-  // Складываем JSON в карту по нормализованному имени
   jsonItems.forEach(function(p) {
     jsonMap[norm(p.name)] = p;
   });
 
-  // 1. Проходим по Excel (это наши актуальные остатки)
+  // Проходим по Excel
   excelItems.forEach(function(ex) {
     var key = norm(ex.name);
     var js = jsonMap[key];
     
     if (js) {
-      // Если нашли в JSON — берем оттуда цену, картинку и описание
+      // Нашли в JSON — берем оттуда цену, картинку, описание, категорию
       mergedItems.push({
-        name: ex.name, // Название оставляем из Excel
+        name: ex.name,
         brand: js.brand || ex.brand,
         category: js.category || ex.category,
         price: js.price || 0,
         description: js.description || '',
         image: js.image || ''
       });
-      delete jsonMap[key]; // Удаляем из карты, чтобы потом не задублировать
+      delete jsonMap[key];
     } else {
-      // Если в JSON нет (новый товар) — оставляем как есть, цена 0
+      // Нет в JSON — оставляем как есть (цена 0)
       mergedItems.push(ex);
     }
   });
 
-  // 2. Добавляем товары, которые были в JSON, но пропали из Excel (например, закончились)
+  // Добавляем товары, которых нет в Excel
   for (var key in jsonMap) {
     mergedItems.push(jsonMap[key]);
   }
