@@ -237,7 +237,6 @@ var CART_KEY = 'cart_v2';
 var TARGET_EMAIL = 'evgenysergeevich@mail.ru';
 var RATE_LIMIT_MS = 60000;
 
-// Базовые картинки по категориям (если в JSON пусто)
 var DEFAULT_IMAGES = {
   'Кабель': 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/56/Electrical_cable.jpg/320px-Electrical_cable.jpg',
   'Автоматы': 'https://upload.wikimedia.org/wikipedia/commons/thumb/c/c9/Circuit_Breaker_Box.jpg/320px-Circuit_Breaker_Box.jpg',
@@ -319,7 +318,6 @@ function guessCategory(name) {
 
 function getSubcat(name) {
   var n = String(name).toLowerCase();
-  if (n.includes('ткз')) return 'ВВГнг-LS (ТКЗ)';
   if (n.includes('ввг')) return 'ВВГнг-LS';
   if (n.includes('пвс')) return 'ПВС';
   if (n.includes('пугнп')) return 'ПУГНП';
@@ -329,13 +327,14 @@ function getSubcat(name) {
 
 function cleanCategory(cat) {
   if (!cat) return '';
-  var c = String(cat).replace(/(ИЕК|IEK|Систем Электрик|Systeme Electric|ABB|Legrand|WAGO|DKC|Ecola|Кабель-Стандарт|Кабэкс)/gi, '').replace(/\s+/g, ' ').trim();
+  var c = String(cat).replace(/(ИЕК|IEK|Систем Электрик|Systeme Electric|ABB|Legrand|WAGO|DKC|Ecola|Кабель-Стандарт|Кабэкс|ТКЗ)/gi, '').replace(/\s+/g, ' ').trim();
   return unifyCategory(c);
 }
 
 function detectBrand(name, category) {
-  if (category === 'Кабель') return 'Без бренда';
   var n = String(name).toLowerCase();
+  if (n.includes('ткз')) return 'ТКЗ';
+  if (n.includes('кабэкс')) return 'Кабэкс';
   if (n.includes('иек') || n.includes('iek')) return 'ИЕК';
   if (n.includes('абб') || n.includes('abb')) return 'ABB';
   if (n.includes('legrand')) return 'Legrand';
@@ -343,8 +342,8 @@ function detectBrand(name, category) {
   if (n.includes('дкс') || n.includes('dkc')) return 'DKC';
   if (n.includes('экола') || n.includes('ecola')) return 'Ecola';
   if (n.includes('систем электрик') || n.includes('systeme')) return 'Систем Электрик';
-  if (n.includes('кабэкс')) return 'Кабэкс';
   if (n.includes('sat')) return 'SAT';
+  if (category === 'Кабель') return 'Без бренда';
   return 'Без бренда';
 }
 
@@ -434,7 +433,13 @@ async function loadData(){
     var jsonItem = jsonMap[key] || {};
     var cat = jsonItem.category ? cleanCategory(jsonItem.category) : guessCategory(excelItem.originalName);
     var subcat = cat === 'Кабель' ? getSubcat(excelItem.originalName) : '';
-    var brand = cat === 'Кабель' ? 'Без бренда' : (jsonItem.brand || detectBrand(excelItem.originalName, cat));
+    
+    // Бренд: сначала пытаемся вытащить из названия, потом из JSON, иначе "Без бренда"
+    var autoBrand = detectBrand(excelItem.originalName, cat);
+    var brand = autoBrand;
+    if (brand === 'Без бренда' && jsonItem.brand && jsonItem.brand !== 'Без бренда') {
+      brand = jsonItem.brand;
+    }
     
     var id = hashId(key) || (Date.now() & 0xffff);
     if (usedIds[id]) { var k = 1; while (usedIds[id + k]) k++; id = id + k; }
@@ -461,8 +466,13 @@ async function loadData(){
     if (!stockMap[key]) {
       var cat = p.category ? cleanCategory(p.category) : guessCategory(p.name);
       var subcat = cat === 'Кабель' ? getSubcat(p.name) : '';
-      var brand = cat === 'Кабель' ? 'Без бренда' : (p.brand || detectBrand(p.name, cat));
       
+      var autoBrand2 = detectBrand(p.name, cat);
+      var brand = autoBrand2;
+      if (brand === 'Без бренда' && p.brand && p.brand !== 'Без бренда') {
+        brand = p.brand;
+      }
+
       var id = hashId(key) || (Date.now() & 0xffff);
       if (usedIds[id]) { var k = 1; while (usedIds[id + k]) k++; id = id + k; }
       usedIds[id] = true;
@@ -519,7 +529,9 @@ function renderSidebar(){
 
   var brands = {};
   P.forEach(function(x){ 
-    if (x.c !== 'Кабель') {
+    // Скрываем "Без бренда" только для кабелей (чтобы не засорять), 
+    // но ТКЗ, Кабэкс и другие реальные бренды кабелей оставляем.
+    if (!(x.c === 'Кабель' && x.brand === 'Без бренда')) {
       brands[x.brand] = (brands[x.brand]||0)+1; 
     }
   });
@@ -573,7 +585,6 @@ function render(){
     var stockLbl = x.stock===0?'Нет':(x.stock<20?'Мало: '+x.stock:'В наличии');
     
     var imgHtml = '';
-    // Если картинки нет, берем из дефолтных по категории
     var imgSrc = x.image || DEFAULT_IMAGES[x.c] || DEFAULT_IMAGES['Разное'];
     var icon = '📦';
     if (x.c && x.c.includes('Кабель')) icon = '🔌';
