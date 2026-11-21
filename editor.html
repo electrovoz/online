@@ -8,7 +8,7 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
 <style>
 :root{--bg:#f4fbf8;--panel:#fff;--border:#d3e8e0;--text:#0e2a26;--muted:#5b7f76;--accent:#0e7c6b;--ok:#1e8e5a;}
-body{font-family:Arial,sans-serif;background:var(--bg);color:var(--text);padding:20px;max-width:1200px;margin:0 auto}
+body{font-family:Arial,sans-serif;background:var(--bg);color:var(--text);padding:20px;max-width:1400px;margin:0 auto}
 h1{color:var(--accent);font-size:24px;margin-bottom:10px}
 p{font-size:14px;color:var(--muted);margin-bottom:20px;line-height:1.5}
 .box{background:var(--panel);padding:20px;border-radius:10px;border:1px solid var(--border);margin-bottom:20px;box-shadow:0 4px 12px rgba(0,60,45,.05)}
@@ -19,18 +19,18 @@ input[type="search"]{width:100%;padding:10px;border:1px solid #b8d9cd;border-rad
 table{width:100%;border-collapse:collapse;background:var(--panel);font-size:13px;margin-top:10px}
 th,td{border:1px solid var(--border);padding:8px;text-align:left}
 th{background:#eaf6f1;color:var(--muted);font-weight:normal;position:sticky;top:0;z-index:10}
-input[type="number"]{width:100px;padding:6px;border:1px solid #b8d9cd;border-radius:4px;font-size:13px}
+input[type="number"]{width:80px;padding:6px;border:1px solid #b8d9cd;border-radius:4px;font-size:13px}
 input[type="text"]{width:100%;padding:6px;border:1px solid #b8d9cd;border-radius:4px;font-size:13px}
 button{background:linear-gradient(180deg,#12987f,#0e7c6b);color:#fff;border:none;padding:10px 20px;font-weight:bold;border-radius:6px;cursor:pointer;font-size:14px;margin-bottom:20px;box-shadow:0 4px 0 #085a4d}
 button:active{transform:translateY(2px);box-shadow:0 2px 0 #085a4d}
-.table-wrap{max-height:60vh;overflow-y:auto;border:1px solid var(--border);border-radius:8px}
+.table-wrap{max-height:65vh;overflow-y:auto;border:1px solid var(--border);border-radius:8px}
 .stats{font-size:13px;color:var(--muted);margin-bottom:10px}
 </style>
 </head>
 <body>
 
 <h1>⚡ Редактор цен и каталога</h1>
-<p>1. Загрузите Excel с остатками.<br>2. Загрузите старый catalog.json (чтобы подтянуть цены, картинки и описания).<br>3. Проверьте цены и нажмите «Скачать catalog.json».</p>
+<p>1. Загрузите Excel с остатками.<br>2. Загрузите старый catalog.json.<br>3. Впишите цены, при желании добавьте ссылки на картинки.<br>4. Нажмите «Скачать catalog.json».</p>
 
 <div class="box">
   <h2>1. Загрузите файл «Остатки товаров.xlsx»</h2>
@@ -51,10 +51,11 @@ button:active{transform:translateY(2px);box-shadow:0 2px 0 #085a4d}
   <div class="table-wrap">
     <table id="itemsTable">
       <thead><tr>
-        <th style="width:35%">Название товара</th>
-        <th style="width:15%">Бренд</th>
-        <th style="width:15%">Категория</th>
-        <th style="width:15%">Цена (₽)</th>
+        <th style="width:25%">Название товара</th>
+        <th style="width:12%">Бренд</th>
+        <th style="width:12%">Категория</th>
+        <th style="width:10%">Цена (₽)</th>
+        <th style="width:30%">Картинка (URL)</th>
       </tr></thead>
       <tbody></tbody>
     </table>
@@ -75,7 +76,6 @@ function norm(s){
   return str.replace(/\s+/g, ' ').trim();
 }
 
-// ПРАВИЛЬНОЕ определение категории
 function guessCategory(name) {
   var n = String(name).toLowerCase();
   if (n.includes('кабель') || n.includes('ввг') || n.includes('провод') || n.includes('пвс') || n.includes('пугнп') || n.includes('шввп')) return 'Кабель';
@@ -90,10 +90,10 @@ function guessCategory(name) {
   return 'Разное';
 }
 
-// НОВАЯ функция определения бренда
 function detectBrand(name, category) {
-  if (category === 'Кабель') return 'Без бренда';
   var n = String(name).toLowerCase();
+  if (n.includes('ткз')) return 'ТКЗ';
+  if (n.includes('кабэкс')) return 'Кабэкс';
   if (n.includes('иек') || n.includes('iek')) return 'ИЕК';
   if (n.includes('абб') || n.includes('abb')) return 'ABB';
   if (n.includes('legrand')) return 'Legrand';
@@ -101,8 +101,8 @@ function detectBrand(name, category) {
   if (n.includes('дкс') || n.includes('dkc')) return 'DKC';
   if (n.includes('экола') || n.includes('ecola')) return 'Ecola';
   if (n.includes('систем электрик') || n.includes('systeme')) return 'Систем Электрик';
-  if (n.includes('кабэкс')) return 'Кабэкс';
   if (n.includes('sat')) return 'SAT';
+  if (category === 'Кабель') return 'Без бренда';
   return 'Без бренда';
 }
 
@@ -111,7 +111,6 @@ function isHeaderRow(name) {
   return !n || n === 'товар/услуга' || n === 'итого' || n.includes('товар/услуг');
 }
 
-// 1. Чтение Excel
 document.getElementById('excelFile').addEventListener('change', function(e) {
   var file = e.target.files[0];
   if (!file) return;
@@ -151,7 +150,6 @@ document.getElementById('excelFile').addEventListener('change', function(e) {
   reader.readAsArrayBuffer(file);
 });
 
-// 2. Чтение JSON
 document.getElementById('jsonFile').addEventListener('change', function(e) {
   var file = e.target.files[0];
   if (!file) return;
@@ -167,13 +165,12 @@ document.getElementById('jsonFile').addEventListener('change', function(e) {
   reader.readAsText(file);
 });
 
-// 3. Слияние
 function mergeData() {
   mergedItems = [];
   var jsonMap = {};
   
   jsonItems.forEach(function(p) {
-    if (isHeaderRow(p.name)) return; // пропускаем мусор
+    if (isHeaderRow(p.name)) return;
     jsonMap[norm(p.name)] = p;
   });
 
@@ -183,14 +180,12 @@ function mergeData() {
     var nameFirstWord = ex.name.split(' ')[0];
     
     if (js) {
-      // Определяем, брать ли бренд из JSON или из автоопределения
-      var finalBrand;
-      if (ex.category === 'Кабель') {
-        finalBrand = 'Без бренда'; // всегда
-      } else if (js.brand && js.brand !== nameFirstWord && js.brand !== 'Без бренда') {
-        finalBrand = js.brand; // вручную установленный бренд
-      } else {
-        finalBrand = detectBrand(ex.name, ex.category); // автодетект (исправляет «Ваго» → «WAGO»)
+      var autoBrand = detectBrand(ex.name, ex.category);
+      var finalBrand = autoBrand;
+      
+      // Если автодетект не сработал (Без бренда), пробуем взять из JSON
+      if (finalBrand === 'Без бренда' && js.brand && js.brand !== nameFirstWord && js.brand !== 'Без бренда') {
+        finalBrand = js.brand;
       }
       
       mergedItems.push({
@@ -209,12 +204,14 @@ function mergeData() {
 
   for (var key in jsonMap) {
     var p = jsonMap[key];
-    // Исправляем бренд по новой логике
-    if (p.category === 'Кабель') p.brand = 'Без бренда';
-    else {
+    var autoBrand = detectBrand(p.name, p.category);
+    
+    if (autoBrand !== 'Без бренда') {
+      p.brand = autoBrand;
+    } else {
       var firstW = String(p.name).split(' ')[0];
       if (!p.brand || p.brand === firstW || p.brand === 'Без бренда') {
-        p.brand = detectBrand(p.name, p.category);
+        p.brand = 'Без бренда';
       }
     }
     mergedItems.push(p);
@@ -223,7 +220,6 @@ function mergeData() {
   renderTable();
 }
 
-// 4. Отрисовка
 function renderTable() {
   var container = document.getElementById('tableContainer');
   var tbody = document.querySelector('#itemsTable tbody');
@@ -248,12 +244,12 @@ function renderTable() {
     tr.innerHTML = '<td>' + item.name + '</td>' +
       '<td><input type="text" value="' + (item.brand||'') + '" onchange="mergedItems['+realIdx+'].brand=this.value"></td>' +
       '<td><input type="text" value="' + (item.category||'') + '" onchange="mergedItems['+realIdx+'].category=this.value"></td>' +
-      '<td><input type="number" value="' + (item.price || '') + '" onchange="mergedItems['+realIdx+'].price=parseFloat(this.value)||0" placeholder="0"></td>';
+      '<td><input type="number" value="' + (item.price || '') + '" onchange="mergedItems['+realIdx+'].price=parseFloat(this.value)||0" placeholder="0"></td>' +
+      '<td><input type="text" value="' + (item.image||'') + '" placeholder="https://..." onchange="mergedItems['+realIdx+'].image=this.value"></td>';
     tbody.appendChild(tr);
   });
 }
 
-// 5. Скачать
 function downloadJSON() {
   var cleanItems = mergedItems
     .filter(function(x) { return !isHeaderRow(x.name); })
