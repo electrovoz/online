@@ -209,12 +209,10 @@ footer{background:var(--dark);color:var(--dark-muted);padding:24px;margin-top:40
     <input id="ordPhone" type="tel" placeholder="+7 900 000-00-00" autocomplete="tel">
     <label for="ordNote">Комментарий</label>
     <textarea id="ordNote" placeholder="Адрес доставки, пожелания..."></textarea>
-    
     <div class="captcha-row">
       <span id="ordCaptchaText" style="font-size:13px;color:var(--muted)">Сколько будет 3 + 4?</span>
       <input id="ordCaptchaInput" type="number" placeholder="Ответ" aria-label="Капча">
     </div>
-    
     <div class="err" id="ordErr"></div>
     <div class="modal-actions">
       <button class="ghost" onclick="closeOrderModal()">Отмена</button>
@@ -232,12 +230,10 @@ footer{background:var(--dark);color:var(--dark-muted);padding:24px;margin-top:40
     <input id="fbContact" type="text" placeholder="+7 900 000-00-00 или mail@mail.ru" autocomplete="email">
     <label for="fbMsg">Сообщение *</label>
     <textarea id="fbMsg" placeholder="Ваш вопрос или предложение..."></textarea>
-    
     <div class="captcha-row">
       <span id="fbCaptchaText" style="font-size:13px;color:var(--muted)">Сколько будет 2 + 5?</span>
       <input id="fbCaptchaInput" type="number" placeholder="Ответ" aria-label="Капча">
     </div>
-    
     <div class="err" id="fbErr"></div>
     <div class="modal-actions">
       <button class="ghost" onclick="closeFeedbackModal()">Отмена</button>
@@ -259,23 +255,13 @@ function esc(s){ return String(s==null?'':s).replace(/[&<>"']/g,function(m){retu
 function money(n){ n=Number(n); if(!isFinite(n) || n<=0) return 'По запросу'; return n.toLocaleString('ru-RU')+' ₽'; }
 function hashId(s){ var h=0; s=String(s||''); for(var i=0;i<s.length;i++){ h=(h*31+s.charCodeAt(i))|0; } return Math.abs(h); }
 
-// НОВАЯ УМНАЯ ФУНКЦИЯ НОРМАЛИЗАЦИИ
+// Умная нормализация для поиска и слияния
 function norm(s){ 
   if (!s) return '';
   var str = String(s).toLowerCase().replace(/ё/g, 'е').replace(/,/g, '.');
-  
-  // Транслитерация английских букв (если набрали в неправильной раскладке или латиницей)
-  var map = {
-    'a':'а', 'b':'б', 'v':'в', 'g':'г', 'd':'д', 'e':'е', 'z':'з', 'i':'и', 'k':'к',
-    'l':'л', 'm':'м', 'n':'н', 'o':'о', 'p':'р', 'r':'р', 's':'с', 't':'т', 'u':'у',
-    'f':'ф', 'h':'х', 'c':'с', 'w':'в', 'y':'у', 'q':'к', 'j':'ж'
-  };
+  var map = {'a':'а','b':'б','v':'в','g':'г','d':'д','e':'е','z':'з','i':'и','k':'к','l':'л','m':'м','n':'н','o':'о','p':'р','r':'р','s':'с','t':'т','u':'у','f':'ф','h':'х','c':'с','w':'в','y':'у','q':'к','j':'ж'};
   str = str.replace(/[a-z]/g, function(c) { return map[c] || c; });
-  
-  // Оставляем только буквы, цифры и точки. Все дефисы, пробелы и скобки превращаем в пробелы.
   str = str.replace(/[^а-я0-9.]/g, ' ');
-  
-  // Убираем лишние пробелы
   return str.replace(/\s+/g, ' ').trim();
 }
 
@@ -323,7 +309,7 @@ function guessCategory(name) {
   var n = String(name).toLowerCase();
   if (n.includes('кабель') || n.includes('ввг') || n.includes('провод') || n.includes('пвс') || n.includes('пугнп') || n.includes('шввп')) return 'Кабель';
   if (n.includes('автомат') || n.includes('узо') || n.includes('диф')) return 'Автоматы';
-  if (n.includes('розетка') || n.includes('выключатель')) return 'Розетки и выключатели';
+  if (n.includes('розетка') || n.includes('выключатель') || n.includes('розеика')) return 'Розетки и выключатели';
   if (n.includes('щит')) return 'Щиты';
   if (n.includes('клемм') || n.includes('ваго')) return 'Клеммы';
   if (n.includes('гофра')) return 'Гофра';
@@ -348,9 +334,24 @@ function cleanCategory(cat) {
   return unifyCategory(c);
 }
 
-function firstWordBrand(name){
-  var w = String(name).trim().split(/\s+/)[0] || '';
-  return w ? w : 'Без бренда';
+function detectBrand(name, category) {
+  if (category === 'Кабель') return 'Без бренда';
+  var n = String(name).toLowerCase();
+  if (n.includes('иек') || n.includes('iek')) return 'ИЕК';
+  if (n.includes('абб') || n.includes('abb')) return 'ABB';
+  if (n.includes('legrand')) return 'Legrand';
+  if (n.includes('ваго') || n.includes('wago')) return 'WAGO';
+  if (n.includes('дкс') || n.includes('dkc')) return 'DKC';
+  if (n.includes('экола') || n.includes('ecola')) return 'Ecola';
+  if (n.includes('систем электрик') || n.includes('systeme')) return 'Систем Электрик';
+  if (n.includes('кабэкс')) return 'Кабэкс';
+  if (n.includes('sat')) return 'SAT';
+  return 'Без бренда';
+}
+
+function isHeaderRow(name) {
+  var n = String(name||'').toLowerCase().trim();
+  return !n || n === 'товар/услуга' || n === 'итого' || n.includes('товар/услуг');
 }
 
 async function fetchJSON(url){ var r = await fetch(url, {cache:'no-cache'}); if (!r.ok) throw new Error('HTTP '+r.status); return r.json(); }
@@ -409,7 +410,7 @@ async function loadData(){
       var row = rows[i];
       if (!row || !row[nameCol]) continue;
       var name = String(row[nameCol]).trim();
-      if (name.toLowerCase().includes('итого')) break;
+      if (isHeaderRow(name)) continue;
       
       var unit = unitCol < row.length ? String(row[unitCol]).trim() : 'шт';
       var qty = qtyCol < row.length ? parseNumber(row[qtyCol]) : 0;
@@ -422,6 +423,7 @@ async function loadData(){
   var jsonMap = {};
   
   productsJson.forEach(function(p) {
+    if (!p || isHeaderRow(p.name)) return; // защита от мусора
     jsonMap[norm(p.name)] = p;
   });
 
@@ -433,7 +435,7 @@ async function loadData(){
     var jsonItem = jsonMap[key] || {};
     var cat = jsonItem.category ? cleanCategory(jsonItem.category) : guessCategory(excelItem.originalName);
     var subcat = cat === 'Кабель' ? getSubcat(excelItem.originalName) : '';
-    var brand = jsonItem.brand || (cat === 'Кабель' ? 'Без бренда' : firstWordBrand(excelItem.originalName));
+    var brand = cat === 'Кабель' ? 'Без бренда' : (jsonItem.brand || detectBrand(excelItem.originalName, cat));
     
     var id = hashId(key) || (Date.now() & 0xffff);
     if (usedIds[id]) { var k = 1; while (usedIds[id + k]) k++; id = id + k; }
@@ -455,11 +457,12 @@ async function loadData(){
   }
 
   productsJson.forEach(function(p) {
+    if (!p || isHeaderRow(p.name)) return;
     var key = norm(p.name);
     if (!stockMap[key]) {
       var cat = p.category ? cleanCategory(p.category) : guessCategory(p.name);
       var subcat = cat === 'Кабель' ? getSubcat(p.name) : '';
-      var brand = p.brand || (cat === 'Кабель' ? 'Без бренда' : firstWordBrand(p.name));
+      var brand = cat === 'Кабель' ? 'Без бренда' : (p.brand || detectBrand(p.name, cat));
       
       var id = hashId(key) || (Date.now() & 0xffff);
       if (usedIds[id]) { var k = 1; while (usedIds[id + k]) k++; id = id + k; }
@@ -549,16 +552,14 @@ function toggleBrand(el){
 var renderTimer = null;
 function debouncedRender(){ clearTimeout(renderTimer); renderTimer=setTimeout(function(){ currentPage=1; render(); },250); }
 
-// НОВЫЙ УМНЫЙ ПОИСК (каждое слово из запроса должно быть найдено)
 function getFiltered(){
   var s = norm($('srch').value);
-  var tokens = s.split(' ').filter(Boolean); // Разбиваем на слова
+  var tokens = s.split(' ').filter(Boolean);
   
   return P.filter(function(x){ 
     var matchText = tokens.every(function(token) {
       return x._search.indexOf(token) > -1;
     });
-    
     var matchCat = filters.cat === 'all' || x.c === filters.cat;
     var matchSubcat = filters.subcat === 'all' || x.subcat === filters.subcat;
     var matchBrand = !filters.brands.length || filters.brands.indexOf(x.brand) > -1;
@@ -596,7 +597,7 @@ function render(){
     h += '<div class="card">'+
       '<div class="badges"><span class="badge '+stockCls+'">'+esc(stockLbl)+'</span></div>'+
       '<div class="img-box">'+imgHtml+'</div>'+
-      '<div class="cat">'+esc(x.c)+'</div>'+
+      '<div class="cat">'+esc(x.c)+(x.subcat && x.c==='Кабель' ? ' / '+esc(x.subcat) : '')+'</div>'+
       '<h3>'+esc(x.n)+'</h3>'+
       (x.desc ? '<div class="desc">'+esc(x.desc)+'</div>' : '<div style="height:4px"></div>')+
       '<div class="price">'+money(x.price)+'</div>'+
