@@ -57,7 +57,7 @@
       "image": ""
     },
     {
-      "name": "Ваго 221-415 (5 прозрвчные)",
+      "name": "ваго 221-415 (5 прозрвчные)",
       "category": "Клеммы",
       "brand": "WAGO",
       "price": 0,
@@ -107,7 +107,7 @@
     {
       "name": "ВВГнг-LS 2х1.5 ТКЗ",
       "category": "Кабель",
-      "brand": "Без бренда",
+      "brand": "ТКЗ",
       "price": 0,
       "description": "",
       "image": ""
@@ -155,7 +155,7 @@
     {
       "name": "ВВГнг-LS 3х1.5 Кабэкс",
       "category": "Кабель",
-      "brand": "Без бренда",
+      "brand": "Кабэкс",
       "price": 0,
       "description": "",
       "image": ""
@@ -163,7 +163,7 @@
     {
       "name": "ВВГнг-LS 3х1.5 ТКЗ",
       "category": "Кабель",
-      "brand": "Без бренда",
+      "brand": "ТКЗ",
       "price": 0,
       "description": "",
       "image": ""
@@ -187,7 +187,7 @@
     {
       "name": "ВВГнг-LS 3х2.5 Кабэкс",
       "category": "Кабель",
-      "brand": "Без бренда",
+      "brand": "Кабэкс",
       "price": 0,
       "description": "",
       "image": ""
@@ -195,7 +195,7 @@
     {
       "name": "ВВГнг-LS 3х2.5 ТКЗ",
       "category": "Кабель",
-      "brand": "Без бренда",
+      "brand": "ТКЗ",
       "price": 0,
       "description": "",
       "image": ""
@@ -268,7 +268,7 @@
       "name": "ИЕК автомат. выкл. 1п 25А 4,5кА",
       "category": "Автоматы",
       "brand": "ИЕК",
-      "price": 0,
+      "price": 150,
       "description": "",
       "image": ""
     },
@@ -509,14 +509,6 @@
       "category": "Автоматы",
       "brand": "ИЕК",
       "price": 145,
-      "description": "",
-      "image": ""
-    },
-    {
-      "name": "ИЕК автомат. выкл. 1п 25А 4.5кА",
-      "category": "Автоматы",
-      "brand": "ИЕК",
-      "price": 150,
       "description": "",
       "image": ""
     },
