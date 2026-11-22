@@ -400,6 +400,39 @@ function isHeaderRow(name) {
   return !n || n === 'товар/услуга' || n === 'итого' || n.includes('товар/услуг');
 }
 
+// --- АВТОМАТИЧЕСКИЕ ОПИСАНИЯ И ХАРАКТЕРИСТИКИ ДЛЯ ИЕК АВТОМАТОВ ---
+function getIEKDetails(name, category, brand) {
+  if (category !== 'Автоматы' || brand !== 'ИЕК') return null;
+  var n = String(name).toLowerCase();
+  var poles = '';
+  if (n.includes('1п')) poles = '1P';
+  else if (n.includes('2п')) poles = '2P';
+  else if (n.includes('3п')) poles = '3P';
+  else if (n.includes('4п')) poles = '4P';
+  
+  if (!poles) return null;
+  
+  var desc = '';
+  var specs = '';
+  
+  if (poles === '1P') {
+    desc = 'Модульный автоматический выключатель ИЕК серии ВА47-29 предназначен для защиты электрических цепей от перегрузок и коротких замыканий, а также для оперативного включения и отключения нагрузки. Используется в бытовых и промышленных электроустановках, устанавливается на DIN-рейку.';
+    specs = 'Серия: ВА47-29\nПроизводитель: IEK (ИЕК)\nКоличество полюсов: 1P\nНоминальное напряжение: 230 В\nЧастота тока: 50/60 Гц\nОтключающая способность: 4.5 кА\nХарактеристика срабатывания: C\nСтепень защиты: IP20\nРабочая температура: от -40 до +50 °C\nМонтаж: На DIN-рейку 35 мм';
+  } else if (poles === '2P') {
+    desc = 'Двухполюсный модульный автоматический выключатель ИЕК ВА47-29. Применяется для защиты однофазных и двухфазных цепей, обеспечивая одновременное отключение фазного и нулевого проводников. Отличается надежностью и простотой установки на стандартную DIN-рейку.';
+    specs = 'Серия: ВА47-29\nПроизводитель: IEK (ИЕК)\nКоличество полюсов: 2P\nНоминальное напряжение: 400 В (межфазное)\nЧастота тока: 50/60 Гц\nОтключающая способность: 4.5 кА\nХарактеристика срабатывания: C\nСтепень защиты: IP20\nРабочая температура: от -40 до +50 °C\nМонтаж: На DIN-рейку 35 мм';
+  } else if (poles === '3P') {
+    desc = 'Трехполюсный автоматический выключатель ИЕК ВА47-29 для защиты трехфазных цепей. Обеспечивает надежное отключение при перегрузках и коротких замыканиях. Широко используется в распределительных щитах жилых и коммерческих объектов.';
+    specs = 'Серия: ВА47-29\nПроизводитель: IEK (ИЕК)\nКоличество полюсов: 3P\nНоминальное напряжение: 400 В\nЧастота тока: 50/60 Гц\nОтключающая способность: 4.5 кА\nХарактеристика срабатывания: C\nСтепень защиты: IP20\nРабочая температура: от -40 до +50 °C\nМонтаж: На DIN-рейку 35 мм';
+  } else if (poles === '4P') {
+    desc = 'Четырехполюсный модульный автомат ИЕК ВА47-29. Предназначен для защиты четырехпроводных цепей (три фазы + ноль) от токов перегрузки и короткого замыкания. Применяется в вводных и распределительных щитах.';
+    specs = 'Серия: ВА47-29\nПроизводитель: IEK (ИЕК)\nКоличество полюсов: 4P\nНоминальное напряжение: 400 В\nЧастота тока: 50/60 Гц\nОтключающая способность: 4.5 кА\nХарактеристика срабатывания: C\nСтепень защиты: IP20\nРабочая температура: от -40 до +50 °C\nМонтаж: На DIN-рейку 35 мм';
+  }
+  
+  return { description: desc, specs: specs };
+}
+// -----------------------------------------------------------------
+
 async function fetchJSON(url){ var r = await fetch(url, {cache:'no-cache'}); if (!r.ok) throw new Error('HTTP '+r.status); return r.json(); }
 async function fetchArrayBuffer(url){ var r = await fetch(url, {cache:'no-cache'}); if (!r.ok) throw new Error('HTTP '+r.status); return r.arrayBuffer(); }
 
@@ -488,6 +521,11 @@ async function loadData(){
       brand = jsonItem.brand;
     }
     
+    // Подстановка описаний и характеристик для ИЕК
+    var autoDetails = getIEKDetails(excelItem.originalName, cat, brand);
+    var finalDesc = jsonItem.description || (autoDetails ? autoDetails.description : '');
+    var finalSpecs = jsonItem.specs || (autoDetails ? autoDetails.specs : '');
+    
     var id = hashId(key) || (Date.now() & 0xffff);
     if (usedIds[id]) { var k = 1; while (usedIds[id + k]) k++; id = id + k; }
     usedIds[id] = true;
@@ -495,8 +533,8 @@ async function loadData(){
     P.push({
       id: id,
       n: excelItem.originalName,
-      desc: jsonItem.description || '',
-      specs: jsonItem.specs || '',
+      desc: finalDesc,
+      specs: finalSpecs,
       docs: jsonItem.docs || '',
       image: jsonItem.image || '', 
       price: Number(jsonItem.price) || 0,
@@ -522,14 +560,18 @@ async function loadData(){
         brand = p.brand;
       }
 
+      var autoDetails2 = getIEKDetails(p.name, cat, brand);
+      var finalDesc2 = p.description || (autoDetails2 ? autoDetails2.description : '');
+      var finalSpecs2 = p.specs || (autoDetails2 ? autoDetails2.specs : '');
+
       var id = hashId(key) || (Date.now() & 0xffff);
       if (usedIds[id]) { var k = 1; while (usedIds[id + k]) k++; id = id + k; }
       usedIds[id] = true;
       P.push({
         id: id,
         n: p.name,
-        desc: p.description || '',
-        specs: p.specs || '',
+        desc: finalDesc2,
+        specs: finalSpecs2,
         docs: p.docs || '',
         image: p.image || '',
         price: Number(p.price) || 0,
@@ -709,10 +751,8 @@ function openProductModal(id){
   addBtn.textContent = p.stock === 0 ? 'Нет в наличии' : 'В корзину';
   addBtn.onclick = function(){ addFromModal(); };
 
-  // Вкладка Описание
   $('tab-desc').innerHTML = p.desc ? '<p>'+esc(p.desc)+'</p>' : '<p style="color:var(--muted); font-style:italic;">Описание пока не добавлено.</p>';
   
-  // Вкладка Характеристики
   if (p.specs) {
     var specsHtml = '<table class="specs-table">';
     p.specs.split('\n').forEach(function(line){
@@ -731,7 +771,6 @@ function openProductModal(id){
     $('tab-specs').innerHTML = '<p style="color:var(--muted); font-style:italic;">Характеристики пока не заполнены.</p>';
   }
 
-  // Вкладка Документы
   if (p.docs) {
     var docsHtml = '<ul class="docs-list">';
     p.docs.split('\n').forEach(function(line){
@@ -750,7 +789,7 @@ function openProductModal(id){
     $('tab-docs').innerHTML = '<p style="color:var(--muted); font-style:italic;">Документы отсутствуют.</p>';
   }
 
-  switchTab('desc'); // Сброс на первую вкладку
+  switchTab('desc');
   $('productModal').classList.add('on');
 }
 

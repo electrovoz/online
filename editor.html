@@ -8,7 +8,7 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
 <style>
 :root{--bg:#f4fbf8;--panel:#fff;--border:#d3e8e0;--text:#0e2a26;--muted:#5b7f76;--accent:#0e7c6b;--ok:#1e8e5a;}
-body{font-family:Arial,sans-serif;background:var(--bg);color:var(--text);padding:20px;max-width:1500px;margin:0 auto}
+body{font-family:Arial,sans-serif;background:var(--bg);color:var(--text);padding:20px;max-width:1600px;margin:0 auto}
 h1{color:var(--accent);font-size:24px;margin-bottom:10px}
 p{font-size:14px;color:var(--muted);margin-bottom:20px;line-height:1.5}
 .box{background:var(--panel);padding:20px;border-radius:10px;border:1px solid var(--border);margin-bottom:20px;box-shadow:0 4px 12px rgba(0,60,45,.05)}
@@ -21,7 +21,7 @@ th,td{border:1px solid var(--border);padding:6px;text-align:left;vertical-align:
 th{background:#eaf6f1;color:var(--muted);font-weight:normal;position:sticky;top:0;z-index:10}
 input[type="number"]{width:60px;padding:4px;border:1px solid #b8d9cd;border-radius:4px;font-size:12px}
 input[type="text"], textarea{width:100%;padding:4px;border:1px solid #b8d9cd;border-radius:4px;font-size:12px;font-family:inherit;box-sizing:border-box}
-textarea{resize:vertical;min-height:40px}
+textarea{resize:vertical;min-height:50px}
 button{background:linear-gradient(180deg,#12987f,#0e7c6b);color:#fff;border:none;padding:10px 20px;font-weight:bold;border-radius:6px;cursor:pointer;font-size:14px;margin-bottom:20px;box-shadow:0 4px 0 #085a4d}
 button:active{transform:translateY(2px);box-shadow:0 2px 0 #085a4d}
 .table-wrap{max-height:70vh;overflow-y:auto;border:1px solid var(--border);border-radius:8px}
@@ -31,7 +31,7 @@ button:active{transform:translateY(2px);box-shadow:0 2px 0 #085a4d}
 <body>
 
 <h1>⚡ Редактор цен и каталога</h1>
-<p>1. Загрузите Excel с остатками.<br>2. Загрузите старый catalog.json.<br>3. Заполните цены, картинки, характеристики и документы.<br>4. Нажмите «Скачать catalog.json».</p>
+<p>1. Загрузите Excel с остатками.<br>2. Загрузите старый catalog.json.<br>3. Заполните цены, картинки, описание, характеристики и документы.<br>4. Нажмите «Скачать catalog.json».</p>
 
 <div class="box">
   <h2>1. Загрузите файл «Остатки товаров.xlsx»</h2>
@@ -52,13 +52,14 @@ button:active{transform:translateY(2px);box-shadow:0 2px 0 #085a4d}
   <div class="table-wrap">
     <table id="itemsTable">
       <thead><tr>
-        <th style="width:20%">Название</th>
-        <th style="width:10%">Бренд</th>
-        <th style="width:10%">Категория</th>
-        <th style="width:6%">Цена (₽)</th>
-        <th style="width:15%">Картинка (URL)</th>
-        <th style="width:17%">Характеристики (Ключ: Значение)</th>
-        <th style="width:22%">Документы (Название|Ссылка)</th>
+        <th style="width:14%">Название</th>
+        <th style="width:8%">Бренд</th>
+        <th style="width:8%">Категория</th>
+        <th style="width:5%">Цена (₽)</th>
+        <th style="width:12%">Картинка (URL)</th>
+        <th style="width:15%">Описание</th>
+        <th style="width:18%">Характеристики (Ключ: Значение)</th>
+        <th style="width:20%">Документы (Название|Ссылка)</th>
       </tr></thead>
       <tbody></tbody>
     </table>
@@ -248,15 +249,12 @@ function renderTable() {
     var realIdx = mergedItems.indexOf(item);
     var tr = document.createElement('tr');
     
-    // Преобразуем переносы строк в текстареа в реальные \n для корректного отображения
-    var specsVal = (item.specs||'').replace(/"/g, '&quot;');
-    var docsVal = (item.docs||'').replace(/"/g, '&quot;');
-
     tr.innerHTML = '<td>' + item.name + '</td>' +
       '<td><input type="text" value="' + (item.brand||'') + '" onchange="mergedItems['+realIdx+'].brand=this.value"></td>' +
       '<td><input type="text" value="' + (item.category||'') + '" onchange="mergedItems['+realIdx+'].category=this.value"></td>' +
       '<td><input type="number" value="' + (item.price || '') + '" onchange="mergedItems['+realIdx+'].price=parseFloat(this.value)||0" placeholder="0"></td>' +
       '<td><input type="text" value="' + (item.image||'') + '" placeholder="https://..." onchange="mergedItems['+realIdx+'].image=this.value"></td>' +
+      '<td><textarea onchange="mergedItems['+realIdx+'].description=this.value" placeholder="Текст описания...">' + (item.description||'') + '</textarea></td>' +
       '<td><textarea onchange="mergedItems['+realIdx+'].specs=this.value" placeholder="Мощность: 10Вт&#10;Цвет: Белый">' + (item.specs||'') + '</textarea></td>' +
       '<td><textarea onchange="mergedItems['+realIdx+'].docs=this.value" placeholder="Паспорт|https://...&#10;Сертификат|https://...">' + (item.docs||'') + '</textarea></td>';
     tbody.appendChild(tr);
