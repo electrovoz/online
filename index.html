@@ -400,7 +400,25 @@ function isHeaderRow(name) {
   return !n || n === 'товар/услуга' || n === 'итого' || n.includes('товар/услуг');
 }
 
-// --- АВТОМАТИЧЕСКИЕ ОПИСАНИЯ И ХАРАКТЕРИСТИКИ ДЛЯ ИЕК АВТОМАТОВ ---
+// Жёсткий фильтр от выдуманного мусора
+function isFakeProduct(name) {
+  if (!name) return true;
+  var n = String(name).toLowerCase();
+  if (n.indexOf('этм') > -1) return true;
+  if (n.indexOf('русский свет') > -1) return true;
+  if (n.indexOf('dekraft') > -1) return true;
+  if (n.indexOf('downlight') > -1) return true;
+  if (n.indexOf('legrand etika') > -1) return true;
+  if (n.indexOf('дво cp') > -1) return true;
+  if (n.indexOf('(100м)') > -1) return true;
+  if (n.indexOf('контактор/магнитный') > -1) return true;
+  if (n.indexOf('из каталога') > -1) return true;
+  if (n.indexOf('встраиваемая розетка') > -1) return true;
+  if (n.indexOf('уличного освещения') > -1) return true;
+  if (n.indexOf('медной жилой') > -1) return true;
+  return false;
+}
+
 function getIEKDetails(name, category, brand) {
   if (category !== 'Автоматы' || brand !== 'ИЕК') return null;
   var n = String(name).toLowerCase();
@@ -409,12 +427,9 @@ function getIEKDetails(name, category, brand) {
   else if (n.includes('2п')) poles = '2P';
   else if (n.includes('3п')) poles = '3P';
   else if (n.includes('4п')) poles = '4P';
-  
   if (!poles) return null;
   
-  var desc = '';
-  var specs = '';
-  
+  var desc = '', specs = '';
   if (poles === '1P') {
     desc = 'Модульный автоматический выключатель ИЕК серии ВА47-29 предназначен для защиты электрических цепей от перегрузок и коротких замыканий, а также для оперативного включения и отключения нагрузки. Используется в бытовых и промышленных электроустановках, устанавливается на DIN-рейку.';
     specs = 'Серия: ВА47-29\nПроизводитель: IEK (ИЕК)\nКоличество полюсов: 1P\nНоминальное напряжение: 230 В\nЧастота тока: 50/60 Гц\nОтключающая способность: 4.5 кА\nХарактеристика срабатывания: C\nСтепень защиты: IP20\nРабочая температура: от -40 до +50 °C\nМонтаж: На DIN-рейку 35 мм';
@@ -428,10 +443,8 @@ function getIEKDetails(name, category, brand) {
     desc = 'Четырехполюсный модульный автомат ИЕК ВА47-29. Предназначен для защиты четырехпроводных цепей (три фазы + ноль) от токов перегрузки и короткого замыкания. Применяется в вводных и распределительных щитах.';
     specs = 'Серия: ВА47-29\nПроизводитель: IEK (ИЕК)\nКоличество полюсов: 4P\nНоминальное напряжение: 400 В\nЧастота тока: 50/60 Гц\nОтключающая способность: 4.5 кА\nХарактеристика срабатывания: C\nСтепень защиты: IP20\nРабочая температура: от -40 до +50 °C\nМонтаж: На DIN-рейку 35 мм';
   }
-  
   return { description: desc, specs: specs };
 }
-// -----------------------------------------------------------------
 
 async function fetchJSON(url){ var r = await fetch(url, {cache:'no-cache'}); if (!r.ok) throw new Error('HTTP '+r.status); return r.json(); }
 async function fetchArrayBuffer(url){ var r = await fetch(url, {cache:'no-cache'}); if (!r.ok) throw new Error('HTTP '+r.status); return r.arrayBuffer(); }
@@ -489,7 +502,7 @@ async function loadData(){
       var row = rows[i];
       if (!row || !row[nameCol]) continue;
       var name = String(row[nameCol]).trim();
-      if (isHeaderRow(name)) continue;
+      if (isHeaderRow(name) || isFakeProduct(name)) continue;
       
       var unit = unitCol < row.length ? String(row[unitCol]).trim() : 'шт';
       var qty = qtyCol < row.length ? parseNumber(row[qtyCol]) : 0;
@@ -502,7 +515,7 @@ async function loadData(){
   var jsonMap = {};
   
   productsJson.forEach(function(p) {
-    if (!p || isHeaderRow(p.name)) return;
+    if (!p || isHeaderRow(p.name) || isFakeProduct(p.name)) return;
     jsonMap[norm(p.name)] = p;
   });
 
@@ -521,7 +534,6 @@ async function loadData(){
       brand = jsonItem.brand;
     }
     
-    // Подстановка описаний и характеристик для ИЕК
     var autoDetails = getIEKDetails(excelItem.originalName, cat, brand);
     var finalDesc = jsonItem.description || (autoDetails ? autoDetails.description : '');
     var finalSpecs = jsonItem.specs || (autoDetails ? autoDetails.specs : '');
@@ -548,7 +560,7 @@ async function loadData(){
   }
 
   productsJson.forEach(function(p) {
-    if (!p || isHeaderRow(p.name)) return;
+    if (!p || isHeaderRow(p.name) || isFakeProduct(p.name)) return;
     var key = norm(p.name);
     if (!stockMap[key]) {
       var cat = p.category ? cleanCategory(p.category) : guessCategory(p.name);
