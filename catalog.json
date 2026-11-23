@@ -6,7 +6,7 @@
       "brand": "Legrand",
       "price": 110,
       "description": "",
-      "image": "images/Legrand розеика 1м+з белая.jpg",
+      "image": "images/Legrand розетка 1м+з белая.jpg",
       "specs": "",
       "docs": ""
     },
@@ -76,7 +76,7 @@
       "brand": "WAGO",
       "price": 0,
       "description": "Соединительная клемма WAGO 221-415, 5 проводов, прозрачная.",
-      "image": "images/ваго 221-415 (5 прозрвчные).jpg",
+      "image": "images/ваго 221-415 (5 прозрачные).jpg",
       "specs": "",
       "docs": ""
     },
@@ -331,12 +331,12 @@
       "docs": ""
     },
     {
-      "name": "ИЕК автомат. выкл. 1п 25А 4,5кА КАРАТ",
+      "name": "ИЕК автомат. выкл. 1п 25А 4,5кА",
       "category": "Автоматы",
       "brand": "ИЕК",
-      "price": 150,
+      "price": 0,
       "description": "",
-      "image": "images/ИЕК автомат. выкл. 1п 25А.jpg",
+      "image": "",
       "specs": "",
       "docs": ""
     },
@@ -527,6 +527,16 @@
       "price": 60,
       "description": "",
       "image": "images/Экола GX53 черный матовый.jpg",
+      "specs": "",
+      "docs": ""
+    },
+    {
+      "name": "ИЕК автомат. выкл. 1п 25А 4,5кА КАРАТ",
+      "category": "Автоматы",
+      "brand": "ИЕК",
+      "price": 150,
+      "description": "",
+      "image": "images/ИЕК автомат. выкл. 1п 25А.jpg",
       "specs": "",
       "docs": ""
     },
