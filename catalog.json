@@ -1,12 +1,12 @@
 {
   "products": [
     {
-      "name": "Legrand розеика 1м+з белая",
+      "name": "Legrand розетка 1м+з белая",
       "category": "Розетки и выключатели",
       "brand": "Legrand",
-      "price": 250,
+      "price": 110,
       "description": "",
-      "image": ""
+      "image": "images/Legrand розетка 1м+з белая.jpg"
     },
     {
       "name": "SAT 703",
@@ -14,7 +14,7 @@
       "brand": "SAT",
       "price": 17,
       "description": "",
-      "image": ""
+      "image": "images/SAT 703.jpg"
     },
     {
       "name": "АББ автомат. выкл. 2п 32A 4.5кА",
