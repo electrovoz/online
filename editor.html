@@ -17,15 +17,15 @@ p{font-size:14px;color:var(--muted);margin-bottom:20px;line-height:1.5}
 input[type="file"]{display:block;margin-bottom:10px;font-size:14px}
 input[type="search"]{width:100%;padding:10px;border:1px solid #b8d9cd;border-radius:6px;font-size:14px;margin-bottom:15px;box-sizing:border-box}
 table{width:100%;border-collapse:collapse;background:var(--panel);font-size:12px;margin-top:10px}
-th,td{border:1px solid var(--border);padding:6px;text-align:left;vertical-align: top;}
+th,td{border:1px solid var(--border);padding:6px;text-align:left;vertical-align:top}
 th{background:#eaf6f1;color:var(--muted);font-weight:normal;position:sticky;top:0;z-index:10}
-input[type="number"]{width:60px;padding:4px;border:1px solid #b8d9cd;border-radius:4px;font-size:12px}
 input[type="text"], textarea{width:100%;padding:4px;border:1px solid #b8d9cd;border-radius:4px;font-size:12px;font-family:inherit;box-sizing:border-box}
 textarea{resize:vertical;min-height:50px}
 button{background:linear-gradient(180deg,#12987f,#0e7c6b);color:#fff;border:none;padding:10px 20px;font-weight:bold;border-radius:6px;cursor:pointer;font-size:14px;margin-bottom:20px;box-shadow:0 4px 0 #085a4d}
 button:active{transform:translateY(2px);box-shadow:0 2px 0 #085a4d}
 .table-wrap{max-height:70vh;overflow-y:auto;border:1px solid var(--border);border-radius:8px}
 .stats{font-size:13px;color:var(--muted);margin-bottom:10px}
+.autosave{font-size:12px;color:var(--ok);margin-bottom:10px;display:inline-block;background:#e8f5ef;padding:4px 10px;border-radius:6px}
 </style>
 </head>
 <body>
@@ -47,6 +47,7 @@ button:active{transform:translateY(2px);box-shadow:0 2px 0 #085a4d}
 
 <div id="tableContainer" style="display:none">
   <button onclick="downloadJSON()">💾 Скачать catalog.json</button>
+  <div class="autosave">💡 Изменения сохраняются автоматически — можно сразу нажимать «Скачать»</div>
   <input type="search" id="searchInput" placeholder="🔍 Поиск по названию, бренду или категории..." oninput="renderTable()">
   <div class="stats" id="statsText"></div>
   <div class="table-wrap">
@@ -55,11 +56,11 @@ button:active{transform:translateY(2px);box-shadow:0 2px 0 #085a4d}
         <th style="width:14%">Название</th>
         <th style="width:8%">Бренд</th>
         <th style="width:8%">Категория</th>
-        <th style="width:5%">Цена (₽)</th>
+        <th style="width:6%">Цена (₽)</th>
         <th style="width:12%">Картинка (URL)</th>
         <th style="width:15%">Описание</th>
         <th style="width:18%">Характеристики (Ключ: Значение)</th>
-        <th style="width:20%">Документы (Название|Ссылка)</th>
+        <th style="width:19%">Документы (Название|Ссылка)</th>
       </tr></thead>
       <tbody></tbody>
     </table>
@@ -70,6 +71,19 @@ button:active{transform:translateY(2px);box-shadow:0 2px 0 #085a4d}
 var excelItems = [];
 var jsonItems = [];
 var mergedItems = [];
+
+function escapeHtml(s){
+  return String(s==null?'':s).replace(/[&<>"']/g, function(m){
+    return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m];
+  });
+}
+
+function parsePrice(v){
+  if (v == null) return 0;
+  var s = String(v).replace(/\s/g, '').replace(',', '.');
+  var n = parseFloat(s);
+  return isFinite(n) ? n : 0;
+}
 
 function norm(s){ 
   if (!s) return '';
@@ -138,6 +152,11 @@ document.getElementById('excelFile').addEventListener('change', function(e) {
       var name = String(rows[i][nameCol]).trim();
       if (isHeaderRow(name)) continue;
       
+      // Автоматически добавляем КАРАТ к автоматам ИЕК
+      if (name.indexOf('ИЕК автомат. выкл.') > -1 && name.indexOf('КАРАТ') === -1) {
+        name += ' КАРАТ';
+      }
+      
       var cat = guessCategory(name);
       excelItems.push({ 
         name: name, 
@@ -197,7 +216,7 @@ function mergeData() {
         name: ex.name,
         brand: finalBrand,
         category: js.category || ex.category,
-        price: js.price || 0,
+        price: typeof js.price === 'number' ? js.price : parsePrice(js.price),
         description: js.description || '',
         image: js.image || '',
         specs: js.specs || '',
@@ -221,6 +240,8 @@ function mergeData() {
         p.brand = 'Без бренда';
       }
     }
+    // Нормализуем цену
+    p.price = typeof p.price === 'number' ? p.price : parsePrice(p.price);
     mergedItems.push(p);
   }
 
@@ -236,6 +257,9 @@ function renderTable() {
   container.style.display = 'block';
   tbody.innerHTML = '';
   
+  // Проставляем индексы КАЖДОМУ товару
+  mergedItems.forEach(function(item, i) { item._idx = i; });
+  
   var filtered = mergedItems.filter(function(item) {
     if (!search) return true;
     return item.name.toLowerCase().includes(search) || 
@@ -246,22 +270,67 @@ function renderTable() {
   document.getElementById('statsText').textContent = 'Показано: ' + filtered.length + ' из ' + mergedItems.length;
 
   filtered.forEach(function(item) {
-    var realIdx = mergedItems.indexOf(item);
+    var idx = item._idx;
     var tr = document.createElement('tr');
+    tr.setAttribute('data-idx', idx);
     
-    tr.innerHTML = '<td>' + item.name + '</td>' +
-      '<td><input type="text" value="' + (item.brand||'') + '" onchange="mergedItems['+realIdx+'].brand=this.value"></td>' +
-      '<td><input type="text" value="' + (item.category||'') + '" onchange="mergedItems['+realIdx+'].category=this.value"></td>' +
-      '<td><input type="number" value="' + (item.price || '') + '" onchange="mergedItems['+realIdx+'].price=parseFloat(this.value)||0" placeholder="0"></td>' +
-      '<td><input type="text" value="' + (item.image||'') + '" placeholder="https://..." onchange="mergedItems['+realIdx+'].image=this.value"></td>' +
-      '<td><textarea onchange="mergedItems['+realIdx+'].description=this.value" placeholder="Текст описания...">' + (item.description||'') + '</textarea></td>' +
-      '<td><textarea onchange="mergedItems['+realIdx+'].specs=this.value" placeholder="Мощность: 10Вт&#10;Цвет: Белый">' + (item.specs||'') + '</textarea></td>' +
-      '<td><textarea onchange="mergedItems['+realIdx+'].docs=this.value" placeholder="Паспорт|https://...&#10;Сертификат|https://...">' + (item.docs||'') + '</textarea></td>';
+    tr.innerHTML = 
+      '<td>' + escapeHtml(item.name) + '</td>' +
+      '<td><input type="text" data-field="brand" value="' + escapeHtml(item.brand||'') + '"></td>' +
+      '<td><input type="text" data-field="category" value="' + escapeHtml(item.category||'') + '"></td>' +
+      '<td><input type="text" inputmode="decimal" data-field="price" value="' + (item.price || '') + '" placeholder="0"></td>' +
+      '<td><input type="text" data-field="image" value="' + escapeHtml(item.image||'') + '" placeholder="https://..."></td>' +
+      '<td><textarea data-field="description" placeholder="Текст описания...">' + escapeHtml(item.description||'') + '</textarea></td>' +
+      '<td><textarea data-field="specs" placeholder="Мощность: 10Вт&#10;Цвет: Белый">' + escapeHtml(item.specs||'') + '</textarea></td>' +
+      '<td><textarea data-field="docs" placeholder="Паспорт|https://...&#10;Сертификат|https://...">' + escapeHtml(item.docs||'') + '</textarea></td>';
+    
+    // Навешиваем обработчики на ВСЕ поля
+    tr.querySelectorAll('input, textarea').forEach(function(el) {
+      var field = el.getAttribute('data-field');
+      if (!field) return;
+      
+      function syncField() {
+        var val = el.value;
+        if (field === 'price') {
+          mergedItems[idx].price = parsePrice(val);
+        } else {
+          mergedItems[idx][field] = val;
+        }
+      }
+      
+      el.addEventListener('input', syncField);
+      el.addEventListener('change', syncField);
+      el.addEventListener('blur', syncField);
+    });
+    
     tbody.appendChild(tr);
   });
 }
 
+// Синхронизация всех видимых полей из DOM в объекты (страховка перед скачиванием)
+function syncAllFromDOM() {
+  var rows = document.querySelectorAll('#itemsTable tbody tr');
+  rows.forEach(function(tr) {
+    var idx = parseInt(tr.getAttribute('data-idx'), 10);
+    if (isNaN(idx) || idx < 0 || idx >= mergedItems.length) return;
+    var item = mergedItems[idx];
+    tr.querySelectorAll('input, textarea').forEach(function(el) {
+      var field = el.getAttribute('data-field');
+      if (!field) return;
+      var val = el.value;
+      if (field === 'price') {
+        item.price = parsePrice(val);
+      } else {
+        item[field] = val;
+      }
+    });
+  });
+}
+
 function downloadJSON() {
+  // КРИТИЧНО: сначала синхронизируем всё из полей ввода, потом сохраняем
+  syncAllFromDOM();
+  
   var cleanItems = mergedItems
     .filter(function(x) { return !isHeaderRow(x.name); })
     .map(function(x) {
