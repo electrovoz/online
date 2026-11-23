@@ -1,10 +1,10 @@
 {
   "products": [
     {
-      "name": "Legrand розеика 1м+з белая",
+      "name": "Legrand розетка 1м+з белая",
       "category": "Розетки и выключатели",
       "brand": "Legrand",
-      "price": 250,
+      "price": 110,
       "description": "",
       "image": "https://avatars.mds.yandex.net/get-mpic/4119784/img_id1806779970110279696.jpeg/orig"
     },
@@ -37,70 +37,70 @@
       "category": "Клеммы",
       "brand": "WAGO",
       "price": 10,
-      "description": "",
-      "image": ""
+      "description": "Соединительная клемма WAGO 222-412, 2 провода, серая.",
+      "image": "https://static.insales-cdn.com/images/products/1/3379/258665219/222-412.jpg"
     },
     {
       "name": "Ваго 221-412 (2 прозрачные)",
       "category": "Клеммы",
       "brand": "WAGO",
       "price": 0,
-      "description": "",
-      "image": "https://img20.360buyimg.com/vc/jfs/t1/151679/29/37647/55548/66458081F10201904/f085a0913c1be0d4.jpg"
+      "description": "Соединительная клемма WAGO 221-412, 2 провода, прозрачная.",
+      "image": "https://static.insales-cdn.com/images/products/1/3380/258665220/221-412.jpg"
     },
     {
       "name": "Ваго 221-413 (3 прозрачные)",
       "category": "Клеммы",
       "brand": "WAGO",
       "price": 0,
-      "description": "",
-      "image": ""
+      "description": "Соединительная клемма WAGO 221-413, 3 провода, прозрачная.",
+      "image": "https://static.insales-cdn.com/images/products/1/3381/258665221/221-413.jpg"
     },
     {
       "name": "ваго 221-415 (5 прозрвчные)",
       "category": "Клеммы",
       "brand": "WAGO",
       "price": 0,
-      "description": "",
-      "image": ""
+      "description": "Соединительная клемма WAGO 221-415, 5 проводов, прозрачная.",
+      "image": "https://static.insales-cdn.com/images/products/1/3382/258665222/221-415.jpg"
     },
     {
       "name": "Ваго 222-412 (2 серые)",
       "category": "Клеммы",
       "brand": "WAGO",
       "price": 0,
-      "description": "",
-      "image": ""
+      "description": "Соединительная клемма WAGO 222-412, 2 провода, серая.",
+      "image": "https://static.insales-cdn.com/images/products/1/3379/258665219/222-412.jpg"
     },
     {
       "name": "Ваго 222-413 (3 серые)",
       "category": "Клеммы",
       "brand": "WAGO",
       "price": 0,
-      "description": "",
-      "image": ""
+      "description": "Соединительная клемма WAGO 222-413, 3 провода, серая.",
+      "image": "https://static.insales-cdn.com/images/products/1/3383/258665223/222-413.jpg"
     },
     {
       "name": "Ваго 222-415 (5 серые)",
       "category": "Клеммы",
       "brand": "WAGO",
       "price": 0,
-      "description": "",
-      "image": ""
+      "description": "Соединительная клемма WAGO 222-415, 5 проводов, серая.",
+      "image": "https://static.insales-cdn.com/images/products/1/3384/258665224/222-415.jpg"
     },
     {
       "name": "Ваго 3 серые",
       "category": "Клеммы",
       "brand": "WAGO",
-      "price": 12,
-      "description": "",
-      "image": ""
+      "price": 8,
+      "description": "Соединительная клемма WAGO 222-413, 3 провода, серая.",
+      "image": "https://static.insales-cdn.com/images/products/1/3383/258665223/222-413.jpg"
     },
     {
       "name": "ВВГнг-LS 2х1.5 ГОСТ",
       "category": "Кабель",
       "brand": "Кабель-Стандарт",
-      "price": 65,
+      "price": 48,
       "description": "",
       "image": ""
     },
@@ -108,7 +108,7 @@
       "name": "ВВГнг-LS 2х1.5 ТКЗ",
       "category": "Кабель",
       "brand": "ТКЗ",
-      "price": 0,
+      "price": 48,
       "description": "",
       "image": ""
     },
@@ -116,7 +116,7 @@
       "name": "ВВГнг-LS 2х1.5 ТУ",
       "category": "Кабель",
       "brand": "Без бренда",
-      "price": 0,
+      "price": 30,
       "description": "",
       "image": ""
     },
@@ -124,7 +124,7 @@
       "name": "ВВГнг-LS 2х1.5 ЭКО",
       "category": "Кабель",
       "brand": "Без бренда",
-      "price": 0,
+      "price": 36,
       "description": "",
       "image": ""
     },
@@ -132,7 +132,7 @@
       "name": "ВВГнг-LS 2х2.5 ТУ",
       "category": "Кабель",
       "brand": "Без бренда",
-      "price": 0,
+      "price": 45,
       "description": "",
       "image": ""
     },
@@ -140,7 +140,7 @@
       "name": "ВВГнг-LS 2х2.5 ЭКО",
       "category": "Кабель",
       "brand": "Без бренда",
-      "price": 0,
+      "price": 59,
       "description": "",
       "image": ""
     },
@@ -148,7 +148,7 @@
       "name": "ВВГнг-LS 3х1.5 ГОСТ",
       "category": "Кабель",
       "brand": "Кабель-Стандарт",
-      "price": 80,
+      "price": 70,
       "description": "",
       "image": ""
     },
