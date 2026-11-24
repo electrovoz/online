@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Статья — Электровоз</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+<style>
+:root{--bg:#f4fbf8;--panel:#fff;--text:#0e2a26;--muted:#5b7f76;--accent:#0e7c6b;--dark:#12201f;--mint:#2bd9b0;}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Arial,sans-serif;background:var(--bg);color:var(--text);line-height:1.6}
+.top{background:var(--dark);color:#fff;padding:16px 20px}
+.top-inner{max-width:800px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px}
+.brand{display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--mint);font-size:20px;font-weight:bold;letter-spacing:2px}
+.btn{background:#1e3833;color:#cfe8e0;padding:8px 16px;border-radius:6px;text-decoration:none;font-size:14px;border:1px solid #2a4642}
+.btn:hover{background:#2a4a44}
+.container{max-width:800px;margin:40px auto;padding:0 20px}
+.article-card{background:var(--panel);padding:30px;border-radius:10px;border:1px solid #d3e8e0;box-shadow:0 4px 12px rgba(0,0,0,0.03)}
+.article-card h1{margin-top:0;color:var(--accent);font-size:28px;margin-bottom:10px}
+.meta{font-size:14px;color:var(--muted);margin-bottom:20px;padding-bottom:20px;border-bottom:1px solid #d3e8e0}
+.content h2,.content h3{color:var(--accent);margin-top:25px;margin-bottom:10px}
+.content p{margin-bottom:15px}
+.content ul,.content ol{margin-bottom:15px;padding-left:20px}
+.content a{color:var(--accent);font-weight:bold}
+.back-link{display:inline-block;margin-bottom:20px;color:var(--muted);text-decoration:none}
+.back-link:hover{color:var(--accent)}
+footer{text-align:center;padding:40px;color:var(--muted);font-size:12px}
+</style>
+</head>
+<body>
+<header class="top">
+  <div class="top-inner">
+    <a href="index.html" class="brand">⚡ Электровоз</a>
+    <div style="display:flex;gap:10px;">
+      <a href="articles.html" class="btn">📖 Все статьи</a>
+      <a href="index.html" class="btn">🛒 В магазин</a>
+    </div>
+  </div>
+</header>
+<main class="container">
+  <div id="content"><p>Загрузка...</p></div>
+</main>
+<footer>&copy; 2026 Электровоз. Все права защищены.</footer>
+
+<script>
+var params = new URLSearchParams(window.location.search);
+var id = params.get('id');
+
+fetch('articles.json')
+  .then(r => r.json())
+  .then(data => {
+    var article = data.articles.find(a => a.id === id);
+    if (!article) {
+      document.getElementById('content').innerHTML = '<p>Статья не найдена.</p><a href="articles.html" class="back-link">← Вернуться к списку</a>';
+      return;
+    }
+    document.title = article.title + ' — Электровоз';
+    document.getElementById('content').innerHTML = 
+      '<a href="articles.html" class="back-link">← Назад к статьям</a>' +
+      '<div class="article-card">' +
+        '<h1>' + article.title + '</h1>' +
+        '<div class="meta">Опубликовано: ' + article.date + '</div>' +
+        '<div class="content">' + article.content + '</div>' +
+      '</div>';
+  })
+  .catch(e => {
+    document.getElementById('list').innerHTML = '<p>Не удалось загрузить статью. Проверьте файл articles.json.</p>';
+  });
+</script>
+</body>
+</html>
