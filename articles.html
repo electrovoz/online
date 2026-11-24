@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Статьи — Электровоз</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+<style>
+:root{--bg:#f4fbf8;--panel:#fff;--text:#0e2a26;--muted:#5b7f76;--accent:#0e7c6b;--dark:#12201f;--mint:#2bd9b0;}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Arial,sans-serif;background:var(--bg);color:var(--text);line-height:1.6}
+.top{background:var(--dark);color:#fff;padding:16px 20px}
+.top-inner{max-width:800px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px}
+.brand{display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--mint);font-size:20px;font-weight:bold;letter-spacing:2px}
+.btn{background:#1e3833;color:#cfe8e0;padding:8px 16px;border-radius:6px;text-decoration:none;font-size:14px;border:1px solid #2a4642}
+.btn:hover{background:#2a4a44}
+.container{max-width:800px;margin:40px auto;padding:0 20px}
+h1{color:var(--accent);font-size:28px;margin-bottom:10px}
+.sub{color:var(--muted);margin-bottom:30px}
+.article-card{background:var(--panel);padding:20px;border-radius:10px;border:1px solid #d3e8e0;margin-bottom:20px;box-shadow:0 4px 12px rgba(0,0,0,0.03)}
+.article-card h2{margin-top:0;color:var(--accent);font-size:20px}
+.article-card a{color:var(--accent);text-decoration:none}
+.article-card a:hover{text-decoration:underline}
+.meta{font-size:12px;color:var(--muted);margin-bottom:10px}
+footer{text-align:center;padding:40px;color:var(--muted);font-size:12px}
+</style>
+</head>
+<body>
+<header class="top">
+  <div class="top-inner">
+    <a href="index.html" class="brand">⚡ Электровоз</a>
+    <div style="display:flex;gap:10px;">
+      <a href="index.html" class="btn">🛒 В магазин</a>
+      <a href="https://vk.ru/elektrovozim" target="_blank" class="btn">💬 ВКонтакте</a>
+    </div>
+  </div>
+</header>
+<main class="container">
+  <h1>Статьи и руководства</h1>
+  <p class="sub">Полезные материалы о выборе и монтаже электрооборудования.</p>
+  <div id="list"><p>Загрузка...</p></div>
+</main>
+<footer>&copy; 2026 Электровоз. Все права защищены.</footer>
+
+<script>
+fetch('articles.json')
+  .then(r => r.json())
+  .then(data => {
+    var h = '';
+    data.articles.forEach(function(a) {
+      h += '<div class="article-card">' +
+        '<h2><a href="article.html?id=' + encodeURIComponent(a.id) + '">' + a.title + '</a></h2>' +
+        '<div class="meta">' + a.date + '</div>' +
+        '<p>' + a.description + '</p>' +
+        '<a href="article.html?id=' + encodeURIComponent(a.id) + '">Читать далее →</a>' +
+        '</div>';
+    });
+    document.getElementById('list').innerHTML = h;
+  })
+  .catch(e => {
+    document.getElementById('list').innerHTML = '<p>Не удалось загрузить статьи. Проверьте файл articles.json.</p>';
+  });
+</script>
+</body>
+</html>
